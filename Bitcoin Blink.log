@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.13)  13 JAN 2023 19:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.13)  13 JAN 2023 19:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1119,7 +1119,7 @@ Package rerunfilecheck Info: File `"Bitcoin Blink".out' has not changed.
 Here is how much of TeX's memory you used:
  44104 strings out of 480204
  1089729 string characters out of 5895009
- 1467858 words of memory out of 5000000
+ 1467444 words of memory out of 5000000
  61404 multiletter control sequences out of 15000+600000
  474777 words of font info for 47 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
@@ -1128,7 +1128,7 @@ Here is how much of TeX's memory you used:
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on "Bitcoin Blink.pdf" (3 pages, 72088 bytes).
+Output written on "Bitcoin Blink.pdf" (3 pages, 71672 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  90 compressed objects within 1 object stream
