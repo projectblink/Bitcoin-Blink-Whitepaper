@@ -1,0 +1,103 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper , top=25mm, right=35mm,left=35mm, bottom=30mm]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{subfiles} % subtex files package
+\usepackage{graphicx} %figures and images
+\graphicspath{{assets/images/}} % file path for images
+\usepackage{blindtext} % for blind text
+\usepackage{float}% float package
+\usepackage{enumitem} % for enumerate & itemize
+\usepackage{amsmath} % for math and equations
+\usepackage{tabularx} % tables
+\usepackage{adjustbox} %to adjust boxed content
+\usepackage{tikz} % for tikz picture, graphs, etc
+\usepackage{pgfplots} % normal/logarithmic plots in two and three dimensions
+\usepgfplotslibrary{external} % pgfplots libraries
+\usepackage[edges]{forest}  % for classification trees
+\usetikzlibrary{shapes.geometric} % shapes tikz 
+\usetikzlibrary{arrows.meta,arrows} % arrows for trees 
+\usepackage{listings} %listings
+\usepackage{xurl}
+\usepackage{indentfirst}
+
+
+\hypersetup{
+	colorlinks = true,
+	linkcolor = blue,
+	urlcolor = purple,
+	citecolor = red,
+    pdftitle={Bitcoin Blink - Scalable, Adoptable and Regulatable},
+    pdfauthor={jobyreuben@gmail.com, simonjoshua312@gmail.com},
+    pdfsubject={blockchain},
+    pdfkeywords={blockchain, bitcoin, cryptocurrency,blinkchain,proofofspeed,projectblink,blink},
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    pdfstartview=Fit,
+    pdfpagemode=UseOutlines,
+    pdfpagelayout=TwoPageRight
+}
+
+\font\myfont=cmr12 at 15pt
+\font\myfontt=cmr12 at 11pt
+
+\title{
+\myfont Bitcoin (Blink) - A Scalable \& Adoptable \\
+Peer to Peer Cash System}
+\author{ \myfontt Joby Reuben \\ jobyreuben@gmail.com \and Purva Chaudhari \\ purva@example.com}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+Bitcoin's PoW is replaced with a propagation competition on blocks sent across validators under a certain time interval stamped with cryptographic proofs to claim fees and solve forks as per proof weight. To bring adaptable scalability the block sizes are decided on consensus among elected nodes of specific epochs to decrease waiting transactions. Gossip systems are replaced with a privacy-centered direct messaging system by constructing encrypted paths to deliver unconfirmed transactions \& confirmed blocks. Aside from bringing speed, we resolved the need for a single transaction fee token for a blockchain by bringing forth a novel non-custodial per-token staking system to offer users to pay in any token. Bitcoin as a currency will hold the security of the network, Layer-1 tokens with staking and yielding fees. Since Bitcoin script adapts a Turing-incomplete language and doesn't involve loops, the fees are imposed for renting UTXOs which makes transactions cheaper and the chain's ledger size optimized. We propose solutions for regulation revolving around taxation within the self-custody wallet ecosystem without compromising users' privacy. 
+
+\end{abstract}
+
+\section{Introduction}
+
+Bitcoin Network and other altcoin blockchains with newer consensus and programmable money are unable to compete with centralized payment providers in volume due to their sheer nature of inability to scale. Rules imposing heavy reliance on users acquiring chain native tokens are declared to be unuseful and hide the wonders of blockchain technology for different regions of the world. Decentralized networks can effectively adapt to users' needs by 1. Increase Block Size 2. Decrease Block Time 3. Eliminate Low Efficient Nodes 4. Increase Joining Requirement. Retail Staking with non-custodial solutions encourages users to stake their Bitcoin to become a world reserve currency for every financial instrument with an additional decentralized restrictive monetary policy that helps to reduce volatility similar to central bank currencies.\\
+\indent Instead of storing UTXOs for an indefinite time which compromises storage, renting UTXOs and replacing them with a fingerprint without altering the block's Merkle root will provide cheaper fees. With Bitcoin unlocking script developers can create regulatory options involving various types of taxes within its UTXOs, offloading identity verification off-chain, with signatures instructing nodes to validate regulated payments with self-custody of tokens. Basic Banking solutions can be developed in Bitcoin Script whereas common computable programs can be deployed to Layer 2 EVM State Machine which updates the state by providing a Proof-of-Fee-Receipt paid in Bitcoin Layer. 
+
+\section{Block Requirement}
+Block size, time, VoC, Bandwidth, Election
+
+\section{Staking}
+Staking Requirement, Conditions, Non-custodial Delegation, Stake Per token per node, onetime usage, No Pools
+
+\section{Regulation}
+UTXO Taxes, Types of Taxes, Script Level, Bitcoin Satoshi Vision Opcodes, sCrypt, Offchain Validation, Client Witness Signing
+
+\section{Messaging}
+Unconfirmed Tx, Network Graph, Psedonymous Identities, Path Finding, Encryption, Mempools
+
+\section{Propagation}
+Snips, Competition, Kamikaze Proof, Ring Propagation
+
+\section{Hash-Rewards}
+How rest Bitcoins are rewarded per hash, 21 million cap
+
+\section{Renting}
+Merkle Chain, Fingerprint, Expiry Value, Rent Rates, Transfer Fees
+
+\section{Tokens}
+Layer 1 Tokens, Bridging, Efficiency
+
+\section{Banking}
+Exchanges, Lending \& Borrowing, Insurance, Mirrored Wallets, 
+
+\section{Privacy}
+Ring CT, Ring Signatures
+
+\section{Cash}
+Layer 2 Cash System
+
+\section{Computing}
+EVM Layer with unique Proof of Fee receipt consensus model, removing EOAs, Balances, Purely for Logic and State update.
+
+\section{Maintenance}
+Active Development Funds, Validators commission, DAO setup
+
+%\bibliographystyle{plain} %bibiliography package
+%\bibliography{citation.bib} %bib file
+\end{document}

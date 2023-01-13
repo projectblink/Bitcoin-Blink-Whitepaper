@@ -1,0 +1,368 @@
+\begin{thebibliography}{10}
+
+\bibitem{amcost}
+Amazon s3 simple storage service pricing - amazon web services.
+\newblock \url{https://aws.amazon.com/s3/pricing/}.
+
+\bibitem{arbitrage}
+Arbitrage - wikipedia.
+\newblock \url{https://en.wikipedia.org/wiki/Arbitrage}.
+
+\bibitem{ArchiveNodes}
+Archive nodes - everything you need to know.
+\newblock \url{https://www.alchemy.com/overviews/archive-nodes}.
+
+\bibitem{ArchiverSol}
+Archivers — solana’s solution to petabytes of blockchain data storage | by
+  anatoly yakovenko | solana | medium.
+\newblock
+  \url{https://medium.com/solana-labs/replicators-solanas-solution-to-petabytes-of-blockchain-data-storage-ef79db053fa1}.
+
+\bibitem{arweave}
+arweave.
+\newblock \url{https://www.arweave.org/}.
+
+\bibitem{bip39}
+bips/bip-0039.mediawiki at master · bitcoin/bips.
+\newblock \url{https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki}.
+
+\bibitem{Bitcoin}
+Bitcoin - open source p2p money.
+\newblock \url{https://bitcoin.org/en/}.
+
+\bibitem{BitcoinSize}
+Bitcoin blockchain size.
+\newblock \url{https://ycharts.com/indicators/bitcoin_blockchain_size}.
+
+\bibitem{Bitcoincash}
+Bitcoin cash - peer-to-peer electronic cash.
+\newblock \url{https://bitcoincash.org/}.
+
+\bibitem{bsv}
+Bitcoin sv :: The original bitcoin.
+\newblock \url{https://bitcoinsv.com/}.
+
+\bibitem{BitcoinvEth}
+Bitcoin vs ethereum smart contracts: Part 2 - coingeek.
+\newblock
+  \url{https://coingeek.com/bitcoin-vs-ethereum-smart-contracts-part-2/}.
+
+\bibitem{emptyb}
+The block: Bitcoin miners are mining fewer empty blocks in 2020, and it may not
+  all be due to chance.
+\newblock
+  \url{https://www.theblock.co/post/67928/bitcoin-miners-are-mining-fewer-empty-blocks-in-2020-and-it-may-not-all-because-of-chance}.
+
+\bibitem{boracle}
+Blockchain oracle - wikipedia.
+\newblock \url{https://en.wikipedia.org/wiki/Blockchain_oracle}.
+
+\bibitem{exploit}
+Chainlink exploits lead to eth losses—again - coingeek.
+\newblock
+  \url{https://coingeek.com/chainlink-exploits-lead-to-eth-losses-again/}.
+
+\bibitem{concurrency}
+Concurrency and cardano: A problem, a challenge, or nothing to worry about?
+\newblock
+  \url{https://builtoncardano.com/blog/concurrency-and-cardano-a-problem-a-challenge-or-nothing-to-worry-about}.
+
+\bibitem{consensusalgo}
+Consensus algorithms: The root of the blockchain technology.
+\newblock \url{https://101blockchains.com/consensus-algorithms-blockchain/}.
+
+\bibitem{highgas}
+Crypto users paid thousands in ethereum gas fees thanks to the bored ape yacht
+  club. here's what happened. - tech.
+\newblock
+  \url{https://in.mashable.com/tech/31061/crypto-users-paid-thousands-in-ethereum-gas-fees-thanks-to-the-bored-ape-yacht-club-heres-what-happe}.
+
+\bibitem{bills}
+Cryptocurrency bill: Cryptocurrency bill news \& crypto bill latest updates |
+  the economic times.
+\newblock
+  \url{https://economictimes.indiatimes.com/markets/cryptocurrency-bill}.
+
+\bibitem{filecoin}
+A decentralized storage network for humanity's most important information |
+  filecoin.
+\newblock \url{https://filecoin.io/}.
+
+\bibitem{linear}
+Difference between linear and non-linear data structures - geeksforgeeks.
+\newblock
+  \url{https://www.geeksforgeeks.org/difference-between-linear-and-non-linear-data-structures/}.
+
+\bibitem{paypal}
+Digital wallets, money management, and more | paypal us.
+\newblock \url{https://www.paypal.com/}.
+
+\bibitem{DiskPrices}
+Disk prices (us).
+\newblock \url{https://diskprices.com/}.
+
+\bibitem{doge}
+Dogecoin - an open-source peer-to-peer digital currency.
+\newblock \url{https://dogecoin.com/}.
+
+\bibitem{avggas}
+Ethereum average gas price chart | etherscan.
+\newblock \url{https://etherscan.io/chart/gasprice}.
+
+\bibitem{EthereumSize}
+Ethereum chain full sync data size.
+\newblock
+  \url{https://ycharts.com/indicators/ethereum_chain_full_sync_data_size}.
+
+\bibitem{mempool}
+Ethereum network pending transactions chart | etherscan.
+\newblock \url{https://etherscan.io/chart/pendingtx}.
+
+\bibitem{EVM}
+Ethereum virtual machine (evm) | ethereum.org.
+\newblock \url{https://ethereum.org/en/developers/docs/evm/}.
+
+\bibitem{everstake}
+Everstake — staking service platform, staking provider.
+\newblock \url{https://everstake.one/}.
+
+\bibitem{Fibo}
+Fibonacci heap | set 1 (introduction) - geeksforgeeks.
+\newblock
+  \url{https://www.geeksforgeeks.org/fibonacci-heap-set-1-introduction/}.
+
+\bibitem{Gasfees}
+Gas and fees | ethereum.org.
+\newblock \url{https://ethereum.org/en/developers/docs/gas/}.
+
+\bibitem{gst}
+Goods and services tax (gst): Definition, types, and how it's calculated.
+\newblock \url{https://www.investopedia.com/terms/g/gst.asp}.
+
+\bibitem{Halting}
+Halting problem - wikipedia.
+\newblock \url{https://en.wikipedia.org/wiki/Halting_problem}.
+
+\bibitem{btchistory}
+History of bitcoin exchanges and trading - bit2me academy.
+\newblock
+  \url{https://academy.bit2me.com/en/historia-exchanges-trading-bitcoin/}.
+
+\bibitem{ethhome}
+Home | ethereum.org.
+\newblock \url{https://ethereum.org/en/}.
+
+\bibitem{gasunitcost}
+How much does smart contract deployment on ethereum cost?
+\newblock
+  \url{https://www.antiersolutions.com/smart-contract-deployment-on-ethereum-estimated-cost-key-factors-to-consider/}.
+
+\bibitem{swiftiban}
+Iban vs. swift code.
+\newblock
+  \url{https://www.investopedia.com/ask/answers/100214/whats-difference-between-iban-and-swift-code.asp}.
+
+\bibitem{IPFS}
+Ipfs powers the distributed web.
+\newblock \url{https://ipfs.tech/}.
+
+\bibitem{LinkedList}
+Linked list data structure in c++ with illustration.
+\newblock \url{https://www.softwaretestinghelp.com/linked-list/}.
+
+\bibitem{merge}
+The merge | ethereum.org.
+\newblock \url{https://ethereum.org/en/upgrades/merge/}.
+
+\bibitem{MerkleTree}
+Merkle tree in blockchain: What is it and how does it work | simplilearn.
+\newblock
+  \url{https://www.simplilearn.com/tutorials/blockchain-tutorial/merkle-tree-in-blockchain}.
+
+\bibitem{monetarypolicy}
+Monetary policy - wikipedia.
+\newblock \url{https://en.wikipedia.org/wiki/Monetary_policy}.
+
+\bibitem{moore}
+Moore's law - wikipedia.
+\newblock \url{https://en.wikipedia.org/wiki/Moore%27s_law}.
+
+\bibitem{opbsv}
+Opcodes used in bitcoin script - bitcoin wiki.
+\newblock
+  \url{https://wiki.bitcoinsv.io/index.php/Opcodes_used_in_Bitcoin_Script}.
+
+\bibitem{merkletr}
+paulbellamy.com - the magic of the merkle tree.
+\newblock \url{https://paulbellamy.com/2017/07/the-magic-of-the-merkle-tree}.
+\newblock (Accessed on 11/07/2022).
+
+\bibitem{P2PKH}
+Pay-to-pubkey hash (p2pkh) – bitcoinwiki.
+\newblock \url{https://en.bitcoinwiki.org/wiki/Pay-to-Pubkey_Hash}.
+
+\bibitem{Poa}
+Proof of authority: consensus model with identity at stake. | by poa network |
+  poa network | medium.
+\newblock
+  \url{https://medium.com/poa-network/proof-of-authority-consensus-model-with-identity-at-stake-d5bd15463256}.
+
+\bibitem{btcopcode}
+Script - bitcoin wiki.
+\newblock \url{https://en.bitcoin.it/wiki/Script}.
+
+\bibitem{scrypt}
+scrypt — a high level smart contract language for bitcoin sv.
+\newblock \url{https://scrypt.io/}.
+
+\bibitem{sha256}
+Sha-2 - wikipedia.
+\newblock \url{https://en.wikipedia.org/wiki/SHA-2}.
+
+\bibitem{Sia}
+Sia - decentralized data storage.
+\newblock \url{https://sia.tech/}.
+
+\bibitem{Storj}
+Storj | fast, secure cloud storage at a fraction of the cost.
+\newblock \url{https://www.storj.io/}.
+
+\bibitem{usgains}
+Topic no. 409 capital gains and losses | internal revenue service.
+\newblock \url{https://www.irs.gov/taxtopics/tc409}.
+
+\bibitem{turingcomplete}
+Turing completeness - wikipedia.
+\newblock \url{https://en.wikipedia.org/wiki/Turing_completeness}.
+
+\bibitem{effectsturing}
+Turing incompleteness and the sad state of solidity | by stuart farmer |
+  lamden.
+\newblock
+  \url{https://blog.lamden.io/turing-incompleteness-and-the-sad-state-of-solidity-d5278ba4eda0}.
+
+\bibitem{utxo}
+Unspent transaction output - wikipedia.
+\newblock \url{https://en.wikipedia.org/wiki/Unspent_transaction_output}.
+
+\bibitem{Upgrading}
+Upgrading smart contracts | ethereum.org.
+\newblock
+  \url{https://ethereum.org/en/developers/docs/smart-contracts/upgrading/}.
+
+\bibitem{vat}
+Value-added tax (vat) definition.
+\newblock \url{https://www.investopedia.com/terms/v/valueaddedtax.asp}.
+
+\bibitem{Vanitygen}
+Vanitygen - bitcoin wiki.
+\newblock \url{https://en.bitcoin.it/wiki/Vanitygen}.
+
+\bibitem{Vyper}
+Vyper — vyper documentation.
+\newblock \url{https://vyper.readthedocs.io/en/stable/}.
+
+\bibitem{hashfunctions}
+What are hash functions and how to choose a good hash function? -
+  geeksforgeeks.
+\newblock
+  \url{https://www.geeksforgeeks.org/what-are-hash-functions-and-how-to-choose-a-good-hash-function/}.
+
+\bibitem{lptokens}
+What are liquidity provider (lp) tokens – and how do they work? | bybit
+  learn.
+\newblock \url{https://learn.bybit.com/defi/what-are-lp-tokens/}.
+
+\bibitem{predic}
+What are prediction markets: All explained - phemex academy.
+\newblock \url{https://phemex.com/academy/what-are-prediction-markets}.
+
+\bibitem{vanity}
+What is a vanity address?
+\newblock \url{https://academy.bit2me.com/en/que-es-una-vanity-address/}.
+
+\bibitem{shard}
+What is blockchain sharding? - 101 blockchains.
+\newblock \url{https://101blockchains.com/what-is-blockchain-sharding/}.
+
+\bibitem{coinbase}
+What is coinbase transaction? - geeksforgeeks.
+\newblock \url{https://www.geeksforgeeks.org/what-is-coinbase-transaction/}.
+
+\bibitem{dpos}
+What is delegated proof of stake?
+\newblock
+  \url{https://crypto.com/university/what-is-dpos-delegated-proof-of-stake}.
+
+\bibitem{emptyblocks}
+Why do some bitcoin mining pools mine empty blocks? | nasdaq.
+\newblock
+  \url{https://www.nasdaq.com/articles/why-do-some-bitcoin-mining-pools-mine-empty-blocks-2016-07-12}.
+
+\bibitem{trilemma}
+Why sharding is great: demystifying the technical properties.
+\newblock \url{https://vitalik.ca/general/2021/04/07/sharding.html}.
+
+\bibitem{zkproof}
+Zero-knowledge proofs | ethereum.org.
+\newblock \url{https://ethereum.org/en/zero-knowledge-proofs/}.
+
+\bibitem{antonopoulos2017mastering}
+Andreas~M Antonopoulos.
+\newblock {\em Mastering Bitcoin: Programming the open blockchain}.
+\newblock " O'Reilly Media, Inc.", 2017.
+
+\bibitem{api3}
+Burak Benligiray, Saˇsa Mili´c, and Heikki V¨anttinen.
+\newblock Api3 : Decentralized apis for web 3.0.
+\newblock {\em Whitepaper}, page~40, 2017.
+
+\bibitem{buterin2014next}
+Vitalik Buterin.
+\newblock Ethereum : A next-generation smart contract and decentralized
+  application platform.
+\newblock {\em White paper}, page~26, 2014.
+
+\bibitem{chainlink}
+Steve Ellis, Ari Juels, and Sergey Nazarov.
+\newblock Chainlink - a decentralized oracle network.
+\newblock {\em Whitepaper}, page~38.
+
+\bibitem{king2012ppcoin}
+Sunny King and Scott Nadal.
+\newblock Ppcoin: Peer-to-peer crypto-currency with proof-of-stake.
+\newblock {\em self-published paper, August}, 19(1), 2012.
+
+\bibitem{kwon2014tendermint}
+Jae Kwon.
+\newblock Tendermint: Consensus without mining.
+\newblock {\em Draft v. 0.6, fall}, 1(11), 2014.
+
+\bibitem{nakamoto2008bitcoin}
+Satoshi Nakamoto.
+\newblock Bitcoin : A peer-to-peer electronic cash system.
+\newblock {\em Whitepaper}, page~9, 2008.
+
+\bibitem{iota}
+Serguei Popov.
+\newblock The tangle.
+\newblock {\em Whitepaper}, page~28, 2018.
+
+\bibitem{woodethereum}
+Gavin Wood et~al.
+\newblock Ethereum: A secure decentralised generalised transaction ledger.
+\newblock {\em Ethereum project yellow paper}, 151(2014):1--32, 2014.
+
+\bibitem{sha256asic}
+Anatoly Yakovenko.
+\newblock Proof of history: A clock for blockchain.
+\newblock
+  \url{https://medium.com/solana-labs/proof-of-history-a-clock-for-blockchain-cf47a61a9274}.
+
+\bibitem{yakovenko2018solana}
+Anatoly Yakovenko.
+\newblock Solana: A new architecture for a high performance blockchain v0.
+  8.13.
+\newblock {\em Whitepaper}, page~32, 2017.
+
+\end{thebibliography}
