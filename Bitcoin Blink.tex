@@ -80,7 +80,7 @@ Predictable Election Result, Producer Signature
 
 Bitcoins can be staked for public keys with specified token id where the collateral can be used only once for a block. This results in stake per token per block. Each tokens per block collateral requirement is given in exchange rates by taking the median volume of all the blocks of the previous epoch.
 
-Staked Bitcoins can be withdrawn anytime, without vesting period except at the time of producing block bringing retail and non-custodial solution as opposed to security deposit type PoS chains. Bitcoins can be staked to a specific node which choses to include the stake by collateralizing or locking in its allocated block. In this way, for a specific token's transaction to be included in a block, the first transaction should prove the collateral.
+Staked Bitcoins can be withdrawn anytime, without vesting period except at the time of producing block bringing retail and non-custodial solution as opposed to security deposit type PoS chains. As slashing is done directly to fees, delegators won't loose their stakes. Bitcoins can be staked to a specific node which choses to include the stake by collateralizing or locking in its allocated block. In this way, for a specific token's transaction to be included in a block, the first transaction should prove the collateral.
 
  Additionally a new collateralized stable coin can be issued which can be used for staking where other decentralized altcoins can be utilized to receive yield benefits. 
 
@@ -95,13 +95,16 @@ UTXOs are stamped with region proof on its unlocking script based on specific sp
 Delivery of unconfirmed transactions to nodes play important role in finality. Shared Mempools colludes the network with duplicated data that results in poor choice of transactions to include in a block. Miners take only transactions with higher fees, hence deploying a direct-messaging system as oppossed to a gossip network with messaging instructions specific for each party. Paths are attached with unconfirmed transactions directly from the constructed network graph available to all nodes with publickeys as identities. Two peered parties mutually sign a 2-2 random message for every x blocks are gossiped across network and indentify the connection as online. Paths have encrypted instriuctions to each party that routes the transaction where between the origin and the destination the nodes can attach the transaction in their alloctaed block. Since the stake information are available publicly client Wallets constrcuting the transaction with path shall assume and select possible blocks that will add the transaction to it at the earliest. Nodes only receive the transactions which they need to include and client wallets should construct shorter paths to provide best user experience.
 
 \section{Propagation}
-Snips, Blinks, Legates, Blink time, Competition, Kamikaze Proof, Hash clocks, Ring Propagation, Node Weight
+
+A Block is collectively validated but constructed as snips - divisible block chunks by the producer and directly messaged to most of the current epoch's producer nodes with routing instructions to gossip across the network. Each snip references previous snip's hash similar to chain of blocks for proper identification of each block's snips. For a block of an epoch, a competition to deliver all snips under x time interval is required to win rewards and avoid slashing of fees. When a block fails to win shall be minted until its last snip which may contain rewards. VDF proofs are attached for every snip during routing to declare the state of each blocks competition after resolving forks based on proofs weights. Failed blocks fees are slashed by sending to a burn address unrecoverable by validators as an attachment snip to the block. For each failed block with various categories shall result in decreased block production for the node in next epochs indirectly slashes bandwidth costing capital which instructs nodes to act honestly. Some of these weights are temporary, permanent and some incentive as increased block production is provided in weights for better performance of a specific node in the epoch. To synchronize time, each node's hashrate per second of a specific hash-function is proved cryptographically onchain and taken in multiples of a common hardware's hash-rate per second. This Individual hash-rate proof is also provided along with bandwidth proof for every epoch which trustlessly synchronizes all nodes as a single hardware producing continuous hashes concated with all snips to annouce each epoch's block time under which all snips has to arrive to win the time-based propagation competition.
 
 \section{Rewards}
 How rest Bitcoins are rewarded per hash, 21 million cap. Rewards limited for each hash, no tx no reward. Coinbase rewards, Commission Trade deal
 
 \section{Renting}
 Merkle Chain, Fingerprint, Expiry Value, Rent Rates, Transfer Fees, Single UTXO, State Update
+
+\section{Opcodes}
 
 \section{Tokens}
 Layer 1 Tokens, One-way Bridges, Proof of Burn, Creation of new tokens to transact one should stake for it.
