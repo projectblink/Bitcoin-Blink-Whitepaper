@@ -2,116 +2,47 @@ This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Bitcoin Blink.aux
 The style file: plain.bst
+I found no \citation commands---while reading file Bitcoin Blink.aux
 Database file #1: citation.bib
-Warning--to sort, need author or key in consensusalgo
-Warning--to sort, need author or key in shard
-Warning--to sort, need author or key in Bitcoincash
-Warning--to sort, need author or key in merge
-Warning--to sort, need author or key in sha256
-Warning--to sort, need author or key in emptyblocks
-Warning--to sort, need author or key in hashfunctions
-Warning--to sort, need author or key in doge
-Warning--to sort, need author or key in emptyb
-Warning--to sort, need author or key in dpos
-Warning--to sort, need author or key in trilemma
-Warning--to sort, need author or key in Poa
-Warning--to sort, need author or key in utxo
-Warning--to sort, need author or key in monetarypolicy
-Warning--to sort, need author or key in everstake
-Warning--to sort, need author or key in lptokens
-Warning--to sort, need author or key in coinbase
-Warning--to sort, need author or key in EVM
-Warning--to sort, need author or key in Gasfees
-Warning--to sort, need author or key in avggas
-Warning--to sort, need author or key in turingcomplete
-Warning--to sort, need author or key in mempool
-Warning--to sort, need author or key in Halting
-Warning--to sort, need author or key in effectsturing
-Warning--to sort, need author or key in scrypt
-Warning--to sort, need author or key in bsv
-Warning--to sort, need author or key in btcopcode
-Warning--to sort, need author or key in gasunitcost
-Warning--to sort, need author or key in P2PKH
-Warning--to sort, need author or key in highgas
-Warning--to sort, need author or key in Vyper
-Warning--to sort, need author or key in opbsv
-Warning--to sort, need author or key in BitcoinvEth
-Warning--to sort, need author or key in concurrency
-Warning--to sort, need author or key in Upgrading
-Warning--to sort, need author or key in ArchiveNodes
-Warning--to sort, need author or key in DiskPrices
-Warning--to sort, need author or key in moore
-Warning--to sort, need author or key in BitcoinSize
-Warning--to sort, need author or key in EthereumSize
-Warning--to sort, need author or key in ArchiverSol
-Warning--to sort, need author or key in arweave
-Warning--to sort, need author or key in IPFS
-Warning--to sort, need author or key in filecoin
-Warning--to sort, need author or key in Storj
-Warning--to sort, need author or key in Sia
-Warning--to sort, need author or key in amcost
-Warning--to sort, need author or key in Bitcoin
-Warning--to sort, need author or key in ethhome
-Warning--to sort, need author or key in MerkleTree
-Warning--to sort, need author or key in linear
-Warning--to sort, need author or key in Fibo
-Warning--to sort, need author or key in zkproof
-Warning--to sort, need author or key in LinkedList
-Warning--to sort, need author or key in merkletr
-Warning--to sort, need author or key in boracle
-Warning--to sort, need author or key in arbitrage
-Warning--to sort, need author or key in predic
-Warning--to sort, need author or key in exploit
-Warning--to sort, need author or key in vanity
-Warning--to sort, need author or key in Vanitygen
-Warning--to sort, need author or key in bip39
-Warning--to sort, need author or key in btchistory
-Warning--to sort, need author or key in paypal
-Warning--to sort, need author or key in bills
-Warning--to sort, need author or key in swiftiban
-Warning--to sort, need author or key in usgains
-Warning--to sort, need author or key in vat
-Warning--to sort, need author or key in gst
-Warning--empty year in chainlink
-You've used 80 entries,
+You've used 0 entries,
             2118 wiz_defined-function locations,
-            781 strings with 13390 characters,
-and the built_in function-call counts, 13923 in all, are:
-= -- 1320
-> -- 180
-< -- 6
-+ -- 118
-- -- 34
-* -- 496
-:= -- 1682
-add.period$ -- 172
-call.type$ -- 80
-change.case$ -- 255
+            497 strings with 4011 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 150
-duplicate$ -- 627
-empty$ -- 1823
-format.name$ -- 34
-if$ -- 3392
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
 int.to.chr$ -- 0
-int.to.str$ -- 80
-missing$ -- 11
-newline$ -- 335
-num.names$ -- 22
-pop$ -- 613
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
 preamble$ -- 1
-purify$ -- 176
+purify$ -- 0
 quote$ -- 0
-skip$ -- 656
+skip$ -- 1
 stack$ -- 0
-substring$ -- 442
-swap$ -- 108
-text.length$ -- 6
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 318
-warning$ -- 70
-while$ -- 30
-width$ -- 82
-write$ -- 604
-(There were 70 warnings)
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There was 1 error message)
