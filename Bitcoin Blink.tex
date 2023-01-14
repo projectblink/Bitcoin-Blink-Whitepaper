@@ -1,5 +1,5 @@
 \documentclass[a4paper,11pt]{article}
-\usepackage[a4paper , top=25mm, right=35mm,left=35mm, bottom=30mm]{geometry}
+\usepackage[a4paper , top=28mm, right=35mm,left=35mm, bottom=28mm]{geometry}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{subfiles} % subtex files package
@@ -39,13 +39,15 @@
     pdfpagelayout=TwoPageRight
 }
 
-\font\myfont=cmr12 at 15pt
-\font\myfontt=cmr12 at 11pt
+\font\myfontt=cmr12 at 10pt
 
 \title{
-\myfont Bitcoin (Blink) - A Scalable \& Adoptable \\
-Peer to Peer Cash System}
-\author{ \myfontt Joby Reuben \\ jobyreuben@gmail.com \and Purva Chaudhari \\ purva@example.com}
+ \Large \textbf{Bitcoin (Blink) - A Scalable \& Adoptable \\
+Peer to Peer Cash System}\\
+\vspace{3mm}
+\scriptsize [WORKING-DRAFT]
+}
+\author{ \myfontt Joby Reuben \\ \myfontt jobyreuben@gmail.com \and  \myfontt Purva Chaudhari \\ \myfontt purva@example.com}
 \date{}
 \begin{document}
 \maketitle
@@ -56,47 +58,60 @@ Bitcoin's PoW is replaced with a propagation competition on blocks sent across v
 
 \section{Introduction}
 
-Bitcoin Network and other altcoin blockchains with newer consensus and programmable money are unable to compete with centralized payment providers in volume due to their sheer nature of inability to scale. Rules imposing heavy reliance on users acquiring chain native tokens are declared to be unuseful and hide the wonders of blockchain technology for different regions of the world. Decentralized networks can effectively adapt to users' needs by 1. Increase Block Size 2. Decrease Block Time 3. Eliminate Low Efficient Nodes 4. Increase Joining Requirement. Retail Staking with non-custodial solutions encourages users to stake their Bitcoin to become a world reserve currency for every financial instrument with an additional decentralized restrictive monetary policy that helps to reduce volatility similar to central bank currencies.\\
-\indent Instead of storing UTXOs for an indefinite time which compromises storage, renting UTXOs and replacing them with a fingerprint without altering the block's Merkle root will provide cheaper fees. With Bitcoin unlocking script developers can create regulatory options involving various types of taxes within its UTXOs, offloading identity verification off-chain, with signatures instructing nodes to validate regulated payments with self-custody of tokens. Basic Banking solutions can be developed in Bitcoin Script whereas common computable programs can be deployed to Layer 2 EVM State Machine which updates the state by providing a Proof-of-Fee-Receipt paid in Bitcoin Layer. 
+Bitcoin Network and other altcoin blockchains with newer consensus and programmable money are unable to compete with centralized payment providers in volume due to their sheer nature of inability to scale with centralization issues. Rules imposing heavy reliance on users acquiring chain native tokens are adoption diminishing requirements which hide users the wonders of blockchain technology for different regions of the world. Decentralized networks can effectively adapt to users' needs by 1. Increase Block Size 2. Decrease Block Time 3. Eliminate Low Efficient Nodes 4. Increase Joining Requirement. Retail Staking with non-custodial solutions encourages users to stake their Bitcoin to become a world reserve currency for every financial instrument with an additional restrictive monetary policy that helps to reduce volatility at time of recession.\\
+\indent Instead of storing UTXOs for an indefinite time which compromises storage, renting UTXOs and replacing them with a fingerprint after it expires without altering the block's Merkle root, thus providing cheaper fees. With Bitcoin's unlocking script and use of sCrypt - a high level language, developers can create custom scripts with -regulatory options involving various types of taxes within its UTXOs, offloading identity verification off-chain, with signatures instructing nodes to validate regulated payments with self-custody of tokens. Basic Banking solutions can be developed in Bitcoin Script whereas common computable programs can be deployed to Layer 2 EVM State Machine which updates the state by providing a Proof-of-Fee-Receipt paid in Bitcoin Layer. 
 
-\section{Block Requirement}
-Block size, time, VoC, Bandwidth, Election
+\section{Election}
+Block size denotes the size of data that can be propagated across every producer node on the Bitcoin network, hence it's success rate directly dependant on the Bandwidth each node allocates for confirmed blocks transmission. Block size is not capped, but fixed every n epoch which validates that every producer node on the network can send and receive the data size. Variable Block Size helps in scaling the network by increasing transactions per block if nodes upgrade and announce their bandwidth. Bandwidth's can be proved...@Purva
+
+A vote can be taken across producer nodes if there are increase in unconfirmed transactions cannot fit into a block. The network in consensus can forbid low bandwidth producer nodes participating the election, thus increasing the joining requirement and capacity to hold more transactions. Votes can be published onchain by...@Purva
+
+As Bandwidth plays major role in scalable infrastructure, nodes are required to have better of it to achieve maxium production rate per epoch, as elections will be conducted based on it and each node's honesty weight. Every Node willing to participate in the next epoch block production, identity is given in its public keys published to the ledger onchain for definite calculations.
+
+To randomize the random seed which commences election, shall be identified from epoch's range of block's (n-m) Block Merkle Chain Root which is constructed by validators
+
+Predictable Election Result, Producer Signature
+
 
 \section{Staking}
-Staking Requirement, Conditions, Non-custodial Delegation, Stake Per token per node, onetime usage, No Pools
+
+Bitcoins can be staked for node public keys with specified token id where the collateral can be used only once for a block. This results in stake per token per block.
+
+
+Staking Requirement, Conditions, Non-custodial Delegation, Stake Per token per node, onetime usage, No Pools, Proving Collateral. Additional stable token for staking to utilize all currencies for staking.
 
 \section{Regulation}
-UTXO Taxes, Types of Taxes, Script Level, Bitcoin Satoshi Vision Opcodes, sCrypt, Offchain Validation, Client Witness Signing
+UTXO Taxes, Types of Taxes, Script Level, Offchain Validation, Client Witness Signing, Oracles
 
 \section{Messaging}
 Unconfirmed Tx, Network Graph, Psedonymous Identities, Path Finding, Encryption, Mempools
 
 \section{Propagation}
-Snips, Competition, Kamikaze Proof, Ring Propagation
+Snips, Blinks, Legates, Blink time, Competition, Kamikaze Proof, Hash clocks, Ring Propagation, Node Weight
 
-\section{Hash-Rewards}
-How rest Bitcoins are rewarded per hash, 21 million cap
+\section{Rewards}
+How rest Bitcoins are rewarded per hash, 21 million cap. Rewards limited for each hash, no tx no reward.
 
 \section{Renting}
-Merkle Chain, Fingerprint, Expiry Value, Rent Rates, Transfer Fees
+Merkle Chain, Fingerprint, Expiry Value, Rent Rates, Transfer Fees, Single UTXO, State Update
 
 \section{Tokens}
-Layer 1 Tokens, Bridging, Efficiency
+Layer 1 Tokens, One-way Bridges, Proof of Burn, Creation of new tokens to transact one should stake for it.
 
 \section{Banking}
-Exchanges, Lending \& Borrowing, Insurance, Mirrored Wallets, 
+Exchanges, Lending \& Borrowing, Insurance, Mirrored Wallets, Decentralized Stable Coin
 
 \section{Privacy}
-Ring CT, Ring Signatures
+Obscuring Amounts, Ring Signatures decryption by government
 
 \section{Cash}
-Layer 2 Cash System
+Layer 2 Cash System 
 
 \section{Computing}
-EVM Layer with unique Proof of Fee receipt consensus model, removing EOAs, Balances, Purely for Logic and State update.
+EVM Layer with unique Proof of Fee receipt consensus model, removing EOAs, Balances, Purely for Logic and State update. NFTs, 
 
 \section{Maintenance}
-Active Development Funds, Validators commission, DAO setup
+Active Development Funds, Validators commission, DAO setup, sustainability.
 
 %\bibliographystyle{plain} %bibiliography package
 %\bibliography{citation.bib} %bib file
