@@ -1,3 +1,24 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{nakamoto2008bitcoin}
+Satoshi Nakamoto.
+\newblock Bitcoin : A peer-to-peer electronic cash system.
+\newblock {\em Whitepaper}, page~9, 2008.
+
+\bibitem{poon2016bitcoin}
+Joseph Poon and Thaddeus Dryja.
+\newblock The bitcoin lightning network: Scalable off-chain instant payments,
+  2016.
+
+\bibitem{wood2014ethereum}
+Gavin Wood et~al.
+\newblock Ethereum: A secure decentralised generalised transaction ledger.
+\newblock {\em Ethereum project yellow paper}, 151(2014):1--32, 2014.
+
+\bibitem{yakovenko2018solana}
+Anatoly Yakovenko.
+\newblock Solana: A new architecture for a high performance blockchain v0.
+  8.13.
+\newblock {\em Whitepaper}, 2018.
 
 \end{thebibliography}
