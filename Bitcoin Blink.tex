@@ -22,6 +22,16 @@
 \usepackage{indentfirst}
 \renewcommand{\abstractname}{\vspace{-\baselineskip}}
 
+\DeclareSymbolFont{matha}{OML}{txmi}{m}{it}% txfonts
+\DeclareMathSymbol{\varv}{\mathord}{matha}{118}
+
+\usepackage{array}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+  
+
 \hypersetup{
     pdftitle={Bitcoin (Blink) - Whitepaper},
     pdfauthor={Joby Reuben, Purva Chaudhari},
@@ -32,7 +42,7 @@
 \font\myfontt=cmr12 at 10pt
 
 \title{
- \Large \textbf{Bitcoin (Blink) - Peer to Peer Global Setlement Layer}\\
+ \large \textbf{Bitcoin (Blink) - Peer to Peer Global Settlement Layer}\\
 \vspace{6mm}
 \scriptsize [WORKING-DRAFT-v0.1]
 }
@@ -56,9 +66,32 @@ Block size denotes the size of data that can be propagated across every producer
 
 Predictable Election Result, Producer Signature
 \section{Staking}
-Bitcoins can be staked for public keys with specified token IDs where the collateral can be used only once for a block. This results in a stake per token per block. Each token per block collateral requirement is given in exchange rates (USD) by taking the median volume of all the blocks of the previous epoch. Staked Bitcoins can be withdrawn anytime, without a vesting period except at the time of producing the block. This brings a retail and non-custodial solution as opposed to security deposit-type PoS chains. As slashing is done directly to fees, delegators won't lose their stakes. Bitcoins can be staked to a specific node that chooses to include the stake by collateralizing or locking in its allocated block. In this way, for a specific token's transaction to be included in a block, the first of transactions should prove the collateral. During staking, an additional interest rate is added to restrict the free flow of tokens to increase demand in exchanges by imposing a timelock of 21 days. This interest rate is decided by analyzing the market price of current and previous epochs.
-
-\textit{Stake per token requirement, Interest Rate}
+Bitcoins can be staked for public keys with specified token IDs where the collateral can be used only once for a block. This results in a stake per token per block employing the througput(tps) per token basis. Each token per block collateral requirement is given in market price (USD) by taking the median volume of all the blocks of the previous epoch. Staked Bitcoins can be withdrawn anytime, without a vesting period except at the time of producing the block. This brings a retail and non-custodial solution as opposed to security deposit-type PoS chains. As slashing is done directly to fees, delegators won't lose their stakes. Bitcoins can be staked to a specific node that chooses to include the stake by collateralizing or locking in its allocated block. In this way, for a specific token's transaction to be included in a block, the first of transactions should prove the collateral. During staking, an additional interest rate is added to restrict the free flow of tokens to increase demand in exchanges by imposing a timelock of 500 epochs. This interest rate is decided by analyzing the market price of current and previous epochs.
+\begin{equation}
+\varv (T_h(b_n)) = \sum_0^n \Psi
+\end{equation}
+\begin{equation}
+x=\epsilon_{n-2}[\widetilde{x}(\sum_{b_1}^{b_n} \varv(T_h))]+ [r (T_h(\epsilon_n))(x)]
+\end{equation}
+\begin{equation}
+\forall r(T_h(\epsilon_n)) \geq 10^{-2}
+\end{equation}
+\begin{equation}
+r (T_h(\epsilon_n)) =  r(T_h(\epsilon_{n-1}))  +  (\frac{C_{\epsilon_{n-3}} - C_{\epsilon_{n-2}}}{10 \times C_{\epsilon_{n-2}}})
+\end{equation}
+where:
+\begin{conditions}
+x & Staking Requirement in Bitcoins\\
+\widetilde{x} & Median Value\\
+\varv & Volume in Market Price (\$)\\
+T_h & Token ID Hash\\
+\epsilon_n & Current Epoch\\
+\epsilon_{n-k} & Target Epoch\\
+b_n & Target Block\\
+\Psi & UTXO outs $T_h(b_n)$\\
+r & Interest Rate\\
+C & Closing Market Price $(\epsilon_n)$
+\end{conditions}
 
 Additionally, a new collateralized stablecoin can be issued which can be used for staking to receive yield benefits from altcoins. 
 \section{Regulation}
@@ -94,7 +127,7 @@ This Individual hash-rate proof is also provided along with bandwidth proof for 
 \section{Rewards}
 Rewards are given for each snip hash as block time varies in this implementation to provide faster finality of transactions. Since a year's total newly minted bitcoins are definite and the common hardware's hash-rate per year is also definite and used to synchronize various nodes' hash-rates, new bitcoins can be supplied for each allocated block. 
 
-\textbf{21 million allocation with halving}
+\textit{21 million allocation with halving}
 
 From the origin snip hash to the final snip of a block, the total index of hashes is taken to validate the total bitcoins the block can issue. While Tax outputs are attached as zero input transactions within the snip it contains, the fee outputs when accounted mark the end of the block. 
 
@@ -110,7 +143,7 @@ Instead of taking the Merkle roots of all the transactions inside a block, a sni
 
 \textit{Merkle Chain}
 
-Since snips can be rejected by validators, it is unsure to predict a Merkle chain root giving it a purely randomized value. Inside a snip contains parsed transactions whose hashes are taken to find the snip's Merkle root can be pruned if the UTXOs are spent, burnt, or expired. Each UTXO expiry block height is embedded in its script, and can be scanned by nodes, and pruned to optimize their data storage. Client Wallets can store each of their users' transaction history and can be audited onchain using Merkle chain roots. Renting rates can be given in exchange rates (USD) independently voted by producer nodes for every epoch per byte per block. Users cannot directly pay for rent, but rather each new UTXO created is charged a transfer fee in the range of 0.05\% - 0.005\% decided based on the total volume settled on previous epochs.
+Since snips can be rejected by validators, it is unsure to predict a Merkle chain root giving it a purely randomized value. Inside a snip contains parsed transactions whose hashes are taken to find the snip's Merkle root can be pruned if the UTXOs are spent, burnt, or expired. Each UTXO expiry block height is embedded in its script, and can be scanned by nodes, and pruned to optimize their data storage. Client Wallets can store each of their users' transaction history and can be audited onchain using Merkle chain roots. Renting rates can be given in market price independently voted by producer nodes for every epoch per byte per block. Users cannot directly pay for rent, but rather each new UTXO created is charged a transfer fee in the range of 0.05\% - 0.005\% decided based on the total volume settled on previous epochs.
 
 \textit{Transfer fee equation}
 
@@ -125,7 +158,7 @@ Since snips can be rejected by validators, it is unsure to predict a Merkle chai
 Tokens can be created and deployed natively to UTXOs. Bridging assets from one chain to bitcoin would be more secure one-way since the chain involves taxations passively until the time of spending. Smart contracts can be deployed in other chains to provide a one-time signature associated with a private key which can be proved onchain and mint new tokens with token ids mapped to each UTXO. Tokens in Bitcoin can inherit the security of the network and also offer to pay fees for the same tokens as well. Key decentralized, non-security tokens will be selected at initial with token ids deployed. 
  
 \section{Maintenance}
-For the sustainability of the project and active development, the developers of project blink can set up a DAO for decisions involving protocol changes and soft forks to register government tax wallets. Developers can be actively rewarded similar to a centralized organization by leaving a 15\% commission on producer commissions which is only charged when a producer wins the rewards. Only the accepted tokens and staked tokens are sent to the DAO treasury.
+For the sustainability of the project and active development, the developers of project blink can set up a DAO for decisions involving protocol changes and soft forks to register government tax wallets. Developers can be actively rewarded by the DAO restricting a minimal commission on producer fees. Only the accepted tokens and staked tokens are sent to the DAO treasury. Since there are no parameter upgrades on current implementation, decisions are solely focussed on building additional modules for maximal user adoption financed from DAO tresury instead of donations.
 
 \section{Future}
 
