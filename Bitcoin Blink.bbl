@@ -1,5 +1,17 @@
 \begin{thebibliography}{1}
 
+\bibitem{Stateful}
+Stateful smart contracts on bitcoin sv | by scrypt | coinmonks | medium.
+\newblock
+  \url{https://medium.com/coinmonks/stateful-smart-contracts-on-bitcoin-sv-c24f83a0f783},
+  2020.
+
+\bibitem{rai2020}
+Stefan~C. Ionescu and Ameen Soleimani.
+\newblock Rai: A low volatility, trust minimized collateral for the defi
+  ecosystem.
+\newblock {\em Whitepaper}, 2020.
+
 \bibitem{nakamoto2008bitcoin}
 Satoshi Nakamoto.
 \newblock Bitcoin : A peer-to-peer electronic cash system.

@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Bitcoin Blink.aux
 The style file: plain.bst
 Database file #1: citation.bib
-You've used 4 entries,
+Warning--to sort, need author or key in Stateful
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            518 strings with 4478 characters,
-and the built_in function-call counts, 1011 in all, are:
-= -- 96
-> -- 40
+            526 strings with 4773 characters,
+and the built_in function-call counts, 1414 in all, are:
+= -- 135
+> -- 54
 < -- 1
-+ -- 17
-- -- 12
-* -- 53
-:= -- 181
-add.period$ -- 11
-call.type$ -- 4
-change.case$ -- 17
++ -- 23
+- -- 16
+* -- 71
+:= -- 244
+add.period$ -- 16
+call.type$ -- 6
+change.case$ -- 25
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 42
-empty$ -- 85
-format.name$ -- 12
-if$ -- 209
+cite$ -- 7
+duplicate$ -- 59
+empty$ -- 125
+format.name$ -- 16
+if$ -- 298
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 3
-newline$ -- 22
-num.names$ -- 8
-pop$ -- 21
+int.to.str$ -- 6
+missing$ -- 4
+newline$ -- 31
+num.names$ -- 10
+pop$ -- 34
 preamble$ -- 1
-purify$ -- 13
+purify$ -- 19
 quote$ -- 0
-skip$ -- 34
+skip$ -- 49
 stack$ -- 0
-substring$ -- 39
-swap$ -- 7
+substring$ -- 49
+swap$ -- 9
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 16
-warning$ -- 0
-while$ -- 11
-width$ -- 5
-write$ -- 42
+type$ -- 24
+warning$ -- 1
+while$ -- 13
+width$ -- 7
+write$ -- 60
+(There was 1 warning)
