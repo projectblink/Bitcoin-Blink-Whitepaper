@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage[a4paper , top=38mm, right=38mm,left=38mm, bottom=38mm]{geometry}
+\usepackage[a4paper , top=35mm, right=35mm,left=35mm, bottom=35mm]{geometry}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{subfiles} % subtex files package
@@ -64,13 +64,12 @@ Bitcoin Network and other altcoin blockchains with newer consensus and programma
 
 Instead of storing UTXOs for an indefinite time which compromises storage, renting UTXOs and replacing them with a fingerprint after it expires without altering the block's Merkle root provides cheaper fees. With Bitcoin's unlocking script and use of sCrypt - a high-level language, developers can create custom scripts with - regulatory options involving various types of taxes within its UTXOs, offloading identity verification off-chain, with signatures instructing nodes to validate regulated payments with self-custody of tokens. Altcoins can be bridged one-way and collateralized for a stable coin directly used for staking and yielding fees along with Bitcoin bringing utility. Basic Banking solutions can be developed in Bitcoin Script whereas common computable programs can be deployed to Layer 2 EVM State Machine where nodes updates the state by providing a Proof-of-Fee-Receipt paid in Bitcoin Layer. 
 \section{Election}
-Block size denotes the size of data that can be propagated across every producer node on the Bitcoin network, hence its success rate is directly dependent on the Bandwidth each node allocates for confirmed block transmission. Block size is not capped, but fixed every $n$ epoch which validates that every producer node on the network can send and receive the data size. Variable Block Size helps in scaling the network by increasing transactions per block if nodes upgrade and announce their bandwidth. A vote can be taken across producer nodes if there is an increase in unconfirmed transactions that cannot fit into a block. The network in consensus can forbid low bandwidth producer nodes from participating in the election, thus increasing the joining requirement and capacity to hold more transactions. As Bandwidth plays a major role in scalable infrastructure, nodes are required to have better of it to achieve maximum production rate per epoch, as elections will be conducted based on it and each node's honesty weight. Every Node willing to participate in the next epoch of block production, identity is given in its public keys published to the ledger onchain for definite calculations. To randomize the random seed which commences the election shall be identified from epoch's range of block's ($n-m$) Block Merkle Chain Root which is constructed by validators
+Block size denotes the size of data that can be propagated across every producer node on the Bitcoin network, hence its success rate is directly dependent on the Bandwidth each node allocates for confirmed block transmission. Block size is not capped, but fixed every $n$ epoch which validates that every producer node on the network can send and receive the data size. Variable Block Size helps in scaling the network by increasing transactions per block if nodes upgrade and announce their bandwidth. A vote can be taken across producer nodes if there is an increase in unconfirmed transactions that cannot fit into a block. The network in consensus can forbid low bandwidth producer nodes from participating in the election, thus increasing the joining requirement and capacity to hold more transactions. 
 
-\textit{Election Seed - Equation}
+As Bandwidth plays a major role in scalable infrastructure, nodes are required to have better of it to achieve maximum production rate per epoch, as elections will be conducted based on it and each node's honesty weight. Every Node willing to participate in the next epoch of block production, identity is given in its public keys published to the ledger onchain for definite calculations. For a random input value to commence the election, from a range of blocks of an epoch ($n-m$) confirmed Blocks Merkle Chain Root which is constructed by validators is taken. For a $2^{256}$ possible outcomes, $n$ times it is divided evenly and finds if any block's MCR lies on the selected $r$ range. With the MCR input, blocks are randomly assigned to each epoch producer without consecutive assignments. 
 
-Predictable Election Result, Producer Signature
 \section{Staking}
-Bitcoins can be staked for public keys with specified token IDs where the collateral can be used only once for a block. This results in a stake per token per block employing the througput(tps) per token basis. Each token per block collateral requirement is given in market price (USD) by taking the median volume of all the blocks of the previous epoch. Staked Bitcoins can be withdrawn anytime, without a vesting period except at the time of producing the block. This brings a retail and non-custodial solution as opposed to security deposit-type PoS chains. As slashing is done directly to fees, delegators won't lose their stakes. Bitcoins can be staked to a specific node that chooses to include the stake by collateralizing or locking in its allocated block. In this way, for a specific token's transaction to be included in a block, the first of transactions should prove the collateral. During staking, an additional interest rate is added to restrict the free flow of tokens to increase demand in exchanges by imposing a timelock of 500 epochs. This interest rate is decided by analyzing the market price of current and previous epochs.
+Bitcoins can be staked for public keys with specified token IDs where the collateral can be used only once for a block. This results in a stake per token per block employing the througput(tps) per token basis. Each token per block collateral requirement ($y$) is given in market price (USD) by taking the median volume of all the blocks of the previous epoch. Staked Bitcoins can be withdrawn anytime, without a vesting period except at the time of producing the block. This brings a retail and non-custodial solution as opposed to security deposit-type PoS chains. As slashing is done directly to fees, delegators won't lose their stakes. Bitcoins can be staked to a specific node that chooses to include the stake by collateralizing or locking in its allocated block. In this way, for a specific token's transaction to be included in a block, the first of transactions should prove the collateral. During staking, an additional interest rate ($r$) is added to restrict the free flow of tokens to increase demand in exchanges by imposing a timelock of 500 epochs. This interest rate is decided by analyzing the market price of current and previous epochs.
 
 \begin{equation}
 x=\epsilon_{n-2}[\widetilde{x}( \{b_1, b_2, \dots b_n\} (\sum_0^n \Psi T_h(b_n)))]
@@ -105,7 +104,7 @@ Regulating cryptocurrencies via centralized exchanges \& custodians risks funds 
 \section{Messaging}
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=10cm]{topology}
+\includegraphics[width=8cm]{topology}
 \caption{Topology}
 \end{center}
 \end{figure}
@@ -124,9 +123,7 @@ Since the stake information is available publicly client wallets constructing th
 \end{figure}
 A Block is collectively validated but constructed as snips - divisible block chunks by the producer and directly messaged to most of the current epoch's producer nodes with routing instructions to gossip across the network. Each snip references the previous snip's hash similar to the chain of blocks for proper identification of each block's snips. For a block of an epoch, a competition to deliver all snips under $x$ time intervals are required to win rewards and avoid slashing of fees. When a block fails to win shall be minted until its last snip which may contain rewards. VDF proofs are attached for every snip during routing to declare the state of each block's competition after resolving forks based on proofs weights. 
 
-Failed block fees are slashed by sending to a burn address by the next block height producer as an attachment snip of the same block. Each failed block with various categories shall result in decreased block production for the node in the next epoch indirectly slashing bandwidth costing capital which instructs nodes to act honestly with the performance required for the epoch. Some of these negative weights are temporary and permanent and some weights are incentive as it increases its maximum achievable block production in the next epochs. To synchronize time, each node's hash-rate per second of a specific hash-function is proved cryptographically onchain and taken in multiples of a common hardware's hash-rate. 
-
-\textit{Time sync - equation}
+Failed block fees are slashed by sending to a burn address by the next block height producer. Each failed block with various categories shall result in decreased block production for the node in the next epoch indirectly slashing bandwidth costing capital which instructs nodes to act honestly with the performance required for the epoch. Null-Blocks are minted by $n-1$ block producer with the VDF proofs. Some of these negative weights are temporary and permanent and some weights are incentive as it increases its maximum achievable block production in the next epochs. To synchronize time, each node's hash-rate per second of a specific hash-function is proved cryptographically onchain and taken in multiples of a common hardware's hash-rate. 
 
 This Individual hash-rate proof is also provided along with bandwidth proof for every epoch which trustlessly synchronizes all nodes as a single hardware producing continuous hashes concated with all snips providing cryptographic timestamped proofs to announce each epoch's block time under which all snips have to arrive and win the time-based propagation competition. The competition is termed as Proof of Speed.
 
@@ -149,7 +146,7 @@ Instead of taking the Merkle roots of all the transactions inside a block, a sni
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=\textwidth]{merklechain}
+\includegraphics[width=12cm]{merklechain}
 \caption{Merkle Chain}
 \end{center}
 \end{figure}
@@ -159,17 +156,41 @@ Instead of taking the Merkle roots of all the transactions inside a block, a sni
 5 \cdot 10^{-4} \leq \Delta f \leq 5 \cdot 10^{-5} == \sigma [\Psi (\epsilon_{n-3}, \epsilon_{n-2})] > 0.75
 \end{equation}
 \begin{equation}
-f+x = \begin{cases}
+f'=f+x \begin{cases}
 x=+5 \cdot 10^{-6}, & \text{if } \Psi (\epsilon_{n-3} > \epsilon_{n-2})\\
 x=-5 \cdot 10^{-6}, & \text{otherwise}
 \end{cases}
 \end{equation}
 where:
 \begin{conditions}
-F & UTXO value $\times f$ 
+F & UTXO value $\times f'$ 
 \end{conditions}
 
  Transfer fee charges more fees for higher value utxos and less for lesser value utxos bringing ease of transacting for retailers. According to how much each utxo pays for a transfer fee, an expiry date is set. UTXOs doing state updates will not be charged and can combine UTXOs to a single balance holding UTXO with increased expiry value. This encourages users to store a single UTXO per wallet reducing transaction fees and also incentivizes nodes, clients, etc.  
+ 
+\section{Forks}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=10cm]{fork}
+\caption{Resolving Forks}
+\end{center}
+\end{figure}
+
+
+Confirmed blocks as snips are streamed with an included path that propagates across every producers in a backward ring manner. The snips are attached with VDF proofs by producers which provide proof of block time. Forks arises when different producer reject extra snips, this can be resolved by the very next block, providing instant finality to users. Additionally, negative weights are added if fork arises after n-1 block's producer VDF evaluation. Bandwidth upgrades needed for the nodes which initiates the fork and directly instructs the origin block size should be decreased.
+
+\begin{align}
+\lambda (B_A) = H(H_A+H_B+H_C) \\
+\lambda (B_{A'}) = H(H_A+H_B)\\
+\lambda (B_{A''}) = H(H_A)  \\
+\lambda (B_{B}) = H(\lambda(B_{A^?}) + \lambda(B_{B^?}))
+\end{align}
+For a block, possible Merkle Chain Roots are constructed and forks are resolved. Next blocks will have input hash value of previous block's Merkle Chain Root. Producers can create multiple rings (should include current epoch block producers), to avoid influence by the first destination node. When there are multiple versions of a block, it is chosed in follwing method.
+\begin{enumerate}
+\item Heaviest VDF Proof weight - more attestors
+\item Largest number of snips if weights are same
+\end{enumerate}
 \section{Oracles}
 
 \section{Tokens}
@@ -193,10 +214,11 @@ Collateral coin, Exchanges, Lending \& Borrowing, Insurance, Mirrored Wallets, O
 \subsection{Bandwidth Proof}
 \subsection{VoC Vote}
 \subsection{Hashrate Proof}
+\section{Election}
+
 \section{Tax Scripts}
 \section{Block Size}
 \section{Stake Script}
-\section{Node Weight}
 \section{Routing Reward}
 \section{Time Proof}
 \section{Resolving Forks}
