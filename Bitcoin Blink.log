@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  19 JAN 2023 12:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  19 JAN 2023 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -964,15 +964,15 @@ LaTeX Font Info:    ... okay on input line 55.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(99.58464pt, 398.3386pt, 99.58464pt)
-* v-part:(T,H,B)=(99.58464pt, 645.87756pt, 99.58464pt)
+* h-part:(L,W,R)=(108.12047pt, 381.26694pt, 108.12047pt)
+* v-part:(T,H,B)=(108.12047pt, 628.80591pt, 108.12047pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=398.3386pt
-* \textheight=645.87756pt
-* \oddsidemargin=27.31465pt
-* \evensidemargin=27.31465pt
-* \topmargin=-9.68535pt
+* \textwidth=381.26694pt
+* \textheight=628.80591pt
+* \oddsidemargin=35.85048pt
+* \evensidemargin=35.85048pt
+* \topmargin=-1.14952pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -1039,79 +1039,105 @@ LaTeX Font Info:    Trying to load font information for OML+txmi on input line
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
-) [1
+)
+Overfull \hbox (8.40039pt too wide) in paragraph at lines 64--65
+[]\OT1/cmr/m/n/10 Bitcoin Net-work and other alt-coin blockchains with newer co
+n-sen-sus and pro-grammable
+ []
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<assets/images//topology.jpg, id=133, 950.55125pt x 345.29pt>
+<assets/images//topology.jpg, id=141, 950.55125pt x 345.29pt>
 File: assets/images//topology.jpg Graphic file (type jpg)
 <use assets/images//topology.jpg>
-Package pdftex.def Info: assets/images//topology.jpg  used on input line 107.
+Package pdftex.def Info: assets/images//topology.jpg  used on input line 105.
 (pdftex.def)             Requested size: 227.62204pt x 82.68161pt.
-<assets/images//Snips.jpg, id=134, 1774.63pt x 938.50626pt>
-File: assets/images//Snips.jpg Graphic file (type jpg)
-<use assets/images//Snips.jpg>
-Package pdftex.def Info: assets/images//Snips.jpg  used on input line 120.
-(pdftex.def)             Requested size: 312.9803pt x 165.51556pt.
  [3pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.124 A
-        Block is collectively validated but constructed as snips - divisible...
- <./assets/images//topology.jpg>] [4pdfTeX warning (ext4): destination with the
- same identifier (name{figure.2}) has been already used, duplicate ignored
+l.112 \section
+              {Propagation} <./assets/images//topology.jpg>]
+<assets/images//Snips.jpg, id=147, 1062.97125pt x 563.10374pt>
+File: assets/images//Snips.jpg Graphic file (type jpg)
+<use assets/images//Snips.jpg>
+Package pdftex.def Info: assets/images//Snips.jpg  used on input line 115.
+(pdftex.def)             Requested size: 312.9803pt x 165.79625pt.
+ [4pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
+ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.136 
+l.125 
        <./assets/images/snips.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
-<assets/images//merklechain.jpg, id=146, 2189.17876pt x 472.76625pt>
+<assets/images//merklechain.jpg, id=153, 2189.17876pt x 472.76625pt>
 File: assets/images//merklechain.jpg Graphic file (type jpg)
 <use assets/images//merklechain.jpg>
-Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 149
+Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 134
 .
-(pdftex.def)             Requested size: 341.43306pt x 73.73247pt.
-<assets/images//fork.jpg, id=147, 825.0825pt x 459.7175pt>
-File: assets/images//fork.jpg Graphic file (type jpg)
-<use assets/images//fork.jpg>
-Package pdftex.def Info: assets/images//fork.jpg  used on input line 175.
-(pdftex.def)             Requested size: 284.52756pt x 158.53255pt.
-[5pdfTeX warning (ext4): destination with the same identifier (name{algocf.1}) 
+(pdftex.def)             Requested size: 369.88582pt x 79.87865pt.
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.179 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-3}) has been already used, duplicate ignored
+l.155 
+       <./assets/images//merklechain.jpg>]
+<assets/images//fork.jpg, id=161, 825.0825pt x 459.7175pt>
+File: assets/images//fork.jpg Graphic file (type jpg)
+<use assets/images//fork.jpg>
+Package pdftex.def Info: assets/images//fork.jpg  used on input line 160.
+(pdftex.def)             Requested size: 284.52756pt x 158.53255pt.
+ [6pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
+ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.179 
-       <./assets/images//merklechain.jpg>] [6pdfTeX warning (ext4): destination
- with the same identifier (name{figure.4}) has been already used, duplicate ign
-ored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.201 
+l.178 
        <./assets/images//fork.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
-(./Bitcoin Blink.bbl) [7] [8] (./Bitcoin Blink.aux)
+(./Bitcoin Blink.bbl) [7] [8pdfTeX warning (ext4): destination with the same id
+entifier (name{algocf.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.232 
+      pdfTeX warning (ext4): destination with the same identifier (name{algocf.
+2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.232 
+      pdfTeX warning (ext4): destination with the same identifier (name{algocf.
+3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.232 
+      ] [9pdfTeX warning (ext4): destination with the same identifier (name{alg
+ocf.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{algocf.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 \end{document}
+                    ] (./Bitcoin Blink.aux)
 Package rerunfilecheck Info: File `"Bitcoin Blink".out' has not changed.
-(rerunfilecheck)             Checksum: D791B3F33FABCCCA51454187D8806E3D;2422.
+(rerunfilecheck)             Checksum: 81B6B93FCD8DAA9BC6463C64CB953CDA;2658.
  ) 
 Here is how much of TeX's memory you used:
- 35380 strings out of 480129
- 768574 string characters out of 5893409
- 1065286 words of memory out of 5000000
+ 35389 strings out of 480129
+ 768646 string characters out of 5893409
+ 1065294 words of memory out of 5000000
  52765 multiletter control sequences out of 15000+600000
  478833 words of font info for 58 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 84i,9n,80p,1638b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,9n,80p,1638b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -1128,10 +1154,10 @@ are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "Bitcoin Blink.pdf" (8 pages, 486468 bytes).
+Output written on "Bitcoin Blink.pdf" (9 pages, 453481 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 296 PDF objects out of 1000 (max. 8388607)
+ 244 compressed objects within 3 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 249 words of extra memory for PDF output out of 10000 (max. 10000000)
 

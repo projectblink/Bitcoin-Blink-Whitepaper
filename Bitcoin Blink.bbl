@@ -1,36 +1,29 @@
 \begin{thebibliography}{1}
 
-\bibitem{Stateful}
-Stateful smart contracts on bitcoin sv | by scrypt | coinmonks | medium.
-\newblock
-  \url{https://medium.com/coinmonks/stateful-smart-contracts-on-bitcoin-sv-c24f83a0f783},
-  2020.
-
-\bibitem{rai2020}
-Stefan~C. Ionescu and Ameen Soleimani.
-\newblock Rai: A low volatility, trust minimized collateral for the defi
-  ecosystem.
-\newblock {\em Whitepaper}, 2020.
-
 \bibitem{nakamoto2008bitcoin}
-Satoshi Nakamoto.
-\newblock Bitcoin : A peer-to-peer electronic cash system.
-\newblock {\em Whitepaper}, page~9, 2008.
+S.~Nakamoto, ``Bitcoin : A peer-to-peer electronic cash system,'' {\em
+  Whitepaper}, p.~9, 2008.
 
 \bibitem{poon2016bitcoin}
-Joseph Poon and Thaddeus Dryja.
-\newblock The bitcoin lightning network: Scalable off-chain instant payments,
-  2016.
-
-\bibitem{wood2014ethereum}
-Gavin Wood et~al.
-\newblock Ethereum: A secure decentralised generalised transaction ledger.
-\newblock {\em Ethereum project yellow paper}, 151(2014):1--32, 2014.
+J.~Poon and T.~Dryja, ``The bitcoin lightning network: Scalable off-chain
+  instant payments,'' 2016.
 
 \bibitem{yakovenko2018solana}
-Anatoly Yakovenko.
-\newblock Solana: A new architecture for a high performance blockchain v0.
-  8.13.
-\newblock {\em Whitepaper}, 2018.
+A.~Yakovenko, ``Solana: A new architecture for a high performance blockchain
+  v0. 8.13,'' {\em Whitepaper}, 2018.
+
+\bibitem{wood2014ethereum}
+G.~Wood {\em et~al.}, ``Ethereum: A secure decentralised generalised
+  transaction ledger,'' {\em Ethereum project yellow paper}, vol.~151,
+  no.~2014, pp.~1--32, 2014.
+
+\bibitem{rai2020}
+S.~C. Ionescu and A.~Soleimani, ``Rai: A low volatility, trust minimized
+  collateral for the defi ecosystem,'' {\em Whitepaper}, 2020.
+
+\bibitem{Stateful}
+``Stateful smart contracts on bitcoin sv | by scrypt | coinmonks | medium.''
+  \url{https://medium.com/coinmonks/stateful-smart-contracts-on-bitcoin-sv-c24f83a0f783},
+  2020.
 
 \end{thebibliography}
