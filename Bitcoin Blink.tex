@@ -211,6 +211,7 @@ Results,
 |\mathbb{R}| & Block Producers\\
 P(b)_n & PubKey's Bandwidth in bps \\
 \bar{x} & Mean value\\
+|\mathbb{R}''| & Producers to be voted\\
 P(b)'_n & Voted Pubkey's bps\\
 i & Joining requirement in bps 
 \end{conditions}
@@ -223,36 +224,55 @@ Blocks are allocated for a whole epoch from a definite randomized seed where nod
 \text{Currently }|\mathbb{R}| = \emptyset, 
 \text{If } \epsilon_{(n)}\{P(b)_n...\} > i \in |\mathbb{R}|
 \end{equation*}
-Block size per second,
+Block Size / sec,
 \begin{equation*}
-j=min(|\mathbb{R}|)
+\epsilon_{n}j=min(|\mathbb{R}|) \cdot l
 \end{equation*}
-Weights addition
+Weights addition,
 \begin{equation*}
-Addition here
+\forall |\mathbb{R}|, P(b)_n = \sum w(P) + P(b)_n = P(w)_n  \in |\mathbb{R}''|
 \end{equation*}
+Allocation,
 \begin{equation*}
-\mathbb{N} \Phi_{P_n} = \frac{x \cdot w_n}{10^4 \cdot \sum_{w \in |\mathbb{R}|} w}
+\forall |\mathbb{R}''|, \Phi_{P(b)_n} = \frac{x \cdot P(w)_n}{10^4 \cdot \sum_{P(w)_n \in |\mathbb{R}''|} P(w)_n} = \mathbb{N}
 \end{equation*}
 
 \begin{conditions}
-x & Number of blocks per epoch`
+x & Number of blocks per epoch\\
+j & Block size per second\\
+l & Latency\\
+w & Individual weights\\
+\Phi & Allocated number of blocks per producer
 \end{conditions}
 
 \subsection{Random Seed}
 
-%Random seed will be selected from range of blocks of the current running epoch. When the desired K gets that seed is used for assigning producers
+To randomize the election, between a block range a seed($k$) - Merkle Chain Root from a confirmed block is found. This seed will lie between a selected range in $2^{256}$ decimal possibilities. Difficulty rate is adjusted every epoch to seed entropy. 
 
-%K = MD160(SHA256((SHA256(H)) + Block Height + Epoch Height ))
-
-%K value is taken and the next public key 160 bit lesser than k is taken as producer
-
-%If consecutive producer is assigned then it is rehashed with MD160 again, until it gets a non-consecutive producer
-
-%According to the total blocks allocated each producer will be assigned a block height
-
-\subsection{Block Time}
-%Block time is announced every epoch by evaluating nearby epoch. This is calculated by every producer by scanning the ledger. 
+\begin{equation*}
+Increasing Difficulty Level (d)
+\end{equation*}
+\begin{equation*}
+Announcing the Range to Fall into
+\end{equation*}
+\begin{equation*}
+MCR taken as seed k
+\end{equation*}
+\begin{equation*}
+From seed allocation to block heights
+\end{equation*}
+\begin{equation*}
+Decreasing the R" whenever it is allocated till all elements is zero.
+\end{equation*}
+\begin{equation*}
+Setting remaining blocks to first of blocks as ring
+\end{equation*}
+\begin{equation*}
+New set R''' with allocated block heights with producer pubkey
+\end{equation*}
+\begin{equation*}
+Block Time is set
+\end{equation*}
 \section{Taxes}
 %Locking script Psuedocode with Gains tax, tds, sales tax
 \section{Commissions}
@@ -267,6 +287,7 @@ x & Number of blocks per epoch`
 %Bandwidth, Null Block, Time-outs, Age, Extras, Fork Punishment.
 \section{Fork Proof}
 %When a fork happens, it is due to the reason that either the sender or the receiver happens to have low bandwidth or casuing even other nodes to loose the proof of speed competition. To avoid this we need to provide lesser blocks, so adding negative weight with proof of fork. Since all hashes of all nodes are stored inside the ledger the proof can be validated. 
+%Forks rate increases then latency should be increased, latency is decided on forks
 \section{Oracle Scripts}
 \section{DAO scripts}
 
