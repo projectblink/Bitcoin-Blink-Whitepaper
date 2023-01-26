@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  26 JAN 2023 22:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  27 JAN 2023 01:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -853,10 +853,29 @@ File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \arrowsize=\dimen300
-)) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks56
+\inpenc@posthook=\toks57
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count360
 \lst@gtempboxa=\box92
-\lst@token=\toks56
+\lst@token=\toks58
 \lst@length=\count361
 \lst@currlwidth=\dimen301
 \lst@column=\count362
@@ -881,13 +900,8 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 (/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/colonequals.sty
+Package: colonequals 2016/05/16 v1.1 Colon equals symbols (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
@@ -941,28 +955,29 @@ Package: relsize 2013/03/29 ver 4.1
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 \symmatha=\mathgroup6
+   defining Unicode char U+00BF (decimal 191)
 
 (./Bitcoin Blink.aux)
 \openout1 = `"Bitcoin Blink.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -998,7 +1013,7 @@ LaTeX Font Info:    ... okay on input line 56.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 56.
+Package hyperref Info: Link coloring OFF on input line 67.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -1010,9 +1025,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count372
 )
-LaTeX Info: Redefining \ref on input line 56.
-LaTeX Info: Redefining \pageref on input line 56.
-LaTeX Info: Redefining \nameref on input line 56.
+LaTeX Info: Redefining \ref on input line 67.
+LaTeX Info: Redefining \pageref on input line 67.
+LaTeX Info: Redefining \nameref on input line 67.
 
 (./Bitcoin Blink.out) (./Bitcoin Blink.out)
 \@outlinefile=\write5
@@ -1026,12 +1041,12 @@ LaTeX Info: Redefining \nameref on input line 56.
 \scratchbox=\box102
 \nofMPsegments=\count374
 \nofMParguments=\count375
-\everyMPshowfont=\toks57
+\everyMPshowfont=\toks59
 \MPscratchCnt=\count376
 \MPscratchDim=\dimen312
 \MPnumerator=\count377
 \makeMPintoPDFobject=\count378
-\everyMPtoPDFconversion=\toks58
+\everyMPtoPDFconversion=\toks60
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1042,110 +1057,120 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count379
-LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-58.
+69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-Overfull \hbox (8.40039pt too wide) in paragraph at lines 62--63
-[]\OT1/cmr/m/n/10 Bitcoin Net-work and other alt-coin blockchains with newer co
-n-sen-sus and pro-grammable
+Overfull \hbox (8.30826pt too wide) in paragraph at lines 73--74
+[]\T1/cmr/m/n/10 Bitcoin Net-work and other alt-coin blockchains with newer con
+-sen-sus and pro-grammable
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<assets/images//topology.jpg, id=154, 950.55125pt x 345.29pt>
+<assets/images//topology.jpg, id=157, 950.55125pt x 345.29pt>
 File: assets/images//topology.jpg Graphic file (type jpg)
 <use assets/images//topology.jpg>
-Package pdftex.def Info: assets/images//topology.jpg  used on input line 100.
+Package pdftex.def Info: assets/images//topology.jpg  used on input line 111.
 (pdftex.def)             Requested size: 227.62204pt x 82.68161pt.
  [3pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.107 \section
+l.118 \section
               {Propagation} <./assets/images//topology.jpg>]
-<assets/images//Snips.jpg, id=160, 1123.19624pt x 619.31375pt>
+<assets/images//Snips.jpg, id=163, 1123.19624pt x 619.31375pt>
 File: assets/images//Snips.jpg Graphic file (type jpg)
 <use assets/images//Snips.jpg>
-Package pdftex.def Info: assets/images//Snips.jpg  used on input line 110.
+Package pdftex.def Info: assets/images//Snips.jpg  used on input line 121.
 (pdftex.def)             Requested size: 312.9803pt x 172.56561pt.
  [4pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.119 
+l.130 
        <./assets/images/snips.jpg>]
-<assets/images//merklechain.jpg, id=166, 2189.17876pt x 472.76625pt>
+<assets/images//merklechain.jpg, id=169, 2189.17876pt x 472.76625pt>
 File: assets/images//merklechain.jpg Graphic file (type jpg)
 <use assets/images//merklechain.jpg>
-Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 125
+Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 136
 .
 (pdftex.def)             Requested size: 369.88582pt x 79.87865pt.
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.143 \section
+l.154 \section
               {Forks} <./assets/images//merklechain.jpg>]
-<assets/images//fork.jpg, id=172, 825.0825pt x 459.7175pt>
+<assets/images//fork.jpg, id=175, 825.0825pt x 459.7175pt>
 File: assets/images//fork.jpg Graphic file (type jpg)
 <use assets/images//fork.jpg>
-Package pdftex.def Info: assets/images//fork.jpg  used on input line 146.
+Package pdftex.def Info: assets/images//fork.jpg  used on input line 157.
 (pdftex.def)             Requested size: 284.52756pt x 158.53255pt.
  [6pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.161 
-       <./assets/images//fork.jpg>] (./Bitcoin Blink.bbl [7]) [8] [9] [10]
-(./Bitcoin Blink.aux)
+l.172 
+       <./assets/images//fork.jpg>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+81.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) (./Bitcoin Blink.bbl
+[7]) [8] [9] [10] [11] (./Bitcoin Blink.aux)
 Package rerunfilecheck Info: File `"Bitcoin Blink".out' has not changed.
 (rerunfilecheck)             Checksum: 034EBA014A53D8E6E4896D323C5DE5F1;3100.
  ) 
 Here is how much of TeX's memory you used:
- 35496 strings out of 480129
- 770428 string characters out of 5893409
- 1065756 words of memory out of 5000000
- 52867 multiletter control sequences out of 15000+600000
- 481005 words of font info for 69 fonts, out of 8000000 for 9000
+ 36222 strings out of 480129
+ 779254 string characters out of 5893409
+ 1066797 words of memory out of 5000000
+ 53576 multiletter control sequences out of 15000+600000
+ 487361 words of font info for 73 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 84i,9n,80p,1638b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Bitcoin Blink.pdf" (10 pages, 463405 bytes).
+ 84i,10n,80p,1638b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.60
+0pk> </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.
+600pk> </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm100
+0.600pk> </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1
+440.600pk> </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecr
+m0900.600pk> </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/e
+cbx0900.600pk> </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecrm0700.600pk> </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecbx1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msbm7.pfb>
+Output written on "Bitcoin Blink.pdf" (11 pages, 454638 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 250 compressed objects within 3 object streams
- 57 named destinations out of 1000 (max. 500000)
+ 579 PDF objects out of 1000 (max. 8388607)
+ 261 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
  281 words of extra memory for PDF output out of 10000 (max. 10000000)
 
