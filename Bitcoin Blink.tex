@@ -185,43 +185,59 @@ Since Layer 1 is dynamically scalable, the need for an offline-based off-chain d
 
 \subsection{Partcipation}
 
-For every epoch before the allocation of blocks, the joining  requirement is increased by eliminating certain node's bandwidth proof by conducting a vote with current producers. 
+For every epoch before the allocation of blocks, the joining  requirement is increased by eliminating certain node's bandwidth proof by conducting a vote with current producers $|\mathbb{R}| = \{P(b)_1,P(b)_2,...P(b)_n\}$  . 
 
 \begin{equation*}
-\forall \mathbb{R}\{P_1(b_1),\dots P_n(b_n)\} \begin{cases}
-\mathbb{R} \backslash \{\{P_n(b_n)\}\} \wedge \in \mathbb{R}', & \text{if } b_n < \bar{x}(\mathbb{R}) \\
-P_n(b_n) \in \mathbb{R}  & \text{,otherwise}
+\forall |\mathbb{R}| \begin{cases}
+|\mathbb{R}| \backslash \{\{P(b)_n\}\} \wedge \in |\mathbb{R}'|, & \text{if } P(b)_n < \bar{x}(|\mathbb{R}|) \\
+P(b)_n \in |\mathbb{R}|  & \text{,otherwise}
 \end{cases}
 \end{equation*}
-After Voting,
+After Seed,
 \begin{equation*}
-k = \sum_{P'_n(b'_n)}^{P'_m(b'_m)} \text{ only,} \in \mathbb{R}
+\forall \mathbb{R'} k = \sum_{P(b)'_n \in |\mathbb{R}|} P(b)'_n
 \end{equation*}
 \begin{equation*}
-\forall \mathbb{R'} \backslash \{\{P_n(b_n)\}\}, \text{ if } P_n(b_n) \in \mathbb{R}' \text{ where, } k > \sum_{b_1}^{b_n} \mathbb{R} \cdot (51 \cdot 10^{-2})
-\end{equation*}
-\begin{equation*}
-P_n(b_n) \in \mathbb{R}',  \text{ otherwise}
+\forall \mathbb{R'} \begin{cases}
+|\mathbb{R}'| \backslash \{\{P(b)_n\}\}, & \text{ if } k > \bar{x}(|\mathbb{R}|) \cdot (51 \cdot 10^{-2})\\
+P(b)_n \in |\mathbb{R}'|, & \text{ otherwise}
+\end{cases}
 \end{equation*}
 Results, 
 \begin{equation*}
-\mathbb{R} = \mathbb{R} {\displaystyle \cup } \mathbb{R}', i = \bar{x}(\mathbb{R}), \mathbb{R}=\emptyset
+|\mathbb{R}| = |\mathbb{R}| {\displaystyle \cup } |\mathbb{R}'|, i = \bar{x}(|\mathbb{R}|), |\mathbb{R}|=\emptyset
 \end{equation*}
 \begin{conditions}
-\mathbb{R} & Block Producers\\
-P_n & PubKey\\
-b_n & Bandwidth in bps \\
-P'_n(b'_n) & Voted Pubkey's bps\\
+|\mathbb{R}| & Block Producers\\
+P(b)_n & PubKey's Bandwidth in bps \\
+\bar{x} & Mean value\\
+P(b)'_n & Voted Pubkey's bps\\
 i & Joining requirement in bps 
 \end{conditions}
 
 \subsection{Producer Allocation}
 
-%Blocks are allocated for a whole epoch during the election commneced from a randomized seed. Every node constructs or validates the same predictable election result. Firstly, total number of blocks allocated per producer is calculated by weights including bandwidth in bps and honesty weights.
+Blocks are allocated for a whole epoch from a definite randomized seed where nodes constructs the same predictable result. Each producer's bandwidth proof $> i$ will provide the production rate in number of blocks.
 
-%Total blocks allocation per individual (only int value) = total blocks per epoch * (sum of individual bandwidth plus all weights / sum of all nodes weight (bandwidths plus node weights) of current bandwidth proofs  *100) / 100
+\begin{equation*}
+\text{Currently }|\mathbb{R}| = \emptyset, 
+\text{If } \epsilon_{(n)}\{P(b)_n...\} > i \in |\mathbb{R}|
+\end{equation*}
+Block size per second,
+\begin{equation*}
+j=min(|\mathbb{R}|)
+\end{equation*}
+Weights addition
+\begin{equation*}
+Addition here
+\end{equation*}
+\begin{equation*}
+\mathbb{N} \Phi_{P_n} = \frac{x \cdot w_n}{10^4 \cdot \sum_{w \in |\mathbb{R}|} w}
+\end{equation*}
 
-%When Total allocated blocks is lesser than total blocks per epoch, the rest of blocks are assigned to the first of blocks
+\begin{conditions}
+x & Number of blocks per epoch`
+\end{conditions}
 
 \subsection{Random Seed}
 
