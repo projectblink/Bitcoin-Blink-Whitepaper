@@ -91,7 +91,7 @@ Regulation via centralized exchanges \& custodians risks funds and doesn't encou
 \caption{Topology}
 \end{center}
 \end{figure}
-Delivery of unconfirmed transactions to nodes play important role in finality. Shared Mempools collude the network with duplicated data that results in a poor choice of transactions to include in a block. Miners take only transactions with higher fees. A direct-messaging system should be deployed with messaging instructions specific to each party as opposed to a gossip network. Paths are attached with unconfirmed transactions directly from the constructed network graph available to all nodes with public keys as pseudonymous identities protecting privacy. Two peered parties mutually sign a 2-2 random message for every $x$ block, and are gossiped across the network to identify the connection as online. From all the signed random messages proving each pubkey signature can display a network topology map from a node's point of reference. Paths have encrypted instructions and a secret number associated with each party's public key that can be proved to mint new Bitcoins. Block rewards are replaced with transaction based reward to increase the urgency to bring finality to unconfirmed-transactions. Nodes route the transaction between the origin and the destination where producers can attach the transaction to their allocated block. Since the stake information is available in the public ledger, client wallets can construct transactions along with path information that routes to nearest blocks for instant finality. Transactions are always atomic providing solution to queueing issues. Responsibilities are provided to all participants where nodes only receive the transactions which they need to include and client wallets should construct shorter paths to provide the best user experience.
+Delivery of unconfirmed transactions to nodes play important role in finality. Shared Mempools collude the network with duplicated data that results in a poor choice of transactions to include in a block. Miners take only transactions with higher fees. A direct-messaging system should be deployed with messaging instructions specific to each party as opposed to a gossip network. Paths are attached with unconfirmed transactions directly from the constructed network graph available to all nodes with public keys as pseudonymous identities protecting privacy. Two peered parties mutually sign a 2-2 random message for every $x$ block, and are gossiped across the network to identify the connection as online. From all the signed random messages proving each pubkey signature can display a network topology map from a node's point of reference. Paths are end to end encrypted with routing instructions that cannot trace back the origin. Block rewards are replaced with hash based reward to increase the urgency to bring finality and provide additional incentives via supplying new bitcoins. Nodes route transactions to the destinations where producers can attach the transaction to their allocated block. Since the stake information is available in the public ledger, client wallets can construct transactions along with path information that routes to nearest blocks for instant finality. Transactions are always atomic providing solution to queueing issues. Responsibilities are provided to all participants where nodes only receive the transactions which they need to include and client wallets should construct shorter paths to provide the best user experience.
 \section{Propagation}
 \begin{figure}[H]
 \begin{center}
@@ -104,7 +104,7 @@ A Block is collectively validated but constructed as snips - divisible block chu
 To synchronize time, each node's hash rate per second of a specific hash function is proved cryptographically onchain and taken in multiples of a common hardware's hash rate $(R)$ . This Individual hash-rate proof is also provided along with bandwidth proof for every epoch which trustlessly synchronizes all nodes as a single hardware producing continuous hashes concated with all snips. This provides cryptographic timestamped proofs to announce each epoch's block time under which all snips have to arrive and win the time-based propagation competition. The competition is termed "Proof of Speed".
 \section{Rewards}
 
-Rewards are given for each transaction according to its size  announced for every epoch which benefits finality of transactions. Since a year's total newly minted bitcoins are definite and each epoch's data size propagated in blocks are capped, new bitcoins can be supplied exactly proportional to the current Bitcoin issuance rate with halving. Rewards are collected from secret numbers constructed by users are provided to all the routed nodes where only the block that mints the transaction can collect it. While Tax outputs are attached as zero input transactions within the snip it contains, the rewards and fee outputs when accounted as a seperate snip marks the end of a block. 
+Rewards are given for each snip hash concated with transactions validated by VDF proofs. Since newly minted bitcoins for a period of time is definite and each epoch's sum of all block time is capped, new bitcoins can be supplied exactly proportional to the current Bitcoin issuance rate with halving. Each hash represents work done by nodes on validating and propagating transactions. When fork arises due to rejected snips, rest of block time and its allocated rewards are slashed. Meanwhile when a block is fully minted, rest of it's allocated rewards are distributed to next of block producers of the epoch. While Tax outputs are attached as zero input transactions within the snip it contains, the rewards and fee outputs when accounted as a seperate snip marks the end of a block. 
 
 During staking, producers announce their accepted tokens for which they will directly withdraw the commission. For other tokens, delegators can stake with a condition that their stake in bitcoins or the accepted stake token will be traded for the collected fees. During the commission withdrawal of non-accepted tokens, the producer will deposit collected fees to delegators and inflate the stake 1:1 ratio to withdraw the collateral. Users can pay in any token, delegators incur the risk, and producers get paid in tokens of their choice to validate transactions.
 \section{Renting}
@@ -172,8 +172,11 @@ Since Layer 1 is dynamically scalable, the need for an offline-based off-chain d
 \normalsize
 \section{Zk Circuits}
 \subsection{Bandwidth Proof}
+%Purva
 \subsection{VoC Vote}
+%Purva
 \subsection{Hashrate Proof}
+%Purva
 \section{Election}
 
 \subsection{Partcipation}
@@ -328,12 +331,18 @@ All delegators can able to withdraw the available tokens according to their weig
 
 \section{Routing Path}
 %Path with nlocktime, encryption, onion mixing, secret number, path layers
+%Purva
 
-\section{Routing Reward}
+\section{Hash-Reward}
 Halving of Bitcoin issuance is done every $R \cdot (1.26 \cdot 10^8) \in |\mathbb{I}|$ hashes. Every epoch's $ \epsilon_R \subset |\mathbb{I}|$ will have a $g$ amount of bitcoins to be issued. Hence for every epoch a target $g$ new bitcoins is set to mint. 
-$g \equiv \epsilon_n(\sum_1^x b_s) \text{ in  bits }$ For each bit of transaction shall include a bitcoin reward, collected from the attached secret hash $H(a)$ inside a transaction constructed by the client where its pre-image $(a)$ is provided to propagated nodes in the path. The bitcoin reward for the transaction of $x$ bits can be minted if the pre-image is proved in the same block the secret-hash is minted. If the block is failed without collecting the reward, it is burnt by next producer removing from circulation similar to uncollected fees.
-\section{VDF Proof}
+$g \equiv \epsilon_n(\sum_1^x b(\tau))$ For each global-hash shall include a bitcoin reward. For every epoch, each block will contain $R$ hashes where each hash will have $g$ bitcoins, when a block is minted with rest of $R$ hashes, its allocated bitcoins will be distributed to all remaning hashes to be minted on the epoch, incentivizing the nodes to attach snips at the earliest without holding. For a forked block, the bitcoins per hash is slashed by the next block producer to keep issuance at equillibrium with previous halving rules.
 
+%\begin{equation}
+%Equation here
+%\end{equation}
+
+\section{VDF Proof}
+%Joby
 \section{Weights}
 Weights are provided to slash oppurtunity for producing blocks in next epochs for dishonest, lower performance node which fails to mint the block fully, or create forks due to lower bandwidth. Each weight shall increment or decrement the posted bandwidth costing capital to nodes.
 \begin{align*}
@@ -345,8 +354,10 @@ Weights are provided to slash oppurtunity for producing blocks in next epochs fo
 \text{Age} = +0.03 \cdot (\widetilde{x}|\mathbb{R}|)\\
 \end{align*}
 Null Block weight is added if a producer fails to add a block with no snips. Forks of degree 1 refers to the fork created by the first destitation producer after receiving the snip, imposed on the block producer. Forks of degree 2 refers to the fork created by further destinations where both the sender and receiver shall incur the negative weight equally shared. Fork proofs can be provided by anynode usually the producer before the fork, who are incentivized for their honesty. Age is a positive weight provided to producers who mint blocks without forks for the epoch.
-\section{Oracle Scripts}
-\section{DAO scripts}
+\section{Oracle}
+%Joby
+\section{DAO}
+%Joby
 % To remove a temporary member - Vote percentage - (Temporary members 100\% (except the member to be removed ), Permanent Members 0\%, Employees - 75\%) - Period is first 20 days of the month
 %To remove a contract -(Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 51\%) - Period is last 10 days of the month
 % To include a contract (Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 51\%) - Period is first 20 days of the month
