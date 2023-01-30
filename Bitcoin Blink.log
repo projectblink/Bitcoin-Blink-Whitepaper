@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  31 JAN 2023 00:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  31 JAN 2023 02:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -514,32 +514,32 @@ l.105 \section
 <assets/images//merklechain.jpg, id=172, 2189.17876pt x 472.76625pt>
 File: assets/images//merklechain.jpg Graphic file (type jpg)
 <use assets/images//merklechain.jpg>
-Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 114
+Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 113
 .
 (pdftex.def)             Requested size: 369.88582pt x 79.87865pt.
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.121 \end{equation*}
+l.126 \end{equation*}
                       <./assets/images//merklechain.jpg>]
 <assets/images//fork.jpg, id=178, 825.0825pt x 459.7175pt>
 File: assets/images//fork.jpg Graphic file (type jpg)
 <use assets/images//fork.jpg>
-Package pdftex.def Info: assets/images//fork.jpg  used on input line 135.
+Package pdftex.def Info: assets/images//fork.jpg  used on input line 134.
 (pdftex.def)             Requested size: 284.52756pt x 158.53255pt.
  [6pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.147 \section
-              {Oracles} <./assets/images//fork.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+l.149 
+       <./assets/images//fork.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
-[7] (./Bitcoin Blink.bbl)
-Overfull \hbox (2.00868pt too wide) in paragraph at lines 168--169
+(./Bitcoin Blink.bbl [7])
+Overfull \hbox (2.00868pt too wide) in paragraph at lines 167--168
 []\OT1/cmr/bx/n/10 Core-team \OT1/cmr/m/n/10 : \OT1/cmr/m/it/10 Ajay Joshua, Sh
 an-tanu Gaik-wad, Aditya K Pandey, Sunidhi Sharma,
  []
@@ -555,7 +555,7 @@ Here is how much of TeX's memory you used:
  29373 multiletter control sequences out of 15000+600000
  481648 words of font info for 71 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 60i,13n,63p,1706b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,63p,1552b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.60
 0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
@@ -575,7 +575,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Bitcoin Blink.pdf" (12 pages, 490463 bytes).
+Output written on "Bitcoin Blink.pdf" (12 pages, 490888 bytes).
 PDF statistics:
  322 PDF objects out of 1000 (max. 8388607)
  262 compressed objects within 3 object streams

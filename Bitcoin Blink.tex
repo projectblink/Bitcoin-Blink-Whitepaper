@@ -91,7 +91,7 @@ Regulation via centralized exchanges \& custodians risks funds and doesn't encou
 \caption{Topology}
 \end{center}
 \end{figure}
-Delivery of unconfirmed transactions to nodes play important role in finality. Shared Mempools collude the network with duplicated data that results in a poor choice of transactions to include in a block. Miners take only transactions with higher fees. A direct-messaging system should be deployed with messaging instructions specific to each party as opposed to a gossip network. Paths are attached with unconfirmed transactions directly from the constructed network graph available to all nodes with public keys as pseudonymous identities protecting privacy. Two peered parties mutually sign a 2-2 random message for every $x$ block, and are gossiped across the network to identify the connection as online. From all the signed random messages proving each pubkey signature can display a network topology map from a node's point of reference. Paths are end to end encrypted with routing instructions that cannot trace back the origin. Block rewards are replaced with hash based reward to increase the urgency to bring finality and provide additional incentives via supplying new bitcoins. Nodes route transactions to the destinations where producers can attach the transaction to their allocated block. Since the stake information is available in the public ledger, client wallets can construct transactions along with path information that routes to nearest blocks for instant finality. Transactions are always atomic providing solution to queueing issues. Responsibilities are provided to all participants where nodes only receive the transactions which they need to include and client wallets should construct shorter paths to provide the best user experience.
+Delivery of unconfirmed transactions to nodes play important role in finality. Shared Mempools collude the network with duplicated data that results in a poor choice of transactions to include in a block. Miners take only transactions with higher fees. A direct-messaging system should be deployed with messaging instructions specific to each party as opposed to a gossip network. Paths are attached with unconfirmed transactions directly from the constructed network graph available to all nodes with public keys as pseudonymous identities protecting privacy. Two peered parties mutually sign a 2-2 random message for every $x$ block, and are gossiped across the network to identify the connection as online. From all the signed random messages proving each pubkey signature can display a network topology map from a node's point of reference. Paths are end to end encrypted with routing instructions that cannot trace back the origin. Nodes route transactions to the destinations where producers can attach the transaction to their allocated block. Since the stake information is available in the public ledger, client wallets can construct transactions along with path information that routes to nearest blocks for instant finality. Transactions are always atomic providing solution to queueing issues. Responsibilities are provided to all participants where nodes only receive the transactions which they need to include and client wallets should construct shorter paths to provide the best user experience.
 \section{Propagation}
 \begin{figure}[H]
 \begin{center}
@@ -104,18 +104,17 @@ A Block is collectively validated but constructed as snips - divisible block chu
 To synchronize time, each node's hash rate per second of a specific hash function is proved cryptographically onchain and taken in multiples of a common hardware's hash rate $(R)$ . This Individual hash-rate proof is also provided along with bandwidth proof for every epoch which trustlessly synchronizes all nodes as a single hardware producing continuous hashes concated with all snips. This provides cryptographic timestamped proofs to announce each epoch's block time under which all snips have to arrive and win the time-based propagation competition. The competition is termed "Proof of Speed".
 \section{Rewards}
 
-Rewards are given for each snip hash concated with transactions validated by VDF proofs. Since newly minted bitcoins for a period of time is definite and each epoch's sum of all block time is capped, new bitcoins can be supplied exactly proportional to the current Bitcoin issuance rate with halving. Each hash represents work done by nodes on validating and propagating transactions. When fork arises due to rejected snips, rest of block time and its allocated rewards are slashed. Meanwhile when a block is fully minted, rest of it's allocated rewards are distributed to next of block producers of the epoch. While Tax outputs are attached as zero input transactions within the snip it contains, the rewards and fee outputs when accounted as a seperate snip marks the end of a block. 
+Rewards are given for each snip hash concated with transactions validated by VDF proofs. Since newly minted bitcoins for a period of time is definite and each epoch's sum of all block time is capped, new bitcoins can be supplied exactly proportional to the current Bitcoin issuance rate with halving. Each hash represents work done by nodes on validating and propagating transactions. When fork arises due to rejected snips, rest of block time and its allocated rewards are slashed. Meanwhile when a block is fully minted, rest of it's allocated rewards are distributed to next of block producers of the epoch. This encourages nodes to attest VDF proofs for receiving snips at earliest. While Tax outputs are attached as zero input transactions within the snip it contains, the rewards and fee outputs when accounted as a seperate snip marks the end of a block. 
 
 During staking, producers announce their accepted tokens for which they will directly withdraw the commission. For other tokens, delegators can stake with a condition that their stake in bitcoins or the accepted stake token will be traded for the collected fees. During the commission withdrawal of non-accepted tokens, the producer will deposit collected fees to delegators and inflate the stake 1:1 ratio to withdraw the collateral. Users can pay in any token, delegators incur the risk, and producers get paid in tokens of their choice to validate transactions.
 \section{Renting}
-Instead of taking the Merkle roots of all the transactions inside a block, a snip's Merkle root is taken and linearly hashed to find the Merkle Chain root. Since snips can be rejected by validators, it is unsure to predict a Merkle chain root giving it a purely randomized value. Inside a snip contains parsed transactions whose hashes are taken to find the snip's Merkle root can be pruned if the UTXOs are spent, burnt, or expired. 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=13cm]{merklechain}
 \caption{Merkle Chain}
 \end{center}
 \end{figure}
-Each UTXO expiry block height is embedded in its script, and can be scanned by nodes, and pruned to optimize their data storage. Client Wallets can store each of their users' transaction history and can be audited onchain using Merkle chain roots. Renting rates can be given in market price independently voted by producer nodes for every epoch per byte per block. Users cannot directly pay for rent, but rather each new UTXO created is charged a transfer fee in the range of 0.05\% - 0.005\% decided based on the total volume of all transactions settled on previous epochs.
+Instead of taking the Merkle roots of all the transactions inside a block, a snip's Merkle root is taken and linearly hashed to find the Merkle Chain root. Since snips can be rejected by validators, it is unsure to predict a Merkle chain root giving it a purely randomized value. Inside a snip contains parsed transactions whose hashes are taken to find the snip's Merkle root can be pruned if the UTXOs are spent, burnt, or expired. Each UTXO expiry block height is embedded in its script, and can be scanned by nodes, and pruned to optimize their data storage. Client Wallets can store each of their users' transaction history and can be audited onchain using Merkle chain roots. Renting rates can be given in market price independently voted by producer nodes for every epoch per byte per block. Users cannot directly pay for rent, but rather each new UTXO created is charged a transfer fee in the range of 0.05\% - 0.005\% decided based on the total volume of all transactions settled on previous epochs.
 \begin{equation*}
 5 \cdot 10^{-4} \leq \Delta f \leq 5 \cdot 10^{-5} == \sigma [\Psi (\epsilon_{n-3}, \epsilon_{n-2})] > 0.75
 \end{equation*}
@@ -337,26 +336,28 @@ All delegators can able to withdraw the available tokens according to their weig
 %Purva
 
 \section{Hash-Reward}
-Halving of Bitcoin issuance is done every $R \cdot (1.26 \cdot 10^8)$ hashes equals 210,000 of 10-minute bitcoin blocks. Every epoch ($\epsilon_n$) will have a $g$ amount of bitcoins to be issued. Hence for every epoch a target $g(\epsilon_n)$ new bitcoins is set to mint. 
+Halving of Bitcoin issuance is done every $R \cdot (1.26 \cdot 10^8)$ hashes equals 210,000 of 10-minute bitcoin blocks. Every epoch ($\epsilon_n$) will have a $g$ amount of bitcoins to be issued. Hence for every epoch a target $g(\epsilon_n)$ new bitcoins is set to mint. For forked blocks, the supply is slashed. For fully minted blocks with remaining hashes, the rewards are distributed to next hashes equally incentivizing producers.
 \begin{equation*}
 g[R(\epsilon_n)] = \frac{\Delta g(\epsilon_n)}{\epsilon_n(\sum_1^n R)}
 \end{equation*}
+Rewards per block,
 \begin{equation*}
 g[R(\epsilon_n(b))] = \epsilon_n(b(\sum_1^n R)) \cdot g[R(\epsilon_n)]
 \end{equation*}
 \begin{equation*}
 \Delta g(\epsilon_n) = g(\epsilon_n) - [\sum_1^n g[R(\epsilon_n)]  \in b(\epsilon_n)]
 \end{equation*}
+Finding forks $\Delta \lambda$,
 \begin{equation*}
-b = g(\epsilon_n(b)) - [\sum_1^n g[R(\epsilon_n)]  \not\in b_n(\epsilon_n)]
+\forall \epsilon_n(b_n), \Delta g(\epsilon_n) = 
+\begin{cases}
+g(\epsilon_n) - g(\epsilon_n(b_n)), & \text{ if } \Omega(b_n) =  0 \\
+\Delta g(\epsilon_n) + b, & \text{ if } \Omega(b_n) = \mathbb{N} \wedge \lambda  \\
+\Delta g(\epsilon_n) - b, & \text{ if } \Omega(b_n) =  \mathbb{N} \wedge \Delta \lambda \\
+\end{cases}
 \end{equation*}
 \begin{equation*}
-\Delta g(\epsilon_n) = 
-\begin{cases}
-g(\epsilon_n) - g(\epsilon_n(b_n)), & \text{ if } b =  0 \\
-\Delta g(\epsilon_n) + b, & \text{ if } b = \mathbb{N} \wedge \lambda  \\
-\Delta g(\epsilon_n) - b, & \text{ if } b =  \mathbb{N} \wedge \Delta \lambda \\
-\end{cases}
+\Omega(b_n) = g(\epsilon_n(b)) - [\sum_1^n g[R(\epsilon_n)]  \in b_n(\epsilon_n)]
 \end{equation*}
 \section{VDF Proof}
 %Joby
