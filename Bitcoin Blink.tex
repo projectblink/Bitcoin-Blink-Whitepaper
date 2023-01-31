@@ -145,7 +145,7 @@ Confirmed blocks as snips are streamed with an included path that propagates acr
 For a block, possible Merkle Chain Roots are constructed and forks are resolved. The next blocks will have the input hash value of the previous block's Merkle Chain Root. To avoid influence by the first destination node, path planning can be randomized but must include the next block producer ($n+1$) as the final destination.
 \section{Oracles}
 
-Oracle data provide real-time market rates to unlocking scripts every x interval of blocks defined. Various oracle protocols fall to freeloading and duplication issues on trustless oracle systems. A per-feed subscription based price-oracle protocol is introduced with partipants - exchanges, nodes, and users. Exchanges provide real-time market rates along with traded volume for weighted agregation of data. Nodes subscribe per request to exchange's price feeds for each token to increase positive weights as an incentive that assists in next of epoch election. Each exchange's feeds will have reputation scores that works similar to prediction markets maintained by users to avoid faulty data.
+Oracle data provide real-time market rates to unlocking scripts for every x interval of blocks. Various oracle protocols fall to freeloading and duplication issues on trustless oracle systems. A per-feed subscription based price-oracle protocol is introduced with partipants - exchanges, nodes, and users. Exchanges provide real-time market rates along with traded volume for weighted agregation of data. Nodes subscribe per request to exchanges price feeds for each token id. Each exchange's feeds will have a reputation score similar to prediction markets maintained by users to avoid faulty data. Exchanges incentivized by subscription fees, nodes provided with positive weights for next elections, users profit from removing faulty data oracles. Freeloading is avoided by exchanges participation and equally distributing positive weights per feed to producer nodes. 
 
 \section{Treasury}
 For the active development and sustainability of the project, a DAO Treasury is set up to fund developers and the community. A minimal commission is imposed on producer fees and deposited to a treasury script. Memberships are non-fungible and non-transferable 1.Temporary (Core-Developers), 2.Permanent (Investors, Community), 3.Contracts (Employees, Operations). Each has its privileges provided to developers, investors, and community members. 
@@ -158,7 +158,7 @@ The future of Bitcoin includes building L1 applications such as exchanges, bridg
 Since Layer 1 is dynamically scalable, the need for an offline-based off-chain digital cash-payment system will be developed with suitable hardware wallets. To provide a decentralized programmable environment, EVM will be deployed as a layer that can update its global-state \& contract state by providing a gas limit through a receipt-proof paid in any token. These EVM contracts shall not contain balances and EOAs, but rather purely for logic such as building DApps without a financial scope. Room for further improvement resides on sharding and size optimized scripts upgraded to Bitcoin and EVM Layer. Moreover reserach will be conducted to merge various bitcoin and altcoin chains for a clean experience on whole of finance and computing.\\
 
 \noindent Implementations can be contributed openly to \url{https://github.com/projectblink}
-\nocite{nakamoto2008bitcoin} \nocite{poon2016bitcoin}  \nocite{yakovenko2018solana} \nocite{wood2014ethereum}
+\nocite{nakamoto2008bitcoin} \nocite{poon2016bitcoin}  \nocite{yakovenko2018solana} \nocite{wood2014ethereum} \nocite{chainlink}
 \bibliographystyle{ieeetr}
 \bibliography{citation.bib}
 
@@ -172,7 +172,7 @@ Since Layer 1 is dynamically scalable, the need for an offline-based off-chain d
 \appendix
 \noindent \Large \textbf{Appendix}
 \normalsize
-\section{Zk Circuits}
+\section{Zk Circuits (Writing)}
 \subsection{Bandwidth Proof}
 %Purva
 \subsection{VoC Vote}
@@ -186,23 +186,23 @@ Since Layer 1 is dynamically scalable, the need for an offline-based off-chain d
 For every epoch before the allocation of blocks, the joining  requirement is increased by eliminating certain node's bandwidth proof by conducting a vote with current producers.
 
 \begin{equation*}
-|\mathbb{R}| = \{P(b)_1,P(b)_2,...P(b)_n\} 
+|\mathbb{R}| = \{P(B)_1,P(B)_2,...P(B)_n\} 
 \end{equation*}
 Vote Participants,
 \begin{equation*}
 \forall |\mathbb{R}| \begin{cases}
-|\mathbb{R}| \backslash \{\{P(b)_n\}\} \wedge \in |\mathbb{R}'|, & \text{if } P(b)_n < \bar{x}(|\mathbb{R}|) \\
-P(b)_n \in |\mathbb{R}|,  & \text{otherwise}
+|\mathbb{R}| \backslash \{\{P(B)_n\}\} \wedge \in |\mathbb{R}'|, & \text{if } P(B)_n < \bar{x}(|\mathbb{R}|) \\
+P(B)_n \in |\mathbb{R}|,  & \text{otherwise}
 \end{cases}
 \end{equation*}
 After Seed,
 \begin{equation*}
-\forall \mathbb{R'} k = \sum_{P(b)'_n \in |\mathbb{R}|} P(b)'_n
+\forall \mathbb{R'} k = \sum_{P(B)'_n \in |\mathbb{R}|} P(B)'_n
 \end{equation*}
 \begin{equation*}
 \forall \mathbb{R'} \begin{cases}
-|\mathbb{R}'| \backslash \{\{P(b)_n\}\}, & \text{ if } k > \bar{x}(|\mathbb{R}|) \cdot (51 \cdot 10^{-2})\\
-P(b)_n \in |\mathbb{R}'|, & \text{ otherwise}
+|\mathbb{R}'| \backslash \{\{P(B)_n\}\}, & \text{ if } k > \bar{x}(|\mathbb{R}|) \cdot (51 \cdot 10^{-2})\\
+P(B)_n \in |\mathbb{R}'|, & \text{ otherwise}
 \end{cases}
 \end{equation*}
 Results, 
@@ -211,10 +211,10 @@ Results,
 \end{equation*}
 \begin{conditions}
 |\mathbb{R}| & Block Producers\\
-P(b)_n & PubKey's Bandwidth in bps \\
+P(B)_n & PubKey's Bandwidth in bps \\
 \bar{x} & Mean value\\
 |\mathbb{R}''| & Producers to be voted\\
-P(b)'_n & Voted Pubkey's bps\\
+P(B)'_n & Voted Pubkey's bps\\
 i & Joining requirement in bps 
 \end{conditions}
 
@@ -224,7 +224,7 @@ Blocks are allocated for a whole epoch from a definite randomized seed where nod
 
 \begin{equation*}
 \text{Currently }|\mathbb{R}| = \emptyset, 
-\text{If } \epsilon_{(n)}\{P(b)_n...\} > i \in |\mathbb{R}|
+\text{If } \epsilon_{(n)}\{P(B)_n...\} > i \in |\mathbb{R}|
 \end{equation*}
 Block Size / sec,
 \begin{equation*}
@@ -232,7 +232,7 @@ Block Size / sec,
 \end{equation*}
 Weights addition,
 \begin{equation*}
-\forall |\mathbb{R}|, P(b)_n = \sum w(P) + P(b)_n = P(w)_n  \in |\mathbb{R}''|
+\forall |\mathbb{R}|, P(B)_n = \sum w(P) + P(B)_n = P(w)_n  \in |\mathbb{R}''|
 \end{equation*}
 Allocation,
 \begin{equation*}
@@ -308,30 +308,44 @@ b_h & Block height in base$_{10}$\\
 \epsilon_h & Epoch height in base$_{10}$\\
 P(\Phi_n) & Pubkey in MD160 base$_{16}$ rep
 \end{conditions}
-\section{Taxes}
+\section{Taxes(Writing)}
 During the unlocking script stack execution, with the solutions offered by sCrypt to take the preimage of the entire transaction, the outputs are validated with aaccuracy of providing the capital gains tax to the regulating authority of the unlocking script. Capital gains are imposed to the profits by feeding from an onchain oracle for the token id. Profits are calculated from the time of minting the script to spending. TDS or Tax Deducted at Source, a fixed percentage of a entire balance can be imposed by employers and payers to payees. It restricts the TDS amount when the script balance is spent and sends to the regulator. Sales tax is direct tax payment with two outputs imposed when a product is bought where the merchant provides information about the tax amount with its regulator and the price excluding the tax paid to merchant. Implementations can be contributed to \url{https://github.com/projectblink/Blink_sCrypts} 
-\section{Stake Proof}
-\subsection{Deposit}
-Delegators can provide their bitcoins or the accepted token for staking to node's publicly available stake script for a specific accepted token id. For Non-accepted tokens stake script can be created by delegators themseleves and add the nodes information to it. 
-%\begin{equation*}
-%stake to script of tokenid, accepted staking token id and node pubkey which will have a limit, or create a script for node pubkey with tokenid, accepted staking token id. Node pubkey cannot withdraw, rather it can freeze during his own block. Users can freely deposit with pubkey and withdraw to same pubkey or withdraw to any pubkey.
-%\end{equation*}
-This stake script will have public functions such as deposit, withdraw, freeze called by delegators and the node. Stakes can be freezed by authorized node restricting deposit and withdrawal for the block it is collateralized. 
-\subsection{Fee}
-Fees are provided to Delegators, Validators and DAO Tresury. The rules for withdrawing are different for accepted and non-accepted tokens as validators should have their independent choice of payout tokens to provide service to users.
-%\begin{equation*}
-%Direct withdrawal of commission, and dao payout and then depositing fees to stake script. 
-%\end{equation*}
-%\begin{equation*}
-%Depositing fees, inflating ratio and making node as a delegator and dao script as a delegator too.
-%\end{equation*}
-\subsection{Withdrawal}
-All delegators can able to withdraw the available tokens according to their weight of stake.
-%\begin{equation*}
-%Withdrawal ratio
-%\end{equation*}
+\section{Stake Proof(Writing)}
 
-\section{Routing Path}
+Delegators provide bitcoins or the staking token for accepted token id ($\iff Pub(M)=Pub(C)$) to nodes. For non-accepted tokens delegators $C$ can create their own script along with specifying node $M$.
+\begin{equation*}
+\mathbb{SS} = lim,M,id
+\end{equation*}
+Deposit,
+\begin{equation*}
+Update Ratio
+\end{equation*}
+\begin{equation*}
+User Deposit with Pubkey
+\end{equation*}
+Accepted tokens fees,
+\begin{equation*}
+Deposit Fees excluding comission
+\end{equation*}
+\begin{equation*}
+Direct Outputs to Node \& DAO 
+\end{equation*}
+Non Accepted tokens,
+\begin{equation*}
+Inflate Ratio
+\end{equation*}
+Withdrawal,
+\begin{equation*}
+Any Withdraw to pubkey
+\end{equation*}
+\begin{conditions}lim & Bitcoin or Stake Token Limit\\
+id & Token id Hash\\
+M & Stake Script Maintainer (Producer Node)\\
+C & Stake Script Creator or Delegator \\
+\end{conditions}
+During production of blocks, producers can reject their stake script transactions to freeze the collateral as a proof for validationZxcte.
+
+\section{Routing Path(Writing)}
 %Path with nlocktime, encryption, onion mixing, secret number, path layers
 %Purva
 
@@ -347,7 +361,7 @@ g[R(\epsilon_n(b))] = \epsilon_n(b(\sum_1^n R)) \cdot g[R(\epsilon_n)]
 \begin{equation*}
 \Delta g(\epsilon_n) = g(\epsilon_n) - [\sum_1^n g[R(\epsilon_n)]  \in b(\epsilon_n)]
 \end{equation*}
-Finding forks $\Delta \lambda$,
+Slashing forks $\Delta \lambda$,
 \begin{equation*}
 \forall \epsilon_n(b_n), \Delta g(\epsilon_n) = 
 \begin{cases}
@@ -359,9 +373,18 @@ g(\epsilon_n) - g(\epsilon_n(b_n)), & \text{ if } \Omega(b_n) =  0 \\
 \begin{equation*}
 \Omega(b_n) = g(\epsilon_n(b)) - [\sum_1^n g[R(\epsilon_n)]  \in b_n(\epsilon_n)]
 \end{equation*}
-\section{VDF Proof}
-%Joby
-\section{Weights}
+\section{VDF Proof(Writing)}
+Constrcution
+
+Attesting
+
+Time Limit
+
+Validation
+
+Fork Resolving
+
+\section{Weights(Writing)}
 Weights are provided to slash oppurtunity for producing blocks in next epochs for dishonest, lower performance node which fails to mint the block fully, or create forks due to lower bandwidth. Each weight shall increment or decrement the posted bandwidth costing capital to nodes.
 \begin{align*}
 \text{Null Block} = -0.015 \cdot (\widetilde{x}|\mathbb{R}|)\\
@@ -373,14 +396,14 @@ Weights are provided to slash oppurtunity for producing blocks in next epochs fo
 Extras here
 \end{align*}
 Null Block weight is added if a producer fails to add a block with no snips. Forks of degree 1 refers to the fork created by the first destitation producer after receiving the snip, imposed on the block producer. Forks of degree 2 refers to the fork created by further destinations. Both the sender and receiver shall incur the negative weight equally shared during forks. Fork proofs can be provided by anynode usually the producer before the fork, who are incentivized for their honesty. Age is a positive weight provided to producers who mint blocks without forks for entire the epoch.
-\section{Oracle}
+\section{Oracle(Writing)}
 %Joby
-\section{DAO}
+\section{DAO(Writing)}
 %Joby
 % To remove a temporary member - Vote percentage - (Temporary members 100\% (except the member to be removed ), Permanent Members 0\%, Employees - 75\%) - Period is first 20 days of the month
 %To remove a contract -(Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 51\%) - Period is last 10 days of the month
 % To include a contract (Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 51\%) - Period is first 20 days of the month
-\section{Size Optimization}
-\section{Improvements}
+\section{Size Optimization(Writing)}
+\section{Improvements(Writing)}
 %emphasis on zkpart of election and verifying the snips produced by the node without knowing their full identity until the full block is minted.
 \end{document}
