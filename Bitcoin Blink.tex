@@ -310,40 +310,34 @@ P(\Phi_n) & Pubkey in MD160 base$_{16}$ rep
 \end{conditions}
 \section{Taxes(Writing)}
 During the unlocking script stack execution, with the solutions offered by sCrypt to take the preimage of the entire transaction, the outputs are validated with aaccuracy of providing the capital gains tax to the regulating authority of the unlocking script. Capital gains are imposed to the profits by feeding from an onchain oracle for the token id. Profits are calculated from the time of minting the script to spending. TDS or Tax Deducted at Source, a fixed percentage of a entire balance can be imposed by employers and payers to payees. It restricts the TDS amount when the script balance is spent and sends to the regulator. Sales tax is direct tax payment with two outputs imposed when a product is bought where the merchant provides information about the tax amount with its regulator and the price excluding the tax paid to merchant. Implementations can be contributed to \url{https://github.com/projectblink/Blink_sCrypts} 
-\section{Stake Proof(Writing)}
+\section{Stake Proof}
 
-Delegators provide bitcoins or the staking token for accepted token id ($\iff Pub(M)=Pub(C)$) to nodes. For non-accepted tokens delegators $C$ can create their own script along with specifying node $M$.
+Delegators provide bitcoins or the staking token for accepted token id to nodes. For non-accepted tokens delegators $C$ can create their own script along with specifying node $M$.
 \begin{equation*}
-\mathbb{SS} = lim,M,id
+\mathbb{SS} = lim,M,id,R,(am_n,Pub_k,e_i) \in |\mathbb{D}|,P(am_n,Pub(M),e_i),F(am,e_i)
 \end{equation*}
-Deposit,
+
+When deposit, each stake of delegators $|\mathbb{D}|$ is identified along with its $k$ Pubkey and $e_i$ exchange rate to deduct gains tax of staking period. During production of blocks, producers can reject their stake script transactions to freeze the collateral as a proof for validation. For accepted tokens, validators create outputs to themselves and deposit fees. For non-accepted tokens producers inflate the ratio $R$ , to withdraw staked tokens for comissions.
 \begin{equation*}
-Update Ratio
-\end{equation*}
-\begin{equation*}
-User Deposit with Pubkey
-\end{equation*}
-Accepted tokens fees,
-\begin{equation*}
-Deposit Fees excluding comission
+P(am_n) =
+\begin{cases}
+R=1,P(am_n)=0 & \text{ if } Pub(M)=Pub(C)\\
+R=?,P(am_n)=?  & \text{ if } Pub(M)\neq Pub(C)
+\end{cases}
 \end{equation*}
 \begin{equation*}
-Direct Outputs to Node \& DAO 
+Withdrawal(S) =
+\begin{cases} 
+[D(am_n)*R] + F(am)*[D(am_n(Pub_k))/100*\sum_1^n D(am_n)], & \text{ if } D\\
+ & \text{ if } P
+\end{cases}
 \end{equation*}
-Non Accepted tokens,
-\begin{equation*}
-Inflate Ratio
-\end{equation*}
-Withdrawal,
-\begin{equation*}
-Any Withdraw to pubkey
-\end{equation*}
-\begin{conditions}lim & Bitcoin or Stake Token Limit\\
+\begin{conditions}
+lim & Bitcoin or Stake Token Limit\\
 id & Token id Hash\\
 M & Stake Script Maintainer (Producer Node)\\
 C & Stake Script Creator or Delegator \\
 \end{conditions}
-During production of blocks, producers can reject their stake script transactions to freeze the collateral as a proof for validationZxcte.
 
 \section{Routing Path(Writing)}
 %Path with nlocktime, encryption, onion mixing, secret number, path layers

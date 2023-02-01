@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  1 FEB 2023 02:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  1 FEB 2023 05:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -545,15 +545,14 @@ an-tanu Gaik-wad, Aditya K Pandey, Sunidhi Sharma,
  []
 
 [8] [9] [10]
-Overfull \hbox (8.0448pt too wide) in paragraph at lines 315--316
-[]\OT1/cmr/m/n/10 Delegators pro-vide bit-coins or the stak-ing to-ken for ac-c
-epted to-ken id ($ \OMS/cmsy/m/n/10 ([])  \OML/cmm/m/it/10 Pub\OT1/cmr/m/n/10 (
-\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) =
+Overfull \hbox (9.1897pt too wide) detected at line 334
+\OML/cmm/m/it/10 Withdrawal\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 S\OT1/cmr/m/n/10 )
+ = []
  []
 
 [11] [12] [13] (./Bitcoin Blink.aux)
 Package rerunfilecheck Info: File `"Bitcoin Blink".out' has not changed.
-(rerunfilecheck)             Checksum: D12A76F60311361D763C4F5F5BFE8470;3404.
+(rerunfilecheck)             Checksum: FFA3E5087A2FD3490DC419867E6240CB;3353.
  ) 
 Here is how much of TeX's memory you used:
  11636 strings out of 480129
@@ -582,7 +581,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Bitcoin Blink.pdf" (13 pages, 493109 bytes).
+Output written on "Bitcoin Blink.pdf" (13 pages, 493195 bytes).
 PDF statistics:
  315 PDF objects out of 1000 (max. 8388607)
  254 compressed objects within 3 object streams
