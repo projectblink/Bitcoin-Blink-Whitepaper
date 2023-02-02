@@ -172,7 +172,7 @@ Since Layer 1 is dynamically scalable, the need for an offline-based off-chain d
 \appendix
 \noindent \Large \textbf{Appendix}
 \normalsize
-\section{Zk Circuits (Writing)}
+\section{Zk Circuits }
 \subsection{Bandwidth Proof}
 %Purva
 \subsection{VoC Vote}
@@ -308,38 +308,35 @@ b_h & Block height in base$_{10}$\\
 \epsilon_h & Epoch height in base$_{10}$\\
 P(\Phi_n) & Pubkey in MD160 base$_{16}$ rep
 \end{conditions}
-\section{Taxes(Writing)}
-During the unlocking script stack execution, with the solutions offered by sCrypt to take the preimage of the entire transaction, the outputs are validated with aaccuracy of providing the capital gains tax to the regulating authority of the unlocking script. Capital gains are imposed to the profits by feeding from an onchain oracle for the token id. Profits are calculated from the time of minting the script to spending. TDS or Tax Deducted at Source, a fixed percentage of a entire balance can be imposed by employers and payers to payees. It restricts the TDS amount when the script balance is spent and sends to the regulator. Sales tax is direct tax payment with two outputs imposed when a product is bought where the merchant provides information about the tax amount with its regulator and the price excluding the tax paid to merchant. Implementations can be contributed to \url{https://github.com/projectblink/Blink_sCrypts} 
+\section{Taxes}
+%During the unlocking script stack execution, with the solutions offered by sCrypt to take the preimage of the entire transaction, the outputs are validated with aaccuracy of providing the capital gains tax to the regulating authority of the unlocking script. Capital gains are imposed to the profits by feeding from an onchain oracle for the token id. Profits are calculated from the time of minting the script to spending. TDS or Tax Deducted at Source, a fixed percentage of a entire balance can be imposed by employers and payers to payees. It restricts the TDS amount when the script balance is spent and sends to the regulator. Sales tax is direct tax payment with two outputs imposed when a product is bought where the merchant provides information about the tax amount with its regulator and the price excluding the tax paid to merchant. Implementations can be contributed to \url{https://github.com/projectblink/Blink_sCrypts} 
 \section{Stake Proof}
 
-Delegators provide bitcoins or the staking token for accepted token id to nodes. For non-accepted tokens delegators $C$ can create their own script along with specifying node $M$.
+Delegators provide bitcoins or the staking token for accepted token id to nodes. For non-accepted tokens delegators $(h1 \in D_T)$ can create their own script along with specifying node $(M)$.
 \begin{equation*}
-\mathbb{SS} = lim,M,id,R,(am_n,Pub_k,e_i) \in |\mathbb{D}|,P(am_n,Pub(M),e_i),F(am,e_i)
+\mathbb{SS} = lim,id,R,D_T(am_n,Pub_k,e_i), P(am_n,Pub(M),er_i),F_t(am,er_i). \sum D_T(am_n) 
 \end{equation*}
 
-When deposit, each stake of delegators $|\mathbb{D}|$ is identified along with its $k$ Pubkey and $e_i$ exchange rate to deduct gains tax of staking period. During production of blocks, producers can reject their stake script transactions to freeze the collateral as a proof for validation. For accepted tokens, validators create outputs to themselves and deposit fees. For non-accepted tokens producers inflate the ratio $R$ , to withdraw staked tokens for comissions.
+
+When deposit, each stake of delegators $(D_T)$ is identified along with its $(k)$ Pubkey and $(er_i)$ initial exchange rate to deduct gains tax during withdrawal $(W)$. Each script $(\mathbb{SS})$ will have a limit $(lim)$ in bitcoins or staking token along with $id$ for what token $(t)$ it is being staked. During production of blocks, producers $P(M)$ can reject their stake script transactions to freeze the collateral as a proof for validation. For accepted tokens, validators create outputs to themselves and deposit fees. For non-accepted tokens producers inflate the ratio $(R)$ , to withdraw staked tokens $(T)$ for comissions.
 \begin{equation*}
-P(am_n) =
-\begin{cases}
-R=1,P(am_n)=0 & \text{ if } Pub(M)=Pub(C)\\
-R=?,P(am_n)=?  & \text{ if } Pub(M)\neq Pub(C)
-\end{cases}
+y=(F_t(am) \cdot er_c)(C)
 \end{equation*}
 \begin{equation*}
-Withdrawal(S) =
+R=\frac{[\sum D_T(am_n)]-y}{\sum D_T(am_n)}
+\end{equation*}
+\begin{equation*}
+W(\mathbb{SS}) =
 \begin{cases} 
-[D(am_n)*R] + F(am)*[D(am_n(Pub_k))/100*\sum_1^n D(am_n)], & \text{ if } D\\
- & \text{ if } P
+[D_T(am_n) \cdot R] + Fees , & \text{ if } D_T \wedge [(Pub(M)= h1) \vee (Pub(M)\neq h1) \in D_T] \\
+F(am)_t \cdot C & \text{ if } P \wedge Pub(M)= h1 \in D_T\\
+Remaining of D_t from R & \text{ if } P \wedge Pub(M)\neq h1 \in D_T\\
 \end{cases}
 \end{equation*}
-\begin{conditions}
-lim & Bitcoin or Stake Token Limit\\
-id & Token id Hash\\
-M & Stake Script Maintainer (Producer Node)\\
-C & Stake Script Creator or Delegator \\
-\end{conditions}
 
-\section{Routing Path(Writing)}
+\section{Network Graph}
+
+\section{Routing Path}
 %Path with nlocktime, encryption, onion mixing, secret number, path layers
 %Purva
 
@@ -367,7 +364,7 @@ g(\epsilon_n) - g(\epsilon_n(b_n)), & \text{ if } \Omega(b_n) =  0 \\
 \begin{equation*}
 \Omega(b_n) = g(\epsilon_n(b)) - [\sum_1^n g[R(\epsilon_n)]  \in b_n(\epsilon_n)]
 \end{equation*}
-\section{VDF Proof(Writing)}
+\section{VDF Proof}
 Constrcution
 
 Attesting
@@ -378,7 +375,7 @@ Validation
 
 Fork Resolving
 
-\section{Weights(Writing)}
+\section{Weights}
 Weights are provided to slash oppurtunity for producing blocks in next epochs for dishonest, lower performance node which fails to mint the block fully, or create forks due to lower bandwidth. Each weight shall increment or decrement the posted bandwidth costing capital to nodes.
 \begin{align*}
 \text{Null Block} = -0.015 \cdot (\widetilde{x}|\mathbb{R}|)\\
@@ -390,14 +387,17 @@ Weights are provided to slash oppurtunity for producing blocks in next epochs fo
 Extras here
 \end{align*}
 Null Block weight is added if a producer fails to add a block with no snips. Forks of degree 1 refers to the fork created by the first destitation producer after receiving the snip, imposed on the block producer. Forks of degree 2 refers to the fork created by further destinations. Both the sender and receiver shall incur the negative weight equally shared during forks. Fork proofs can be provided by anynode usually the producer before the fork, who are incentivized for their honesty. Age is a positive weight provided to producers who mint blocks without forks for entire the epoch.
-\section{Oracle(Writing)}
+\section{UTXO Expiry}
+\section{Merkle-Chain}
+\section{Public Keys}
+\section{Oracle}
 %Joby
-\section{DAO(Writing)}
+\section{DAO}
 %Joby
 % To remove a temporary member - Vote percentage - (Temporary members 100\% (except the member to be removed ), Permanent Members 0\%, Employees - 75\%) - Period is first 20 days of the month
 %To remove a contract -(Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 51\%) - Period is last 10 days of the month
 % To include a contract (Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 51\%) - Period is first 20 days of the month
-\section{Size Optimization(Writing)}
-\section{Improvements(Writing)}
+\section{Size Optimization}
+\section{Improvements}
 %emphasis on zkpart of election and verifying the snips produced by the node without knowing their full identity until the full block is minted.
 \end{document}
