@@ -1,24 +1,33 @@
 \begin{thebibliography}{1}
 
 \bibitem{nakamoto2008bitcoin}
-S.~Nakamoto, ``Bitcoin : A peer-to-peer electronic cash system,'' {\em
-  Whitepaper}, p.~9, 2008.
+Satoshi Nakamoto.
+\newblock Bitcoin : A peer-to-peer electronic cash system.
+\newblock {\em Whitepaper}, page~9, 2008.
+
+\bibitem{sCrypt}
+scrypt — a high level smart contract language for bitcoin sv.
+\newblock \url{https://scrypt.io/}.
 
 \bibitem{poon2016bitcoin}
-J.~Poon and T.~Dryja, ``The bitcoin lightning network: Scalable off-chain
-  instant payments,'' 2016.
+Joseph Poon and Thaddeus Dryja.
+\newblock The bitcoin lightning network: Scalable off-chain instant payments,
+  2016.
 
 \bibitem{yakovenko2018solana}
-A.~Yakovenko, ``Solana: A new architecture for a high performance blockchain
-  v0. 8.13,'' {\em Whitepaper}, 2018.
+Anatoly Yakovenko.
+\newblock Solana: A new architecture for a high performance blockchain v0.
+  8.13.
+\newblock {\em Whitepaper}, 2018.
 
 \bibitem{wood2014ethereum}
-G.~Wood {\em et~al.}, ``Ethereum: A secure decentralised generalised
-  transaction ledger,'' {\em Ethereum project yellow paper}, vol.~151,
-  no.~2014, pp.~1--32, 2014.
+Gavin Wood et~al.
+\newblock Ethereum: A secure decentralised generalised transaction ledger.
+\newblock {\em Ethereum project yellow paper}, 151(2014):1--32, 2014.
 
 \bibitem{chainlink}
-S.~Ellis, A.~Juels, and S.~Nazarov, ``Chainlink : A decentralized oracle
-  network v1,'' {\em Whitepaper}, 2017.
+Steve Ellis, Ari Juels, and Sergey Nazarov.
+\newblock Chainlink : A decentralized oracle network v1.
+\newblock {\em Whitepaper}, 2017.
 
 \end{thebibliography}

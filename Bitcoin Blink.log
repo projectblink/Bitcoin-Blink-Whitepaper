@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  2 FEB 2023 19:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  2 FEB 2023 20:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -489,7 +489,7 @@ File: omltxmi.fd 2000/12/15 v3.1
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<assets/images//topology.jpg, id=156, 950.55125pt x 345.29pt>
+<assets/images//topology.jpg, id=159, 950.55125pt x 345.29pt>
 File: assets/images//topology.jpg Graphic file (type jpg)
 <use assets/images//topology.jpg>
 Package pdftex.def Info: assets/images//topology.jpg  used on input line 90.
@@ -500,7 +500,7 @@ Package pdftex.def Info: assets/images//topology.jpg  used on input line 90.
                                                   \__shipout_drop_firstpage_...
 l.95 \section
              {Propagation} <./assets/images//topology.jpg>]
-<assets/images//Snips.jpg, id=162, 1123.19624pt x 619.31375pt>
+<assets/images//Snips.jpg, id=165, 1123.19624pt x 619.31375pt>
 File: assets/images//Snips.jpg Graphic file (type jpg)
 <use assets/images//Snips.jpg>
 Package pdftex.def Info: assets/images//Snips.jpg  used on input line 98.
@@ -511,7 +511,7 @@ Package pdftex.def Info: assets/images//Snips.jpg  used on input line 98.
                                                   \__shipout_drop_firstpage_...
 l.105 \section
               {Rewards} <./assets/images/snips.jpg>]
-<assets/images//merklechain.jpg, id=168, 2189.17876pt x 472.76625pt>
+<assets/images//merklechain.jpg, id=171, 2189.17876pt x 472.76625pt>
 File: assets/images//merklechain.jpg Graphic file (type jpg)
 <use assets/images//merklechain.jpg>
 Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 113
@@ -523,7 +523,7 @@ Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 113
                                                   \__shipout_drop_firstpage_...
 l.126 \end{equation*}
                       <./assets/images//merklechain.jpg>]
-<assets/images//fork.jpg, id=174, 825.0825pt x 459.7175pt>
+<assets/images//fork.jpg, id=177, 825.0825pt x 459.7175pt>
 File: assets/images//fork.jpg Graphic file (type jpg)
 <use assets/images//fork.jpg>
 Package pdftex.def Info: assets/images//fork.jpg  used on input line 134.
@@ -554,13 +554,13 @@ Package rerunfilecheck Info: File `"Bitcoin Blink".out' has not changed.
 (rerunfilecheck)             Checksum: 293306DD1E6161CA7A10CF3AC00867F0;3080.
  ) 
 Here is how much of TeX's memory you used:
- 11639 strings out of 480129
- 182881 string characters out of 5893409
- 485983 words of memory out of 5000000
- 29373 multiletter control sequences out of 15000+600000
+ 11641 strings out of 480129
+ 182900 string characters out of 5893409
+ 486011 words of memory out of 5000000
+ 29374 multiletter control sequences out of 15000+600000
  481648 words of font info for 71 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 60i,13n,63p,1552b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,63p,1575b,433s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.60
 0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
@@ -581,10 +581,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Bitcoin Blink.pdf" (12 pages, 503111 bytes).
+Output written on "Bitcoin Blink.pdf" (12 pages, 503261 bytes).
 PDF statistics:
- 323 PDF objects out of 1000 (max. 8388607)
- 261 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 264 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
  277 words of extra memory for PDF output out of 10000 (max. 10000000)
 
