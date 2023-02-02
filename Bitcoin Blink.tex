@@ -55,7 +55,7 @@ Instead of storing UTXOs for an indefinite period of time, which compromises sto
 \section{Election}
 Block size denotes the amount of data that can be propagated across every producer node on the Bitcoin network hence, its success rate is directly dependent on the bandwidth each node allocates for confirmed block transmission. Block size is not limited and is fixed in every $n^{th}$ epoch, which validates that every producer node on the network can send and receive the data size. Variable block size helps to scale the network by increasing transactions per block when the nodes upgrade and announce their bandwidth. A vote can be taken across producer nodes if there is an increase in unconfirmed transactions that cannot fit into a block. The network in consensus can forbid low bandwidth producer nodes from participating in the election, thus increasing the joining requirement and capacity to hold more transactions.
 
-As bandwidth plays a major role in scalable infrastructure, nodes are required to have more of it to achieve the maximum production rate per epoch, as elections will be conducted based on it and each node’s honesty weight. Every Node willing to participate in the next epoch of block production, identity is given in its public keys published to the ledger onchain for definite calculations. For a random input value to commence the election, from a range of blocks of an epoch ($n-m$) confirmed Blocks' Merkle Chain Root (MCR) which is constructed by validators is taken. For a $2^{256}$ possible outcome, $n$ times it is divided evenly and finds if any block's MCR lies on the selected $r$ range. With the MCR input, blocks are randomly assigned to each epoch producer without consecutive blocks. 
+As bandwidth plays a major role in scalable infrastructure, nodes are required to have better of it to achieve maximum production rate per epoch, as elections will be conducted based on it and each node's honesty weight. Every Node willing to participate in the next epoch of block production, identity is given in its public keys published to the ledger onchain for definite calculations. For a random input value to commence the election, from a range of blocks of an epoch ($n-m$) confirmed Blocks Merkle Chain Root which is constructed by validators is taken. For a $2^{256}$ possible outcome, $n$ times it is divided evenly and finds if any block's MCR lies on the selected $r$ range. With the MCR input, blocks are randomly assigned to each epoch producer without consecutive blocks. 
 \section{Staking}
 Bitcoins can be staked for public keys with specified token IDs where the collateral can be used only once for a block. This results in a stake per token per block employing the throughput (tps) per token basis. Each token per block collateral requirement ($y$) is given in market price (USD) by taking the median volume of all the blocks of the previous epoch. Staked Bitcoins can be withdrawn anytime, without a vesting period except at the time of producing the block. This brings a retail and non-custodial solution as opposed to security deposit-type PoS chains. As slashing is done directly to fees, delegators won't lose their stakes. Bitcoins can be staked to a specific node that chooses to include the stake by collateralizing or locking in its allocated block. Clients can provide their general users savings wallets in which they can benefit from an annual percentage yield by providing liquidity for staking. In this way, for a specific token's transaction to be included in a block, the first of transactions should prove the collateral. During staking, an additional interest rate ($r$) is added to restrict the free flow of tokens to increase demand in exchanges by imposing a timelock of 500 epochs. This interest rate is decided by analyzing the market price of the staking token i.e., Bitcoin from current and previous epochs.
 \begin{equation*}
@@ -153,7 +153,7 @@ For the active development and sustainability of the project, a DAO Treasury is 
 Votes can decide to add or remove contracts stating $x$ amount per $y$ term for $z$ period withdrawn during payouts. Votes can also decide to kick a temporary member due to any circumstantial issues or failure in active contribution. Permanent members cannot be kicked out due to their external contribution to building the project. Permanent and Temporary members cannot be added after genesis epoch but can appoint heirs to their membership. Contracts are paid out initially and the rest is provided to other memberships as dividends according to their weight. Core-Developers are only rewarded for their active-contribution, not indefinitely like holding a fungible token. A decentralized open-sourced organization structure is maintained with decisions involving votes brings forth a sustainable growth for the future of project blink. 
 \section{Future}
 
-The future of Bitcoin includes building L1 applications such as exchanges, bridges, lending \& borrowing, insurance, and mirrored wallets with current banking. Since these applications are developed inside an unlocking script, it requires preimage construction off-chain and settles onchain - inheriting the security of Bitcoin that centralized applications don't offer. Privacy can be improved by obscuring amounts and including ring signatures similar to Monero assisting regulators and masking financial information of a specific country. 
+The future of Bitcoin includes building L1 applications such as exchanges, bridges, lending \& borrowing, insurance, and mirrored wallets with current banking. Since these applications are developed inside an unlocking script, it requires preimage construction off-chain and settles onchain - inheriting the security of Bitcoin that centralized applications don't offer. Privacy can be improved by obscuring amounts and including ring signatures similar to Monero assisting regulators and masking financial information of a specific country. Emphasis on Zk delivery and validation of snips can reduce influence attacks in future. 
 
 Since Layer 1 is dynamically scalable, the need for an offline-based off-chain digital cash-payment system will be developed with suitable hardware wallets. To provide a decentralized programmable environment, EVM will be deployed as a layer that can update its global-state \& contract state by providing a gas limit through a receipt-proof paid in any token. These EVM contracts shall not contain balances and EOAs, but rather purely for logic such as building DApps without a financial scope. Room for further improvement resides on sharding and size optimized scripts upgraded to Bitcoin and EVM Layer. Moreover reserach will be conducted to merge various bitcoin and altcoin chains for a clean experience on whole of finance and computing.\\
 
@@ -168,7 +168,7 @@ Since Layer 1 is dynamically scalable, the need for an offline-based off-chain d
 \item \textbf{Advisors} : 
 \end{itemize}
 
-\newpage
+\vspace{5mm}
 \appendix
 \noindent \Large \textbf{Appendix}
 \normalsize
@@ -314,24 +314,24 @@ P(\Phi_n) & Pubkey in MD160 base$_{16}$ rep
 
 Delegators provide bitcoins or the staking token for accepted token id to nodes. For non-accepted tokens delegators $(h1 \in D_T)$ can create their own script along with specifying node $(M)$.
 \begin{equation*}
-\mathbb{SS} = lim,id,R,D_T(am_n,Pub_k,e_i), P(am_n,Pub(M),er_i),F_t(am,er_i). \sum D_T(am_n) 
+\mathbb{SS} = lim,id,R,D_T(am_n,Pub_k,e_i), P(am_n,Pub(M),er_i),F_t(am,er_i). \sum D_T(am_n)
 \end{equation*}
+When deposit, each stake of delegators $(D_T)$ is identified along with its $(k)$ Pubkey and $(er_i)$ initial exchange rate to deduct gains tax during withdrawal $(W)$. Each script $(\mathbb{SS})$ will have a limit $(lim)$ in bitcoins or staking token along with $id$ for what token $(t)$ it is being staked.
+\begin{equation*}
+W(\mathbb{SS}) \leq
+\begin{cases} 
+[D_T(am_n) \cdot R] + [F_t(am) \cdot \frac{D_T(Pub_k(am_n))}{\sum D_T(am_n)}]  , & \text{ if } D_T(Pub_k) \\
+o=F_t(am) \cdot C & \text{ if } P(Pub(M)) \wedge Pub(M)= h1 \in D_T\\
+\frac{(\sum D_T(am_n) \cdot er_c(T))-(o \cdot er_c(t))}{er_c(T)}  & \text{ if } P(Pub(M)) \wedge Pub(M)\neq h1 \in D_T\\
+\end{cases}
+\end{equation*}
+During production of blocks, producers $P(M)$ can reject their stake script transactions to freeze the collateral as a proof for validation. Each script can only be proved once where the sum of all deposit will be made constant. For accepted tokens, validators create outputs to themselves and deposit fees. For non-accepted tokens producers inflate the ratio $(R)$ , to withdraw staked tokens $(T)$ for comissions.
 
-
-When deposit, each stake of delegators $(D_T)$ is identified along with its $(k)$ Pubkey and $(er_i)$ initial exchange rate to deduct gains tax during withdrawal $(W)$. Each script $(\mathbb{SS})$ will have a limit $(lim)$ in bitcoins or staking token along with $id$ for what token $(t)$ it is being staked. During production of blocks, producers $P(M)$ can reject their stake script transactions to freeze the collateral as a proof for validation. For accepted tokens, validators create outputs to themselves and deposit fees. For non-accepted tokens producers inflate the ratio $(R)$ , to withdraw staked tokens $(T)$ for comissions.
 \begin{equation*}
 y=(F_t(am) \cdot er_c)(C)
 \end{equation*}
 \begin{equation*}
 R=\frac{[\sum D_T(am_n)]-y}{\sum D_T(am_n)}
-\end{equation*}
-\begin{equation*}
-W(\mathbb{SS}) =
-\begin{cases} 
-[D_T(am_n) \cdot R] + Fees , & \text{ if } D_T \wedge [(Pub(M)= h1) \vee (Pub(M)\neq h1) \in D_T] \\
-F(am)_t \cdot C & \text{ if } P \wedge Pub(M)= h1 \in D_T\\
-Remaining of D_t from R & \text{ if } P \wedge Pub(M)\neq h1 \in D_T\\
-\end{cases}
 \end{equation*}
 
 \section{Network Graph}
@@ -384,20 +384,23 @@ Weights are provided to slash oppurtunity for producing blocks in next epochs fo
 \text{Fork Proof$^{1deg}$} = +0.005 \cdot (\widetilde{x}|\mathbb{R}|)\\
 \text{Fork Proof$^{2deg}$} = +0.07 \cdot (\widetilde{x}|\mathbb{R}|)\\
 \text{Age} = +0.03 \cdot (\widetilde{x}|\mathbb{R}|)\\
-Extras here
+\text{Extras} = +x \cdot (\widetilde{x}|\mathbb{R}|)\\
 \end{align*}
-Null Block weight is added if a producer fails to add a block with no snips. Forks of degree 1 refers to the fork created by the first destitation producer after receiving the snip, imposed on the block producer. Forks of degree 2 refers to the fork created by further destinations. Both the sender and receiver shall incur the negative weight equally shared during forks. Fork proofs can be provided by anynode usually the producer before the fork, who are incentivized for their honesty. Age is a positive weight provided to producers who mint blocks without forks for entire the epoch.
+Null Block weight is added if a producer fails to add a block with no snips. Forks of degree 1 refers to the fork created by the first destitation producer after receiving the snip, imposed on the block producer. Forks of degree 2 refers to the fork created by further destinations. Both the sender and receiver shall incur the negative weight equally shared during forks. Fork proofs can be provided by anynode usually the producer before the fork, who are incentivized for their honesty. Age is a positive weight provided to producers who mint blocks without forks for entire the epoch. Extras is given for further native protocols such as oracles, etc.
 \section{UTXO Expiry}
 \section{Merkle-Chain}
 \section{Public Keys}
+
 \section{Oracle}
-%Joby
+Oracle Feed Funding
+Positive Weight
+Reputation
 \section{DAO}
+Anonymous Proposal Voting Protocol
+Membership Protocol
 %Joby
-% To remove a temporary member - Vote percentage - (Temporary members 100\% (except the member to be removed ), Permanent Members 0\%, Employees - 75\%) - Period is first 20 days of the month
-%To remove a contract -(Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 51\%) - Period is last 10 days of the month
-% To include a contract (Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 51\%) - Period is first 20 days of the month
-\section{Size Optimization}
-\section{Improvements}
-%emphasis on zkpart of election and verifying the snips produced by the node without knowing their full identity until the full block is minted.
+%To remove a temporary member - Vote percentage - (Temporary members 100\% (except the member to be removed ), Permanent Members 0\%, Employees - 75\%) - Period is first 20 days of the month
+%To remove a contract -(Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 25\%) - Period is last 10 days of the month
+% To include a contract (Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 25\%) - Period is first 20 days of the month
+% To assign Heir of a temporary member (Temporary - 51\%), permanent member (No Vote)
 \end{document}
