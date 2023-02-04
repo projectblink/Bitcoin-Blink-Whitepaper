@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  2 FEB 2023 20:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  5 FEB 2023 00:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -293,18 +293,87 @@ Package: xurl 2022/01/09 v 0.10 modify URL breaks
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/colonequals.sty
 Package: colonequals 2016/05/16 v1.1 Colon equals symbols (HO)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count287
+\mult@box=\box55
+\multicol@leftmargin=\dimen163
+\c@unbalance=\count288
+\c@collectmore=\count289
+\doublecol@number=\count290
+\multicoltolerance=\count291
+\multicolpretolerance=\count292
+\full@width=\dimen164
+\page@free=\dimen165
+\premulticols=\dimen166
+\postmulticols=\dimen167
+\multicolsep=\skip54
+\multicolbaselineskip=\skip55
+\partial@page=\box56
+\last@line=\box57
+\maxbalancingoverflow=\dimen168
+\mult@rightbox=\box58
+\mult@grightbox=\box59
+\mult@firstbox=\box60
+\mult@gfirstbox=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\c@minrows=\count293
+\c@columnbadness=\count294
+\c@finalcolumnbadness=\count295
+\last@try=\dimen169
+\multicolovershoot=\dimen170
+\multicolundershoot=\dimen171
+\mult@nat@firstbox=\box98
+\colbreak@box=\box99
+\mc@col@check@num=\count296
+)
 (/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count287
+\c@AlgoLine=\count297
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\algocf@hangindent=\skip54
+\algocf@hangindent=\skip56
 
 (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count288
+\c@checkoddpage=\count298
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -312,41 +381,41 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 (/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip55
-\skiplinenumber=\skip56
-\skiprule=\skip57
-\skiphlne=\skip58
-\skiptext=\skip59
-\skiplength=\skip60
-\algomargin=\skip61
-\skipalgocfslide=\skip62
-\algowidth=\dimen163
-\inoutsize=\dimen164
-\inoutindent=\dimen165
-\interspacetitleruled=\dimen166
-\interspacealgoruled=\dimen167
-\interspacetitleboxruled=\dimen168
-\algocf@ruledwidth=\skip63
-\algocf@inoutbox=\box55
-\algocf@inputbox=\box56
-\AlCapSkip=\skip64
-\AlCapHSkip=\skip65
-\algoskipindent=\skip66
-\algocf@nlbox=\box57
-\algocf@hangingbox=\box58
-\algocf@untilbox=\box59
-\algocf@skipuntil=\skip67
-\algocf@capbox=\box60
-\algocf@lcaptionbox=\skip68
-\algoheightruledefault=\skip69
-\algoheightrule=\skip70
-\algotitleheightruledefault=\skip71
-\algotitleheightrule=\skip72
-\c@algocfline=\count289
-\c@algocfproc=\count290
-\c@algocf=\count291
-\algocf@algoframe=\box61
-\algocf@algobox=\box62
+\skiptotal=\skip57
+\skiplinenumber=\skip58
+\skiprule=\skip59
+\skiphlne=\skip60
+\skiptext=\skip61
+\skiplength=\skip62
+\algomargin=\skip63
+\skipalgocfslide=\skip64
+\algowidth=\dimen172
+\inoutsize=\dimen173
+\inoutindent=\dimen174
+\interspacetitleruled=\dimen175
+\interspacealgoruled=\dimen176
+\interspacetitleboxruled=\dimen177
+\algocf@ruledwidth=\skip65
+\algocf@inoutbox=\box100
+\algocf@inputbox=\box101
+\AlCapSkip=\skip66
+\AlCapHSkip=\skip67
+\algoskipindent=\skip68
+\algocf@nlbox=\box102
+\algocf@hangingbox=\box103
+\algocf@untilbox=\box104
+\algocf@skipuntil=\skip69
+\algocf@capbox=\box105
+\algocf@lcaptionbox=\skip70
+\algoheightruledefault=\skip71
+\algoheightrule=\skip72
+\algotitleheightruledefault=\skip73
+\algotitleheightrule=\skip74
+\c@algocfline=\count299
+\c@algocfproc=\count300
+\c@algocf=\count301
+\algocf@algoframe=\box106
+\algocf@algobox=\box107
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
@@ -355,42 +424,54 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen169
-\ar@mcellbox=\box63
-\extrarowheight=\dimen170
+\col@sep=\dimen178
+\ar@mcellbox=\box108
+\extrarowheight=\dimen179
 \NC@list=\toks26
-\extratabsurround=\skip73
-\backup@length=\skip74
-\ar@cellbox=\box64
+\extratabsurround=\skip75
+\backup@length=\skip76
+\ar@cellbox=\box109
 )
    defining Unicode char U+00BF (decimal 191)
 
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count292
-\l__pdf_internal_box=\box65
+\l__color_backend_stack_int=\count302
+\l__pdf_internal_box=\box110
 )
 (./Bitcoin Blink.aux)
 \openout1 = `"Bitcoin Blink.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -400,22 +481,22 @@ LaTeX Font Info:    ... okay on input line 46.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(108.12047pt, 381.26694pt, 108.12047pt)
-* v-part:(T,H,B)=(108.12047pt, 628.80591pt, 108.12047pt)
+* h-part:(L,W,R)=(99.58464pt, 398.3386pt, 99.58464pt)
+* v-part:(T,H,B)=(99.58464pt, 645.87756pt, 99.58464pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=381.26694pt
-* \textheight=628.80591pt
-* \oddsidemargin=35.85048pt
-* \evensidemargin=35.85048pt
-* \topmargin=-1.14952pt
+* \textwidth=398.3386pt
+* \textheight=645.87756pt
+* \oddsidemargin=27.31465pt
+* \evensidemargin=27.31465pt
+* \topmargin=-9.68535pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
 * \footskip=30.0pt
 * \marginparwidth=57.0pt
 * \marginparsep=11.0pt
-* \columnsep=10.0pt
+* \columnsep=28.45274pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
@@ -426,7 +507,7 @@ LaTeX Font Info:    ... okay on input line 46.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 46.
+Package hyperref Info: Link coloring OFF on input line 52.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -436,29 +517,29 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count293
+\c@section@level=\count303
 )
-LaTeX Info: Redefining \ref on input line 46.
-LaTeX Info: Redefining \pageref on input line 46.
-LaTeX Info: Redefining \nameref on input line 46.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (./Bitcoin Blink.out) (./Bitcoin Blink.out)
-\@outlinefile=\write3
-\openout3 = `"Bitcoin Blink.out"'.
+\@outlinefile=\write4
+\openout4 = `"Bitcoin Blink.out"'.
 
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count294
-\scratchdimen=\dimen171
-\scratchbox=\box66
-\nofMPsegments=\count295
-\nofMParguments=\count296
+\scratchcounter=\count304
+\scratchdimen=\dimen180
+\scratchbox=\box111
+\nofMPsegments=\count305
+\nofMParguments=\count306
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count297
-\MPscratchDim=\dimen172
-\MPnumerator=\count298
-\makeMPintoPDFobject=\count299
+\MPscratchCnt=\count307
+\MPscratchDim=\dimen181
+\MPnumerator=\count308
+\makeMPintoPDFobject=\count309
 \everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -469,98 +550,106 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-48.
+54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<assets/images//topology.jpg, id=159, 950.55125pt x 345.29pt>
+Overfull \hbox (3.13809pt too wide) in paragraph at lines 87--91
+[] 
+ []
+
+
+Overfull \hbox (9.45886pt too wide) in paragraph at lines 93--97
+[] 
+ []
+
+<assets/images//topology.jpg, id=164, 950.55125pt x 345.29pt>
 File: assets/images//topology.jpg Graphic file (type jpg)
 <use assets/images//topology.jpg>
-Package pdftex.def Info: assets/images//topology.jpg  used on input line 90.
+Package pdftex.def Info: assets/images//topology.jpg  used on input line 108.
 (pdftex.def)             Requested size: 227.62204pt x 82.68161pt.
- [3pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
- has been already used, duplicate ignored
+[3pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
+has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.95 \section
-             {Propagation} <./assets/images//topology.jpg>]
-<assets/images//Snips.jpg, id=165, 1123.19624pt x 619.31375pt>
+l.113 \subsection
+                 {Propagation} <./assets/images//topology.jpg>]
+<assets/images//Snips.jpg, id=176, 1123.19624pt x 619.31375pt>
 File: assets/images//Snips.jpg Graphic file (type jpg)
 <use assets/images//Snips.jpg>
-Package pdftex.def Info: assets/images//Snips.jpg  used on input line 98.
+Package pdftex.def Info: assets/images//Snips.jpg  used on input line 116.
 (pdftex.def)             Requested size: 312.9803pt x 172.56561pt.
  [4pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.105 \section
-              {Rewards} <./assets/images/snips.jpg>]
-<assets/images//merklechain.jpg, id=171, 2189.17876pt x 472.76625pt>
+l.126 
+       <./assets/images/snips.jpg>]
+<assets/images//merklechain.jpg, id=184, 2189.17876pt x 472.76625pt>
 File: assets/images//merklechain.jpg Graphic file (type jpg)
 <use assets/images//merklechain.jpg>
-Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 113
+Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 131
 .
 (pdftex.def)             Requested size: 369.88582pt x 79.87865pt.
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.126 \end{equation*}
-                      <./assets/images//merklechain.jpg>]
-<assets/images//fork.jpg, id=177, 825.0825pt x 459.7175pt>
+l.149 \subsection
+                 {Forks} <./assets/images//merklechain.jpg>]
+<assets/images//fork.jpg, id=191, 825.0825pt x 459.7175pt>
 File: assets/images//fork.jpg Graphic file (type jpg)
 <use assets/images//fork.jpg>
-Package pdftex.def Info: assets/images//fork.jpg  used on input line 134.
+Package pdftex.def Info: assets/images//fork.jpg  used on input line 152.
 (pdftex.def)             Requested size: 284.52756pt x 158.53255pt.
  [6pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.149 
+l.167 
        <./assets/images//fork.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
-[7] (./Bitcoin Blink.bbl)
-Overfull \hbox (2.00868pt too wide) in paragraph at lines 167--168
-[]\OT1/cmr/bx/n/10 Core-team \OT1/cmr/m/n/10 : \OT1/cmr/m/it/10 Ajay Joshua, Sh
-an-tanu Gaik-wad, Aditya K Pandey, Sunidhi Sharma,
+(./Bitcoin Blink.bbl [7]) [8]
+Overfull \hbox (30.25183pt too wide) in paragraph at lines 265--269
+[] 
  []
 
-[8] [9]
-Overfull \hbox (28.73714pt too wide) detected at line 327
+[9] [10]
+Overfull \hbox (11.66548pt too wide) detected at line 431
 \OML/cmm/m/it/10 W\OT1/cmr/m/n/10 ([]) \OMS/cmsy/m/n/10 ^^T []
  []
 
-[10] [11] [12] (./Bitcoin Blink.aux)
+[11] [12] (./Bitcoin Blink.aux)
 Package rerunfilecheck Info: File `"Bitcoin Blink".out' has not changed.
-(rerunfilecheck)             Checksum: 293306DD1E6161CA7A10CF3AC00867F0;3080.
+(rerunfilecheck)             Checksum: F154015194BA7121D45F33D5DEB57BAF;3780.
  ) 
 Here is how much of TeX's memory you used:
- 11641 strings out of 480129
- 182900 string characters out of 5893409
- 486011 words of memory out of 5000000
- 29374 multiletter control sequences out of 15000+600000
+ 11896 strings out of 480129
+ 187759 string characters out of 5893409
+ 491969 words of memory out of 5000000
+ 29616 multiletter control sequences out of 15000+600000
  481648 words of font info for 71 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 60i,13n,63p,1575b,433s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,63p,1597b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.60
 0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
@@ -581,10 +670,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Bitcoin Blink.pdf" (12 pages, 503261 bytes).
+Output written on "Bitcoin Blink.pdf" (12 pages, 502254 bytes).
 PDF statistics:
- 326 PDF objects out of 1000 (max. 8388607)
- 264 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
- 277 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 338 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 
