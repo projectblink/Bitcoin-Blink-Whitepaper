@@ -8,6 +8,11 @@ S.~Nakamoto, ``Bitcoin : A peer-to-peer electronic cash system,'' {\em
 ``scrypt — a high level smart contract language for bitcoin sv.''
   \url{https://scrypt.io/}.
 
+\bibitem{wood2014ethereum}
+G.~Wood {\em et~al.}, ``Ethereum: A secure decentralised generalised
+  transaction ledger,'' {\em Ethereum project yellow paper}, vol.~151,
+  no.~2014, pp.~1--32, 2014.
+
 \bibitem{yakovenko2018solana}
 A.~Yakovenko, ``Solana: A new architecture for a high performance blockchain
   v0. 8.13,'' {\em Whitepaper}, 2018.
@@ -19,11 +24,6 @@ J.~Poon and T.~Dryja, ``The bitcoin lightning network: Scalable off-chain
 \bibitem{chainlink}
 S.~Ellis, A.~Juels, and S.~Nazarov, ``Chainlink : A decentralized oracle
   network v1,'' {\em Whitepaper}, 2017.
-
-\bibitem{wood2014ethereum}
-G.~Wood {\em et~al.}, ``Ethereum: A secure decentralised generalised
-  transaction ledger,'' {\em Ethereum project yellow paper}, vol.~151,
-  no.~2014, pp.~1--32, 2014.
 
 \bibitem{llvm}
 ``The llvm compiler infrastructure project.'' \url{https://llvm.org/}.
