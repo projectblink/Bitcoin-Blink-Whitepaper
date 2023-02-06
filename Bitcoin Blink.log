@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  6 FEB 2023 20:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  6 FEB 2023 23:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -579,14 +579,14 @@ File: omltxmi.fd 2000/12/15 v3.1
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/Theory/stakin
 g.tex)
 (./sections/Theory/regulation.tex [2]) (./sections/Theory/messaging.tex
-<assets/images//topology.jpg, id=167, 950.55125pt x 345.29pt>
+<assets/images//topology.jpg, id=163, 950.55125pt x 345.29pt>
 File: assets/images//topology.jpg Graphic file (type jpg)
 <use assets/images//topology.jpg>
 Package pdftex.def Info: assets/images//topology.jpg  used on input line 7.
 (pdftex.def)             Requested size: 227.62204pt x 82.68161pt.
 )
 (./sections/Theory/propagation.tex
-<assets/images//Snips.jpg, id=169, 1123.19624pt x 619.31375pt>
+<assets/images//Snips.jpg, id=165, 1123.19624pt x 619.31375pt>
 File: assets/images//Snips.jpg Graphic file (type jpg)
 <use assets/images//Snips.jpg>
 Package pdftex.def Info: assets/images//Snips.jpg  used on input line 7.
@@ -604,18 +604,18 @@ ady used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.6 
      <./assets/images/snips.jpg>]) (./sections/Theory/renting.tex
-<assets/images//merklechain.jpg, id=181, 2189.17876pt x 472.76625pt>
+<assets/images//merklechain.jpg, id=177, 2189.17876pt x 472.76625pt>
 File: assets/images//merklechain.jpg Graphic file (type jpg)
 <use assets/images//merklechain.jpg>
 Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 7.
 (pdftex.def)             Requested size: 369.88582pt x 79.87865pt.
 )
 (./sections/Theory/forks.tex
-<assets/images//fork.jpg, id=182, 825.0825pt x 459.7175pt>
-File: assets/images//fork.jpg Graphic file (type jpg)
-<use assets/images//fork.jpg>
-Package pdftex.def Info: assets/images//fork.jpg  used on input line 7.
-(pdftex.def)             Requested size: 284.52756pt x 158.53255pt.
+<assets/images//intrafork.jpg, id=178, 825.0825pt x 406.51875pt>
+File: assets/images//intrafork.jpg Graphic file (type jpg)
+<use assets/images//intrafork.jpg>
+Package pdftex.def Info: assets/images//intrafork.jpg  used on input line 7.
+(pdftex.def)             Requested size: 284.52756pt x 140.18709pt.
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -628,87 +628,68 @@ ame identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.6 
-     <./assets/images//fork.jpg>]) (./sections/Theory/future.tex
+     <./assets/images//intrafork.jpg>]) (./sections/Theory/future.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
-) (./Bitcoin Blink.bbl [7]) (./sections/Appendix/Onchain Protocols/header.tex)
+) (./Bitcoin Blink.bbl [7]) [8]
+(./sections/Appendix/Onchain Protocols/header.tex)
+(./sections/Appendix/Onchain Protocols/vdf.tex Excluding 'comment' comment.)
+(./sections/Appendix/Onchain Protocols/ring.tex)
 (./sections/Appendix/Onchain Protocols/election.tex
-Overfull \hbox (1.76564pt too wide) in paragraph at lines 37--41
-[] 
- []
-
-[8]
-Overfull \hbox (38.78766pt too wide) in paragraph at lines 77--81
-[] 
- []
-
-) (./sections/Appendix/Onchain Protocols/vdf.tex [9])
-(./sections/Appendix/Onchain Protocols/hash-reward.tex)
+Excluding 'comment' comment.) (./sections/Appendix/Onchain Protocols/block.tex)
+(./sections/Appendix/Onchain Protocols/fork.tex Excluding 'comment' comment.)
 (./sections/Appendix/Onchain Protocols/merklechain.tex)
-(./sections/Appendix/Onchain Protocols/weights.tex [10])
+(./sections/Appendix/Onchain Protocols/hash-reward.tex
+Excluding 'comment' comment.)
 (./sections/Appendix/Onchain Protocols/network graph.tex)
 (./sections/Appendix/Onchain Protocols/routing path.tex)
-(./sections/Appendix/Onchain Protocols/rent.tex)
+(./sections/Appendix/Onchain Protocols/rent.tex Excluding 'comment' comment.)
 (./sections/Appendix/Onchain Protocols/stake-req.tex
-Overfull \hbox (8.82864pt too wide) in paragraph at lines 22--26
-[] 
- []
-
-
-Overfull \hbox (15.14941pt too wide) in paragraph at lines 28--32
-[] 
- []
-
-) (./sections/Appendix/Zk Circuits/header.tex)
+Excluding 'comment' comment.) (./sections/Appendix/Zk Circuits/header.tex)
 (./sections/Appendix/Zk Circuits/bandwidth.tex)
 (./sections/Appendix/Zk Circuits/ihr.tex)
 (./sections/Appendix/Zk Circuits/ownership.tex)
 (./sections/Appendix/Bitcoin Scripts/header.tex)
 (./sections/Appendix/Bitcoin Scripts/tax.tex)
-(./sections/Appendix/Bitcoin Scripts/staking.tex [11]
+(./sections/Appendix/Bitcoin Scripts/staking.tex
 Overfull \hbox (28.73714pt too wide) detected at line 18
 \OML/cmm/m/it/10 W\OT1/cmr/m/n/10 ([]) \OMS/cmsy/m/n/10 ^^T []
  []
 
-) (./sections/Appendix/Bitcoin Scripts/oracle.tex)
-(./sections/Appendix/Bitcoin Scripts/dao.tex) [12] (./Bitcoin Blink.aux)
+[9]) (./sections/Appendix/Bitcoin Scripts/oracle.tex)
+(./sections/Appendix/Bitcoin Scripts/dao.tex) [10] (./Bitcoin Blink.aux)
 Package rerunfilecheck Info: File `"Bitcoin Blink".out' has not changed.
-(rerunfilecheck)             Checksum: 7DB184FDA185818FF8DBD9159CE8AFB0;3832.
+(rerunfilecheck)             Checksum: 97B0DF2C940F912EF7B393DA3175584C;3634.
  ) 
 Here is how much of TeX's memory you used:
- 12194 strings out of 480129
- 197395 string characters out of 5893409
- 495430 words of memory out of 5000000
- 29806 multiletter control sequences out of 15000+600000
- 481648 words of font info for 71 fonts, out of 8000000 for 9000
+ 12199 strings out of 480129
+ 197845 string characters out of 5893409
+ 495428 words of memory out of 5000000
+ 29810 multiletter control sequences out of 15000+600000
+ 481005 words of font info for 69 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 60i,13n,63p,1609b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/reuben/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.60
-0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Bitcoin Blink.pdf" (12 pages, 499952 bytes).
+ 60i,9n,63p,1609b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "Bitcoin Blink.pdf" (10 pages, 443075 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
- 60 named destinations out of 1000 (max. 500000)
- 301 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 309 PDF objects out of 1000 (max. 8388607)
+ 258 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 

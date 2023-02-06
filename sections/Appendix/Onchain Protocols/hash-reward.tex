@@ -3,6 +3,7 @@
 \begin{document}
 \normalsize
 \subsection{Hash-Reward}
+\begin{comment}
 Halving of Bitcoin issuance is done every $R \cdot (1.26 \cdot 10^8)$ hashes equals 210,000 10-minute bitcoin blocks. Every epoch ($\epsilon_n$) will have a $g$ amount of bitcoins to be issued. Hence for every epoch a target $g(\epsilon_n)$ new bitcoins is set to mint. For forked blocks, the supply is slashed. For fully minted blocks with remaining hashes, the rewards are distributed to the next hashes equally incentivizing producers.
 \begin{equation*}
 g[R(\epsilon_n)] = \frac{\Delta g(\epsilon_n)}{\epsilon_n(\sum_1^n R)}
@@ -26,5 +27,6 @@ g(\epsilon_n) - g(\epsilon_n(b_n)), & \text{ if } \Omega(b_n) =  0 \\
 \begin{equation*}
 \Omega(b_n) = g(\epsilon_n(b)) - [\sum_1^n g[R(\epsilon_n)]  \in b_n(\epsilon_n)]
 \end{equation*}
+\end{comment}
 
 \end{document}
