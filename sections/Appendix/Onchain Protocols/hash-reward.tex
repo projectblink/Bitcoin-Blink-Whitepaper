@@ -1,0 +1,30 @@
+\documentclass[../Bitcoin Blink.tex]{subfiles}
+\graphicspath{{\subfix{../assets/images/}}}
+\begin{document}
+\normalsize
+\subsection{Hash-Reward}
+Halving of Bitcoin issuance is done every $R \cdot (1.26 \cdot 10^8)$ hashes equals 210,000 10-minute bitcoin blocks. Every epoch ($\epsilon_n$) will have a $g$ amount of bitcoins to be issued. Hence for every epoch a target $g(\epsilon_n)$ new bitcoins is set to mint. For forked blocks, the supply is slashed. For fully minted blocks with remaining hashes, the rewards are distributed to the next hashes equally incentivizing producers.
+\begin{equation*}
+g[R(\epsilon_n)] = \frac{\Delta g(\epsilon_n)}{\epsilon_n(\sum_1^n R)}
+\end{equation*}
+Rewards per block,
+\begin{equation*}
+g[R(\epsilon_n(b))] = \epsilon_n(b(\sum_1^n R)) \cdot g[R(\epsilon_n)]
+\end{equation*}
+\begin{equation*}
+\Delta g(\epsilon_n) = g(\epsilon_n) - [\sum_1^n g[R(\epsilon_n)]  \in b(\epsilon_n)]
+\end{equation*}
+Slashing forks $\Delta \lambda$,
+\begin{equation*}
+\forall \epsilon_n(b_n), \Delta g(\epsilon_n) = 
+\begin{cases}
+g(\epsilon_n) - g(\epsilon_n(b_n)), & \text{ if } \Omega(b_n) =  0 \\
+\Delta g(\epsilon_n) + b, & \text{ if } \Omega(b_n) = \mathbb{N} \wedge \lambda  \\
+\Delta g(\epsilon_n) - b, & \text{ if } \Omega(b_n) =  \mathbb{N} \wedge \Delta \lambda \\
+\end{cases}
+\end{equation*}
+\begin{equation*}
+\Omega(b_n) = g(\epsilon_n(b)) - [\sum_1^n g[R(\epsilon_n)]  \in b_n(\epsilon_n)]
+\end{equation*}
+
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[../Bitcoin Blink.tex]{subfiles}
+\graphicspath{{\subfix{../assets/images/}}}
+\begin{document}
+\normalsize
+\subsection{Stake Requirement}
+\begin{equation*}
+x=\epsilon_{n-2}[\widetilde{x}( \{b_1, b_2, \dots b_n\} (\sum_0^n \Psi T_h(b_n)))]
+\end{equation*}
+\begin{equation*}
+\forall r (T_h(\epsilon_n)) =  r(T_h(\epsilon_{n-1}))  +  (\frac{C_{\epsilon_{n-3}} - C_{\epsilon_{n-2}}}{10  \cdot  C_{\epsilon_{n-2}}}) \geq 10^{-2}
+\end{equation*}
+\begin{equation*}
+y=x+ [r (T_h(\epsilon_n)) \cdot (x)]
+\end{equation*}
+\begin{multicols}{3}
+\begin{conditions}
+\widetilde{x} & Median Value\\
+T_h & Token ID Hash\\
+\epsilon_n & Current Epoch\\
+\end{conditions}
+\columnbreak
+\begin{conditions}
+\epsilon_{n-k} & Target Epoch\\
+b_n & Target Block\\
+\Psi & UTXO outs in \$\\
+\end{conditions}
+\columnbreak
+\begin{conditions}
+r & Interest Rate\\
+C & Closing \$ $(\epsilon_n)$\\
+y & $x+r$ for a $T_h(\epsilon_{n}(b))$
+\end{conditions}
+\end{multicols}
+
+
+\end{document}

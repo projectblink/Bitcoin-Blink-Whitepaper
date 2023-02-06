@@ -1,7 +1,8 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage[a4paper , top=35mm, right=35mm,left=35mm, bottom=35mm]{geometry}
+\usepackage[a4paper , top=38mm, right=38mm,left=38mm, bottom=38mm]{geometry}
 %packages
 \usepackage{hyperref}
+\usepackage{subfiles} % subtex files package
 \usepackage{graphicx} %figures and images
 \graphicspath{{assets/images/}} % file path for images
 \usepackage{float}% float package
@@ -38,6 +39,10 @@
 \font\myfontt=cmr12 at 10pt
 \usepackage{color}
 \usepackage{comment}
+\SetKwInput{KwInput}{Input}                % Set the Input
+\SetKwInput{KwOutput}{Output}              % set the Output
+\SetKwInput{KwPre}{Pre}                % Set the Input
+\SetKwInput{KwPost}{Post}              % set the Output
 
   \setlength{\columnsep}{1cm}
 
@@ -52,404 +57,44 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-\noindent \textbf{Abstract :} Bitcoin's PoW is replaced with a propagation competition on blocks sent across validators under a certain time interval stamped with cryptographic proofs to claim fees and solve forks as per proof weight. To achieve adaptable scalability, block sizes are determined by consensus among elected nodes in specific epochs to reduce transaction waiting time. Gossip systems are replaced with a privacy-centered direct messaging system by constructing encrypted paths to deliver unconfirmed transactions and confirmed blocks. Apart from bringing speed, we resolved the need for a single transaction fee token for a blockchain by bringing forth a novel non-custodial per-token staking system to allow users to pay in any token. Bitcoin as a currency will ensure network security and hold Layer-1 tokens with staking and yielding fees. Since Bitcoin script adapts a Turing-incomplete language, the fees imposed for renting UTXOs make the transactions cheaper and the chain's ledger size optimized. We propose solutions for regulation revolving around taxation within the self-custody wallet ecosystem without compromising users' privacy. 
+\noindent \textbf{Abstract :} Bitcoin's PoW is replaced with a propagation competition on blocks sent across validators under a certain time interval stamped with cryptographic proofs to claim fees and solve forks as per proof weight. To achieve adaptable scalability, each block's size is determined in consensus among elected nodes to reduce transaction waiting time. Gossip systems are replaced with a privacy-centered direct messaging system by constructing encrypted paths to deliver unconfirmed transactions and confirmed blocks. Apart from bringing speed, we resolved the need for a single transaction fee token for a blockchain by bringing forth a novel non-custodial per-token staking system to allow users to pay in any token. The``bitcoin" as a currency will ensure network security and hold Layer-1 tokens with staking and yielding fees. Since Bitcoin script adapts a Turing-incomplete language, the fees imposed for renting UTXOs make the transactions cheaper and the chain's ledger size optimized. We propose solutions for regulation revolving around taxation within the self-custody wallet ecosystem without compromising users' privacy. 
 \end{abstract}
-\section{Introduction}
-The Bitcoin Network \cite{nakamoto2008bitcoin} and other altcoin blockchains with newer consensus and programmable money are unable to compete with centralized payment providers in speed and volume due to their sheer inability to scale with centralization issues. Many consensus models rely on external validation concepts such as finding a nonce and proving stake instead of rules tied to propagation itself. Imposing heavy reliance on users to acquire native chain tokens diminishes the adoption of blockchain, thus keeping them far from the wonders of this technology. Decentralized networks can effectively adapt to users’ needs by 1. Increasing block size 2. Decreasing block time 3. Eliminating low-efficient nodes 4. Increasing the requirement for node joining. Retail Staking with non-custodial solutions encourages users to stake their Bitcoin to become a world reserve currency for every financial instrument with an additional restrictive monetary policy that helps to reduce volatility in times of recession.
-
-Instead of storing UTXOs for an indefinite period, which compromises storage, renting UTXOs and replacing them with a fingerprint after they have expired without altering the block’s Merkle root provides cheaper fees. With Bitcoin’s unlocking script and use of sCrypt \cite{sCrypt}, developers can create custom scripts with regulatory options involving various types of taxes within its UTXOs, performing identity verification off-chain with signatures instructing nodes to validate regulated payments with self-custody of tokens. Altcoins can be bridged one-way and collateralized for a floating rate stable coin directly used for staking and yielding fees along with bitcoin bringing utility. Basic banking solutions can be developed in Bitcoin Script, whereas common computable programs can be deployed to a Layer 2 State Machine, where nodes update the state by providing a Proof-of-Fee-Receipt paid in any token in the Bitcoin network.
-\section{Bitcoin (Blink)} 
-\subsection{Election}
-Block size denotes the amount of data that can be propagated across every producer node on the Bitcoin network hence, its success rate is directly dependent on the bandwidth each node allocates for confirmed block transmission. Block size is not limited and is fixed in every new epoch, which validates that every producer node on the network can send and receive the data size. Variable block size helps to scale the network by increasing transactions per block when the nodes upgrade and announce their bandwidth. A ZK-SNARK-based proof takes a node’s bandwidth as a public input signal, which is compared to the threshold range of the desired bandwidth of the network. To prevent tampering, the node will commit a salt, which is a large random number that will be added to the bandwidth to generate the $xyz$ hash which will be verified in the proof. Thus, the proof will attest its bandwidth output to the UTXO’s script and get validated. 
-
-
-A vote can be taken across producer nodes if there is an increase in unconfirmed transactions that cannot fit into a block. The network in consensus can forbid low bandwidth producer nodes from participating in the election, thus increasing the joining requirement and capacity to hold more transactions. The proofs to elect low bandwidth nodes are based on Semaphore protocol [ref]. The protocol allows users to prove their membership in a group and send vote signals without revealing their original identity. This decentralized pseudonymous voting would increase network trust by protecting against any kind of ballot/vote rigging. 
-
-As bandwidth plays a major role in scalable infrastructure, nodes are required to have better of it to achieve maximum production rate per epoch, as elections will be conducted based on it and each node's honesty weight. Nodes willing to participate in the next epoch of block production will be public whereas their real identity is masked by their public keys. For a random input value to commence the next epoch's election, from $range=n \text{ to } m$ confirmed blocks, the Merkle chain root constructed by validators after resolving forks is taken. For a $2^{256}$ possible outcome, $d$ times it is divided evenly and finds if any block's MCR lies on the selected $r$ range. With the selected MCR value of a random block, the producers for the next epoch are randomly assigned without repetitive block heights. 
-\subsection{Staking}
-Bitcoin as a token can be staked for public keys with specified token IDs, where the collateral can be used only once for a block. This results in a stake per token per block bringing the throughput (tps), per token basis. Each token per block's collateral requirement ($y$) is given in market price (USD) by taking the median volume of all the blocks of the previous epoch. Staked bitcoins can be withdrawn at any time, with no vesting period, except when the block is being created. This brings in a retail and non-custodial solution as opposed to security deposit-type PoS chains. Delegators won't lose their stakes as slashing is done directly on the fees. Bitcoins can be staked to a specific node that chooses to include the stake by collateralizing or locking in its allocated block. Clients can provide their general users with a savings wallet in which they can benefit from an annual percentage yield by providing liquidity for staking. In this way, for a specific token's transaction to be included in a block, the first transaction should prove the collateral. By imposing a timelock of 500 epochs during staking, an additional interest rate ($r$) is added to restrict the free flow of tokens to increase demand in exchanges. This interest rate is determined by analyzing the market price of the staking token, i.e., Bitcoin from current and previous epochs.
-\begin{equation*}
-x=\epsilon_{n-2}[\widetilde{x}( \{b_1, b_2, \dots b_n\} (\sum_0^n \Psi T_h(b_n)))]
-\end{equation*}
-\begin{equation*}
-\forall r (T_h(\epsilon_n)) =  r(T_h(\epsilon_{n-1}))  +  (\frac{C_{\epsilon_{n-3}} - C_{\epsilon_{n-2}}}{10  \cdot  C_{\epsilon_{n-2}}}) \geq 10^{-2}
-\end{equation*}
-\begin{equation*}
-y=x+ [r (T_h(\epsilon_n)) \cdot (x)]
-\end{equation*}
-\begin{multicols}{3}
-\begin{conditions}
-\widetilde{x} & Median Value\\
-T_h & Token ID Hash\\
-\epsilon_n & Current Epoch\\
-\end{conditions}
-\columnbreak
-\begin{conditions}
-\epsilon_{n-k} & Target Epoch\\
-b_n & Target Block\\
-\Psi & UTXO outs in \$\\
-\end{conditions}
-\columnbreak
-\begin{conditions}
-r & Interest Rate\\
-C & Closing \$ $(\epsilon_n)$\\
-y & $x+r$ for a $T_h(\epsilon_{n}(b))$
-\end{conditions}
-\end{multicols}
-
-Additionally, a new collateralized floating-rate coin can be issued from lending L1 altcoins which can be used for staking to receive yield benefits. 
-\subsection{Regulation}
-Regulation via centralized exchanges \& custodians risks funds and doesn't encourage a self-custodial ecosystem. A regulator must have the authority to sign or approve transactions. Whitelisting specific hashed public addresses belonging to specific countries, verified and signed by government-assigned client wallets or regulators, by either doing full KYC or something minimal such as mobile number-based OTP verification, could work with maximum privacy.
-
-UTXOs are stamped with region proof on their unlocking script based on specific spending conditions that will only allow a transaction on-chain if taxes are deducted properly. Bitcoin scripts can work efficiently and securely, as opposed to turing-complete smart contracts in this case. Tax models such as capital gains slabs can be issued by governments trustlessly and are validated during the user's script execution. External taxes such as TDS and sales tax can be imposed off-chain with maximum flexibility. These three types of taxes provide almost all the tax models that a regulator can siphon into a centralized payment infrastructure.
-\subsection{Messaging}
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=8cm]{topology}
-\caption{Topology}
-\end{center}
-\end{figure}
-Delivery of unconfirmed transactions to nodes plays an important role in finality. Shared mempools defile the network with duplicated data, resulting in a poor choice of transactions to include in a block. Miners accept only transactions with higher fees. A direct-messaging system should be deployed with messaging instructions specific to each party as opposed to gossip protocols. Paths are attached with unconfirmed transactions directly from the constructed network graph, which is available to all nodes with public keys as pseudonymous identities protecting privacy. Two peering parties mutually sign a 2–2 random message for every $x$ block and are gossiped across the network to identify the connection as online. All the signed random messages prove that each pubkey signature can display a network topology map from a node's point of reference. Paths are encrypted end-to-end with routing \cite{poon2016bitcoin} instructions so that the origin cannot be traced. Nodes route transactions to the destinations where producers can attach the transaction to their allocated block. Since the stake information is available in the public ledger, client wallets can construct transactions along with path information that routes to the nearest blocks for instant finality. Transactions are always atomic, providing a solution to queuing issues. Responsibilities are provided to all participants, where nodes only receive the transactions that they need to include, and client wallets should construct shorter paths to provide the best user experience.
-\subsection{Propagation}
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=11cm]{Snips}
-\caption{Snips}
-\end{center}
-\end{figure}
-A Block is collectively validated but constructed as snips - divisible block chunks by the producer and directly messaged to most of the current epoch's producer nodes with routing instructions to gossip across the network. Each snip references the previous snip's hash similar to the chain of blocks for proper identification of each block's snips. For a block of an epoch, a competition to deliver all snips under $x$ time intervals is required to win rewards and avoid slashing of fees. When a block fails to win it will not mint its last of snips which will contain the fees and rewards. VDF proofs \cite{yakovenko2018solana} are attached for every snip during routing to declare the state of each block's competition and resolve forks. Failed block fees and rewards are slashed by sending them to a burn address when blocks get confirmed by the producers. Each failed block with various categories shall result in decreased block production for the node in the next epoch by adding negative weights which indirectly slashes the bandwidth costing capital which instructs nodes to act honestly with the performance required for the epoch. Null-Blocks are self-minted by validators. Positive weights are given as an incentive for honest and notable performance during the epoch production. 
-
-To synchronize time, each node's hash rate per second of a specific hash function is proved cryptographically onchain and taken in multiples of a common hardware's hash rate $(R)$. An Individual hash-rate proof is provided along with bandwidth proof for every epoch which trustlessly synchronizes all nodes as a single hardware producing continuous hashes concated with all snips. The ZK IHR proofs are algorithmically similar to the bandwidth proofs, where the hash rate provided by the node is compared to the threshold range of the desired hash rate and salt is used to prevent tampering attacks.  This provides cryptographic timestamped proofs to announce each epoch's block time, under which all snips have to arrive and win the time-based propagation competition. The competition is termed "Proof of Speed".
-\subsection{Rewards}
-
-Rewards are given for each snip hash concated with transactions validated by VDF proofs. Since newly minted bitcoins for a period of time are definite and each epoch's sum of all block time is capped, new bitcoins can be supplied exactly proportional to the current Bitcoin issuance rate with halving. Each hash represents work done by nodes on validating and propagating transactions. When a fork arises due to rejected snips, the rest of the block time and its allocated rewards are slashed. Meanwhile, when a block is fully minted, the rest of its allocated rewards are distributed to the next block producers of the epoch. This encourages nodes to attest to VDF proofs for receiving snips at the earliest. While Tax outputs are attached as zero input transactions within the snip it contains, the rewards and fee outputs when accounted as a separate snip mark the end of a block. 
-
-During staking, producers announce their accepted tokens for which they will directly withdraw the commission. For other tokens, delegators can stake with a condition that their stake in bitcoins or the accepted stake token will be traded for the collected fees. During the commission withdrawal of non-accepted tokens, the producer will deposit collected fees to delegators and inflate the stake 1:1 ratio to withdraw the collateral. Users can pay in any token, delegators incur the risk, and producers get paid in tokens of their choice to validate transactions.
-\subsection{Renting}
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=13cm]{merklechain}
-\caption{Merkle Chain}
-\end{center}
-\end{figure}
-Instead of taking the Merkle roots of all the transactions inside a block, a snip's Merkle root is taken and linearly hashed to find the Merkle Chain root. Since snips can be rejected by validators, it is unsure to predict a Merkle chain root giving it a purely randomized value. Inside a snip contains parsed transactions whose hashes are taken to find the snip's Merkle root can be pruned if the UTXOs are spent, burnt, or expired. Each UTXO expiry block height is embedded in its script, and can be scanned by nodes, and pruned to optimize their data storage. Client Wallets can store each of their users' transaction history and can be audited onchain using Merkle chain roots. Renting rates can be given in market price independently voted by producer nodes for every epoch per byte per block. Users cannot directly pay for rent, but rather each new UTXO created is charged a transfer fee in the range of 0.05\% - 0.005\% decided based on the total volume of all transactions settled on previous epochs.
-\begin{equation*}
-5 \cdot 10^{-4} \leq \Delta f \leq 5 \cdot 10^{-5} == \sigma [\Psi (\epsilon_{n-3}, \epsilon_{n-2})] > 0.75
-\end{equation*}
-\begin{equation*}
-f'=f+x \begin{cases}
-x=+5 \cdot 10^{-6}, & \text{if } \Psi (\epsilon_{n-3} > \epsilon_{n-2})\\
-x=-5 \cdot 10^{-6}, & \text{otherwise}
-\end{cases}
-\end{equation*}
-\begin{conditions}
-F & UTXO value $\times f'$ 
-\end{conditions}
- Transfer fee charges more fees for higher value utxos and less for lesser value utxos bringing ease to transact for retailers. According to how much each utxo pays for a transfer fee, an expiry date is set. UTXOs doing state updates will not be charged and can combine UTXOs to a single balance holding UTXO with increased expiry value. This encourages users to store a single UTXO per wallet reducing transaction fees and also incentivizes nodes, clients, etc by saving disk space.  
-\subsection{Forks}
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=10cm]{fork}
-\caption{Resolving Forks}
-\end{center}
-\end{figure}
-Confirmed blocks as snips are streamed with an included path that propagates across every producer in a backward ring manner. The snips are attached with VDF proofs by producers which provide proof of block time. Forks arise when different producers reject extra snips, this can be resolved by the very next block, providing instant finality to users. Additionally, negative weights are added if the fork arises after the first destination node of the path with VDF evaluation and also if a producer's VDF proof isn't attested which directly denotes offline activity. In such cases, producers construct new paths to deliver the snips. Block size and time are decided on consensus per epoch to prevent forks, which denotes a healthy propagation. Bandwidth upgrades are needed for the nodes which initiate the fork and directly instruct the origin block size should be decreased. 
-\begin{align*}
-\lambda (B_A) = H(H_A+H_B+H_C) \\
-\lambda (B_{A'}) = H(H_A+H_B)\\
-\lambda (B_{A''}) = H(H_A)  \\
-\lambda (B_{B}) = H(\lambda(B_{A^?}) + \lambda(B_{B^?}))
-\end{align*}
-For a block, possible Merkle Chain Roots are constructed and forks are resolved. The next blocks will have the input hash value of the previous block's Merkle Chain Root. To avoid influence by the first destination node, path planning can be randomized but must include the next block producer ($n+1$) as the final destination.
-\subsection{Oracles}
-
-Oracle data provide real-time market rates to unlocking scripts for every x interval of blocks. Various oracle protocols \cite{chainlink} fall to freeloading and duplication issues on trustless oracle systems. A per-feed subscription-based price-oracle protocol is introduced with participants - exchanges, nodes, and users. Exchanges provide real-time market rates along with traded volume for weighted aggregation of data. Nodes subscribe per request to exchange price feeds for each token id. Each exchange's feeds will have a reputation score similar to prediction markets maintained by users to avoid faulty data. Exchanges are incentivized by subscription fees, nodes provided with positive weights for the next elections, and users profit from removing faulty data oracles. Freeloading is avoided by exchange participation and equally distributing positive weights per feed to producer nodes. 
-
-\section{Treasury}
-For the active development and sustainability of the project, a DAO Treasury is set up to fund developers and the community. A minimal commission is imposed on producer fees and deposited to a treasury script. Memberships are non-fungible and non-transferable 1. Temporary (Core-Developers), 2.Permanent (Investors, Community), 3. Contracts (Employees, Operations). Each has its privileges provided to developers, investors, and community members. 
-
-Votes can decide to add or remove contracts stating $x$ amount per $y$ term for $z$ period withdrawn during payouts. Votes can also decide to kick a temporary member due to any circumstantial issues or failure in active contribution. Permanent members cannot be kicked out due to their external contribution to building the project. Permanent and Temporary members cannot be added after the genesis epoch but can appoint heirs to their membership. Contracts are paid out initially and the rest is provided to other memberships as dividends according to their weight. Core-Developers are only rewarded for their active contribution, not indefinitely like holding a fungible token. A decentralized open-sourced organization structure is maintained with decisions involving votes bringing forth sustainable growth for the future of project blink. 
-\section{Future}
-
-The future of Bitcoin includes building L1 applications such as exchanges, bridges, lending \& borrowing, insurance, and mirrored wallets with current banking. Since these applications are developed inside an unlocking script, it requires preimage construction off-chain and settles onchain - inheriting the security of Bitcoin that centralized applications don't offer. Privacy can be improved by obscuring amounts and including ring signatures similar to Monero assisting regulators and masking financial information of a specific country. Emphasis on Zk delivery and validation of snips can reduce influence attacks in the future. 
-
-Since Layer 1 is dynamically scalable, the need for an offline-based off-chain digital cash-payment system will be developed with suitable hardware wallets. To provide a decentralized programmable environment, EVM \cite{wood2014ethereum} will be deployed as a layer that can update its global-state \& contract state by providing a gas limit through a receipt-proof paid in any token. These EVM contracts shall not contain balances and EOAs, but rather purely for logic such as building DApps without a financial scope. Room for further improvement resides in sharding and size-optimized scripts upgraded to Bitcoin and EVM Layer. Moreover, research will be conducted to merge various bitcoin and altcoin chains for a clean experience on the whole of finance and computing.\\
-
-\noindent Implementations can be contributed openly to \url{https://github.com/projectblink}
-
+\subfile{sections/Theory/introduction}
+\subfile{sections/Theory/election}
+\subfile{sections/Theory/staking}
+\subfile{sections/Theory/regulation}
+\subfile{sections/Theory/messaging}
+\subfile{sections/Theory/propagation}
+\subfile{sections/Theory/rewards}
+\subfile{sections/Theory/renting}
+\subfile{sections/Theory/forks}
+\subfile{sections/Theory/oracles}
+\subfile{sections/Theory/treasury}
+\subfile{sections/Theory/future}
 \bibliographystyle{ieeetr}
 \bibliography{citation.bib}
 \vspace{5mm}
 \appendix
 \noindent \Large \textbf{Appendix}
-\normalsize
-\section{Zk Circuits }
-\subsection{Bandwidth Proof}
-%Purva
-\subsection{VoC Vote (Ownership Proof)}
-The trapdoor and nullifier are private values of the semaphore identity. It uses Poseidon hash function to create the identity commitment using these signals and generate a binary Merkle tree that stores the public identity commitment of each member
-\subsection{IHR Proof}
-%Purva
-\section{Onchain Protocols}
-\subsection{Election}
+\subfile{sections/Appendix/Onchain Protocols/header}
+\subfile{sections/Appendix/Onchain Protocols/election}
+\subfile{sections/Appendix/Onchain Protocols/vdf}
+\subfile{sections/Appendix/Onchain Protocols/hash-reward}
+\subfile{sections/Appendix/Onchain Protocols/merklechain}
+\subfile{sections/Appendix/Onchain Protocols/weights}
+\subfile{sections/Appendix/Onchain Protocols/network graph}
+\subfile{sections/Appendix/Onchain Protocols/routing path}
+\subfile{sections/Appendix/Onchain Protocols/rent}
+\subfile{sections/Appendix/Onchain Protocols/stake-req}
+\subfile{sections/Appendix/Zk Circuits/header}
+\subfile{sections/Appendix/Zk Circuits/bandwidth}
+\subfile{sections/Appendix/Zk Circuits/ihr}
+\subfile{sections/Appendix/Zk Circuits/ownership}
+\subfile{sections/Appendix/Bitcoin Scripts/header}
+\subfile{sections/Appendix/Bitcoin Scripts/tax}
+\subfile{sections/Appendix/Bitcoin Scripts/staking}
+\subfile{sections/Appendix/Bitcoin Scripts/oracle}
+\subfile{sections/Appendix/Bitcoin Scripts/dao}
 
-\subsubsection{Partcipation}
-
-For every epoch before the allocation of blocks, the joining requirement is increased by eliminating certain nodes' bandwidth proof by conducting a vote with current producers.
-
-\begin{equation*}
-|\mathbb{R}| = \{P(B)_1,P(B)_2,...P(B)_n\} 
-\end{equation*}
-Vote Participants,
-\begin{equation*}
-\forall |\mathbb{R}| \begin{cases}
-|\mathbb{R}| \backslash \{\{P(B)_n\}\} \wedge \in |\mathbb{R}'|, & \text{if } P(B)_n < \bar{x}(|\mathbb{R}|) \\
-P(B)_n \in |\mathbb{R}|,  & \text{otherwise}
-\end{cases}
-\end{equation*}
-After Seed,
-\begin{equation*}
-\forall \mathbb{R'} k = \sum_{P(B)'_n \in |\mathbb{R}|} P(B)'_n
-\end{equation*}
-\begin{equation*}
-\forall \mathbb{R'} \begin{cases}
-|\mathbb{R}'| \backslash \{\{P(B)_n\}\}, & \text{ if } k > \bar{x}(|\mathbb{R}|) \cdot (51 \cdot 10^{-2})\\
-P(B)_n \in |\mathbb{R}'|, & \text{ otherwise}
-\end{cases}
-\end{equation*}
-Results, 
-\begin{equation*}
-|\mathbb{R}| = |\mathbb{R}| {\displaystyle \cup } |\mathbb{R}'|, i = \bar{x}(|\mathbb{R}|), |\mathbb{R}|=\emptyset
-\end{equation*}
-\begin{multicols}{2}
-\begin{conditions}
-|\mathbb{R}| & Block Producers\\
-P(B)_n & PubKey's Bandwidth in bps \\
-\bar{x} & Mean value\\
-\end{conditions}
-\columnbreak
-\begin{conditions}
-|\mathbb{R}''| & Producers to be voted\\
-P(B)'_n & Voted Pubkey's bps\\
-i & Joining requirement in bps 
-\end{conditions}
-\end{multicols}
-
-\subsubsection{Producer Allocation}
-
-Blocks are allocated for a whole epoch from a definite randomized seed where nodes construct the same predictable result. Each producer's bandwidth proof $> i$ will provide the production rate in the number of blocks.
-
-\begin{equation*}
-\text{Currently }|\mathbb{R}| = \emptyset, 
-\text{If } \epsilon_{(n)}\{P(B)_n...\} > i \in |\mathbb{R}|
-\end{equation*}
-Block Size/sec,
-\begin{equation*}
-\epsilon_{n}(j)=min(|\mathbb{R}|) \cdot l
-\end{equation*}
-Weights addition,
-\begin{equation*}
-\forall |\mathbb{R}|, P(B)_n = \sum w(P) + P(B)_n = P(w)_n  \in |\mathbb{R}''|
-\end{equation*}
-Allocation,
-\begin{equation*}
-\forall |\mathbb{R}''|, \lfloor \Phi_{n} \rfloor = \frac{x \cdot P(w)_n}{10^4 \cdot \sum_{P(w)_n \in |\mathbb{R}''|} P(w)_n} \in |\mathbb{N}|
-\end{equation*}
-\begin{multicols}{2}
-\begin{conditions}
-x & No. of blocks per epoch\\
-l & Latency\\
-w & Individual weights\\
-\end{conditions}
-\columnbreak
-\begin{conditions}
-\Phi & Allocated no. of blocks per producer\\
-|\mathbb{R}''| & Producers with weight \\
-|\mathbb{N}| & Producers with no. of blocks allocation
-\end{conditions}
-\end{multicols}
-\subsubsection{Random Seed}
-
-To randomize the election, between a block range, a seed($k$) - Merkle Chain Root from a confirmed block is found. This seed should lie between a selected range in $2^{256}$ base10 possibilities. The difficulty rate is adjusted every epoch to seed entropy. If a seed is not found, the last block of the range's MCR is taken. 
-
-\begin{equation*}
-|\mathbb{S}|= \{1,..2^{256}\} \text{ where, } k \in |\mathbb{S}|
-\end{equation*}
-\noindent Range Identify,
-\begin{equation*}
-|\mathbb{F}| = \{[(\frac{p}{d} \cdot q)+h],...(p=2^{256})\} \equiv |\mathbb{S}|
-\end{equation*}
-\begin{equation*}
-h = 0, \text{ } h++ ;\text{ } q = 0, \text{ } q++ \text{ every } \frac{p}{d}
-\end{equation*}
-Value k,
-\begin{equation*}
-|\mathbb{X}| = \{[(\frac{p}{d} \cdot q)+h],...[(\frac{p}{d} \cdot q)+h]\}, 
-\end{equation*}
-\begin{equation*}
-\text{ where } q \leq k' \leq q \in |\mathbb{X}|\subset |\mathbb{F}|
-\end{equation*}
-Difficulty level,
-\begin{equation*}
-k_{10} \text{ is taken} \begin{cases}
-d = 1, k=k' ,     & \text{ if } k' \text{ is } ¿, \exists k \in |\mathbb{X}| \\
-d++, k=k' ,       & \text{ if } \exists k \in |\mathbb{X}|\\
-d-- \geq 2, k=k', & \text{if } \neg \exists k \in |\mathbb{X}| \vee \exists k \in |\mathbb{F}|\{p\}
-\end{cases}
-\end{equation*}
-%\begin{equation*}
-%where k is taken
-%\end{equation*}
-Block height allocation,
-\begin{equation*}
-Z_{16} = MD160_{16}((SHA256_{16}(k_{16}+b_h+\epsilon_h))
-\end{equation*}
-\begin{equation*}
-Z_{16}
-\begin{cases}
-b_h++, P(\Phi_n) \in |\mathbb{L}|, \Phi_n = \Phi_n-1 \in |\mathbb{N}|,   &  \text{ if } |\mathbb{N}| \neq \emptyset \wedge \forall \Phi_n \in |\mathbb{N}| < Z_{16} \\
-MD160_{16}(Z_{16}),  & \text{ if } |\mathbb{N}| \neq \emptyset \wedge \forall \Phi_n \in |\mathbb{N}| > Z_{16} \\
-|\mathbb{N}| \{\Phi_n\} \backslash  |\mathbb{N}|, & \text{ if } \Phi_n=0\\
-\{n(|\mathbb{L}|)+1,..x\}=|\mathbb{L}|\Phi_n =\{1,..\},  & \text{ if } |\mathbb{N}| = \emptyset  \wedge x-n(|\mathbb{L}|)=\mathbb{N}\\
-|\mathbb{L}|,   & \text{ if } |\mathbb{N}| = \emptyset \wedge n(|\mathbb{L}|)=x
-\end{cases}
-\end{equation*}
-Block Time,
-\begin{equation*}
-\epsilon_n b(\tau) = \widetilde{x}(\epsilon_{n-2}(b_1^x)) \in |\mathbb{B}|
-\end{equation*}
-Block Size,
-\begin{equation*}
-Block size here (b_s)
-\end{equation*}
-\begin{conditions}
-b_h & Block height in base$_{10}$\\
-\epsilon_h & Epoch height in base$_{10}$\\
-P(\Phi_n) & Pubkey in MD160 base$_{16}$ rep
-\end{conditions}
-
-\subsection{Network Graph}
-
-
-
-\subsection{Routing Path}
-%Path with nlocktime, encryption, onion mixing, path layers
-%Purva
-
-\subsection{Hash-Reward}
-Halving of Bitcoin issuance is done every $R \cdot (1.26 \cdot 10^8)$ hashes equals 210,000 10-minute bitcoin blocks. Every epoch ($\epsilon_n$) will have a $g$ amount of bitcoins to be issued. Hence for every epoch a target $g(\epsilon_n)$ new bitcoins is set to mint. For forked blocks, the supply is slashed. For fully minted blocks with remaining hashes, the rewards are distributed to the next hashes equally incentivizing producers.
-\begin{equation*}
-g[R(\epsilon_n)] = \frac{\Delta g(\epsilon_n)}{\epsilon_n(\sum_1^n R)}
-\end{equation*}
-Rewards per block,
-\begin{equation*}
-g[R(\epsilon_n(b))] = \epsilon_n(b(\sum_1^n R)) \cdot g[R(\epsilon_n)]
-\end{equation*}
-\begin{equation*}
-\Delta g(\epsilon_n) = g(\epsilon_n) - [\sum_1^n g[R(\epsilon_n)]  \in b(\epsilon_n)]
-\end{equation*}
-Slashing forks $\Delta \lambda$,
-\begin{equation*}
-\forall \epsilon_n(b_n), \Delta g(\epsilon_n) = 
-\begin{cases}
-g(\epsilon_n) - g(\epsilon_n(b_n)), & \text{ if } \Omega(b_n) =  0 \\
-\Delta g(\epsilon_n) + b, & \text{ if } \Omega(b_n) = \mathbb{N} \wedge \lambda  \\
-\Delta g(\epsilon_n) - b, & \text{ if } \Omega(b_n) =  \mathbb{N} \wedge \Delta \lambda \\
-\end{cases}
-\end{equation*}
-\begin{equation*}
-\Omega(b_n) = g(\epsilon_n(b)) - [\sum_1^n g[R(\epsilon_n)]  \in b_n(\epsilon_n)]
-\end{equation*}
-\subsection{Merkle-Chain}
-
-
-
-\subsection{VDF \& Forks }
-
-VDF how it works - continuous hash in a single thread, with concated snips data, each snip is bunch of transactions in linear.
-
-Snip = pre-image + snip(transactions++)
-
-all should attach preimage
-
-When validating hash continuous with pre-image, if not empty snip, hash continuous - Find sum of hashes
-
-Block time $\tau$ in given in number of hashes in global
-
-local/global = intermediate
-
-For each pubkey different intermediate hash
-
-If sum of all snips <= intermediate hash - finish block
-
-Each producer will have different snip data with merkle chain
-
-To resolve, previous block with merkle chain root concated with next block.
-
-All producers upgrade it, fork resolved
-
-\subsection{Weights}
-Weights shall increment or decrement the posted bandwidth costing capital to nodes due to dishonest, lower performance or bandwidth.
-
-
-\begin{align*}
-\text{Null Block} = -0.015 \cdot (\widetilde{x}|\mathbb{R}|) \text{(Blocks with no snips)}\\
-\text{Fork$^{1deg}$} = -0.005 \cdot (\widetilde{x}|\mathbb{R}|) \text{ by first destination}\\
-\text{Forks$^{2deg}$} = -0.07 \cdot (\widetilde{x}|\mathbb{R}|) \text{ by other destinations}\\
-\text{Fork Proof$^{1deg}$} = +0.005 \cdot (\widetilde{x}|\mathbb{R}|)\\
-\text{Fork Proof$^{2deg}$} = +0.07 \cdot (\widetilde{x}|\mathbb{R}|)\\
-\text{Age} = +0.03 \cdot (\widetilde{x}|\mathbb{R}|)\\
-\text{Extras} = +x \cdot (\widetilde{x}|\mathbb{R}|)\\
-\end{align*}
-Null Block weight is added if a producer fails to add any snip. Forks of degree 1 refer to the fork created by the first destination producer. Forks of degree 2 refer to the fork created by further destinations. Both the sender and receiver shall incur the negative weight equally shared during forks. Fork proofs are provided by the producer before the fork, incentivized for their honesty. Age is a positive weight provided to producers with full block production without forks for the epoch. Extras is given for further native protocols such as oracles, etc.
-
-\subsection{Public Keys}
--governments should not ban
--same time governments should impose civil law
--public keys should not be reused by criminals
--governments should add
--users should withdraw between favourable governments
--Can have withdrawal period
-
-\section{Bitcoin Scripts}
-\subsection{Taxes}
-%During the unlocking script stack execution, with the solutions offered by sCrypt to take the preimage of the entire transaction, the outputs are validated with aaccuracy of providing the capital gains tax to the regulating authority of the unlocking script. Capital gains are imposed to the profits by feeding from an onchain oracle for the token id. Profits are calculated from the time of minting the script to spending. TDS or Tax Deducted at Source, a fixed percentage of a entire balance can be imposed by employers and payers to payees. It restricts the TDS amount when the script balance is spent and sends to the regulator. Sales tax is direct tax payment with two outputs imposed when a product is bought where the merchant provides information about the tax amount with its regulator and the price excluding the tax paid to merchant. Implementations can be contributed to \url{https://github.com/projectblink/Blink_sCrypts} 
-\subsection{Stake Proof}
-
-Delegators provide bitcoins or the staking token for accepted token id to nodes. For non-accepted tokens, delegators $(h1 \in D_T)$ can create their script along with specifying node $(M)$.
-\begin{equation*}
-\mathbb{SS} = lim,id,R,D_T(am_n,Pub_k,e_i), P(am_n,Pub(M),er_i),F_t(am,er_i). \sum D_T(am_n)
-\end{equation*}
-When deposited, each stake of delegators $(D_T)$ is identified along with its $(k)$ Pubkey and $(er_i)$ initial exchange rate to deduct gains tax during withdrawal $(W)$. Each script $(\mathbb{SS})$ will have a limit $(lim)$ in bitcoins or staking token along with $id$ for what token $(t)$ it is being staked.
-\begin{equation*}
-W(\mathbb{SS}) \leq
-\begin{cases} 
-[D_T(am_n) \cdot R] + [F_t(am) \cdot \frac{D_T(Pub_k(am_n))}{\sum D_T(am_n)}]  , & \text{ if } D_T(Pub_k) \\
-o=F_t(am) \cdot C & \text{ if } P(Pub(M)) \wedge Pub(M)= h1 \in D_T\\
-\frac{(\sum D_T(am_n) \cdot er_c(T))-(o \cdot er_c(t))}{er_c(T)}  & \text{ if } P(Pub(M)) \wedge Pub(M)\neq h1 \in D_T\\
-\end{cases}
-\end{equation*}
-During the production of blocks, producers $P(M)$ can reject their stake script transactions to freeze the collateral as proof for validation. Each script can only be proved once where the sum of all deposits will be made constant. For accepted tokens, validators create outputs for themselves and deposit fees. For non-accepted tokens producers inflate the ratio $(R)$, to withdraw staked tokens $(T)$ for commissions.
-
-\begin{equation*}
-y=(F_t(am) \cdot er_c)(C)
-\end{equation*}
-\begin{equation*}
-R=\frac{[\sum D_T(am_n)]-y}{\sum D_T(am_n)}
-\end{equation*}
-
-
-\subsection{Oracle}
-Oracle Feed Funding
-Positive Weight
-Reputation
-\subsection{DAO}
-Anonymous Proposal Voting Protocol
-Membership Protocol
-%Joby
-%To remove a temporary member - Vote percentage - (Temporary members 100\% (except the member to be removed ), Permanent Members 0\%, Employees - 75\%) - Period is first 20 days of the month
-%To remove a contract -(Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 25\%) - Period is last 10 days of the month
-% To include a contract (Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 25\%) - Period is first 20 days of the month
-% To assign Heir of a temporary member (Temporary - 51\%), permanent member (No Vote)
 
 \end{document}

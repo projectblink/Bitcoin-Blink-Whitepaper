@@ -1,0 +1,312 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper , top=35mm, right=35mm,left=35mm, bottom=35mm]{geometry}
+%packages
+\usepackage{hyperref}
+\usepackage{graphicx} %figures and images
+\graphicspath{{assets/images/}} % file path for images
+\usepackage{float}% float package
+\usepackage{enumitem} % for enumerate & itemize
+\usepackage{amsmath} % for math and equations
+\usepackage{amssymb}
+\usepackage{xurl}
+\usepackage{colonequals}
+\usepackage{multicol}
+\newcommand*{\logeq}{\ratio\Leftrightarrow}
+\usepackage{amsfonts} 
+\usepackage{algorithm2e}
+ \RestyleAlgo{ruled}
+\usepackage{indentfirst}
+\renewcommand{\abstractname}{\vspace{-\baselineskip}}
+\setlength{\belowcaptionskip}{-10pt}
+\DeclareSymbolFont{matha}{OML}{txmi}{m}{it}% txfonts
+\DeclareMathSymbol{\varv}{\mathord}{matha}{118}
+\usepackage{array}
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}    
+\DeclareMathSymbol{\invques}{\mathord}{operators}{`>}
+\DeclareUnicodeCharacter{00BF}{\tmquestiondown}
+\DeclareRobustCommand{\tmquestiondown}{%
+  \ifmmode\invques\else\textquestiondown\fi
+}
+\hypersetup{
+    pdftitle={Bitcoin (Blink) - Peer to Peer Global Cash system},
+    pdfauthor={Joby Reuben, Purva Chaudhari},
+    pdfsubject={Bitcoin},
+    pdfkeywords={bitcoin,projectblink,blink,blockchain,proofofspeed},
+}
+\font\myfontt=cmr12 at 10pt
+\usepackage{color}
+\usepackage{comment}
+\SetKwInput{KwInput}{Input}                % Set the Input
+\SetKwInput{KwOutput}{Output}              % set the Output
+\SetKwInput{KwPre}{Pre}                % Set the Input
+\SetKwInput{KwPost}{Post}              % set the Output
+
+  \setlength{\columnsep}{1cm}
+
+\begin{document}
+
+\appendix
+\noindent \Large \textbf{Appendix}
+\normalsize
+\section{Onchain Protocols}
+\subsection{Election}
+
+\subsubsection{Partcipation}
+
+For every epoch before the allocation of blocks, the joining requirement is increased by eliminating certain nodes' bandwidth proof by conducting a vote with current producers.
+
+\begin{equation*}
+|\mathbb{R}| = \{P(B)_1,P(B)_2,...P(B)_n\} 
+\end{equation*}
+Vote Participants,
+\begin{equation*}
+\forall |\mathbb{R}| \begin{cases}
+|\mathbb{R}| \backslash \{\{P(B)_n\}\} \wedge \in |\mathbb{R}'|, & \text{if } P(B)_n < \bar{x}(|\mathbb{R}|) \\
+P(B)_n \in |\mathbb{R}|,  & \text{otherwise}
+\end{cases}
+\end{equation*}
+After Seed,
+\begin{equation*}
+\forall \mathbb{R'} k = \sum_{P(B)'_n \in |\mathbb{R}|} P(B)'_n
+\end{equation*}
+\begin{equation*}
+\forall \mathbb{R'} \begin{cases}
+|\mathbb{R}'| \backslash \{\{P(B)_n\}\}, & \text{ if } k > \bar{x}(|\mathbb{R}|) \cdot (51 \cdot 10^{-2})\\
+P(B)_n \in |\mathbb{R}'|, & \text{ otherwise}
+\end{cases}
+\end{equation*}
+Results, 
+\begin{equation*}
+|\mathbb{R}| = |\mathbb{R}| {\displaystyle \cup } |\mathbb{R}'|, i = \bar{x}(|\mathbb{R}|), |\mathbb{R}|=\emptyset
+\end{equation*}
+\begin{multicols}{2}
+\begin{conditions}
+|\mathbb{R}| & Block Producers\\
+P(B)_n & PubKey's Bandwidth in bps \\
+\bar{x} & Mean value\\
+\end{conditions}
+\columnbreak
+\begin{conditions}
+|\mathbb{R}''| & Producers to be voted\\
+P(B)'_n & Voted Pubkey's bps\\
+i & Joining requirement in bps 
+\end{conditions}
+\end{multicols}
+
+\subsubsection{Producer Allocation}
+
+Blocks are allocated for a whole epoch from a definite randomized seed where nodes construct the same predictable result. Each producer's bandwidth proof $> i$ will provide the production rate in the number of blocks.
+
+\begin{equation*}
+\text{Currently }|\mathbb{R}| = \emptyset, 
+\text{If } \epsilon_{(n)}\{P(B)_n...\} > i \in |\mathbb{R}|
+\end{equation*}
+Block Size/sec,
+\begin{equation*}
+\epsilon_{n}(j)=min(|\mathbb{R}|) \cdot l
+\end{equation*}
+Weights addition,
+\begin{equation*}
+\forall |\mathbb{R}|, P(B)_n = \sum w(P) + P(B)_n = P(w)_n  \in |\mathbb{R}''|
+\end{equation*}
+Allocation,
+\begin{equation*}
+\forall |\mathbb{R}''|, \lfloor \Phi_{n} \rfloor = \frac{x \cdot P(w)_n}{10^4 \cdot \sum_{P(w)_n \in |\mathbb{R}''|} P(w)_n} \in |\mathbb{N}|
+\end{equation*}
+\begin{multicols}{2}
+\begin{conditions}
+x & No. of blocks per epoch\\
+l & Latency\\
+w & Individual weights\\
+\end{conditions}
+\columnbreak
+\begin{conditions}
+\Phi & Allocated no. of blocks per producer\\
+|\mathbb{R}''| & Producers with weight \\
+|\mathbb{N}| & Producers with no. of blocks allocation
+\end{conditions}
+\end{multicols}
+\subsubsection{Random Seed}
+
+To randomize the election, between a block range, a seed($k$) - Merkle Chain Root from a confirmed block is found. This seed should lie between a selected range in $2^{256}$ base10 possibilities. The difficulty rate is adjusted every epoch to seed entropy. If a seed is not found, the last block of the range's MCR is taken. 
+
+\begin{equation*}
+|\mathbb{S}|= \{1,..2^{256}\} \text{ where, } k \in |\mathbb{S}|
+\end{equation*}
+\noindent Range Identify,
+\begin{equation*}
+|\mathbb{F}| = \{[(\frac{p}{d} \cdot q)+h],...(p=2^{256})\} \equiv |\mathbb{S}|
+\end{equation*}
+\begin{equation*}
+h = 0, \text{ } h++ ;\text{ } q = 0, \text{ } q++ \text{ every } \frac{p}{d}
+\end{equation*}
+Value k,
+\begin{equation*}
+|\mathbb{X}| = \{[(\frac{p}{d} \cdot q)+h],...[(\frac{p}{d} \cdot q)+h]\}, 
+\end{equation*}
+\begin{equation*}
+\text{ where } q \leq k' \leq q \in |\mathbb{X}|\subset |\mathbb{F}|
+\end{equation*}
+Difficulty level,
+\begin{equation*}
+k_{10} \text{ is taken} \begin{cases}
+d = 1, k=k' ,     & \text{ if } k' \text{ is } ¿, \exists k \in |\mathbb{X}| \\
+d++, k=k' ,       & \text{ if } \exists k \in |\mathbb{X}|\\
+d-- \geq 2, k=k', & \text{if } \neg \exists k \in |\mathbb{X}| \vee \exists k \in |\mathbb{F}|\{p\}
+\end{cases}
+\end{equation*}
+%\begin{equation*}
+%where k is taken
+%\end{equation*}
+Block height allocation,
+\begin{equation*}
+Z_{16} = MD160_{16}((SHA256_{16}(k_{16}+b_h+\epsilon_h))
+\end{equation*}
+\begin{equation*}
+Z_{16}
+\begin{cases}
+b_h++, P(\Phi_n) \in |\mathbb{L}|, \Phi_n = \Phi_n-1 \in |\mathbb{N}|,   &  \text{ if } |\mathbb{N}| \neq \emptyset \wedge \forall \Phi_n \in |\mathbb{N}| < Z_{16} \\
+MD160_{16}(Z_{16}),  & \text{ if } |\mathbb{N}| \neq \emptyset \wedge \forall \Phi_n \in |\mathbb{N}| > Z_{16} \\
+|\mathbb{N}| \{\Phi_n\} \backslash  |\mathbb{N}|, & \text{ if } \Phi_n=0\\
+\{n(|\mathbb{L}|)+1,..x\}=|\mathbb{L}|\Phi_n =\{1,..\},  & \text{ if } |\mathbb{N}| = \emptyset  \wedge x-n(|\mathbb{L}|)=\mathbb{N}\\
+|\mathbb{L}|,   & \text{ if } |\mathbb{N}| = \emptyset \wedge n(|\mathbb{L}|)=x
+\end{cases}
+\end{equation*}
+Block Time,
+\begin{equation*}
+\epsilon_n b(\tau) = \widetilde{x}(\epsilon_{n-2}(b_1^x)) \in |\mathbb{B}|
+\end{equation*}
+Block Size,
+\begin{equation*}
+Block size here (b_s)
+\end{equation*}
+\begin{conditions}
+b_h & Block height in base$_{10}$\\
+\epsilon_h & Epoch height in base$_{10}$\\
+P(\Phi_n) & Pubkey in MD160 base$_{16}$ rep
+\end{conditions}
+
+\subsection{Network Graph}
+
+
+
+\subsection{Routing Path}
+%Path with nlocktime, encryption, onion mixing, path layers
+%Purva
+
+\subsection{Hash-Reward}
+Halving of Bitcoin issuance is done every $R \cdot (1.26 \cdot 10^8)$ hashes equals 210,000 10-minute bitcoin blocks. Every epoch ($\epsilon_n$) will have a $g$ amount of bitcoins to be issued. Hence for every epoch a target $g(\epsilon_n)$ new bitcoins is set to mint. For forked blocks, the supply is slashed. For fully minted blocks with remaining hashes, the rewards are distributed to the next hashes equally incentivizing producers.
+\begin{equation*}
+g[R(\epsilon_n)] = \frac{\Delta g(\epsilon_n)}{\epsilon_n(\sum_1^n R)}
+\end{equation*}
+Rewards per block,
+\begin{equation*}
+g[R(\epsilon_n(b))] = \epsilon_n(b(\sum_1^n R)) \cdot g[R(\epsilon_n)]
+\end{equation*}
+\begin{equation*}
+\Delta g(\epsilon_n) = g(\epsilon_n) - [\sum_1^n g[R(\epsilon_n)]  \in b(\epsilon_n)]
+\end{equation*}
+Slashing forks $\Delta \lambda$,
+\begin{equation*}
+\forall \epsilon_n(b_n), \Delta g(\epsilon_n) = 
+\begin{cases}
+g(\epsilon_n) - g(\epsilon_n(b_n)), & \text{ if } \Omega(b_n) =  0 \\
+\Delta g(\epsilon_n) + b, & \text{ if } \Omega(b_n) = \mathbb{N} \wedge \lambda  \\
+\Delta g(\epsilon_n) - b, & \text{ if } \Omega(b_n) =  \mathbb{N} \wedge \Delta \lambda \\
+\end{cases}
+\end{equation*}
+\begin{equation*}
+\Omega(b_n) = g(\epsilon_n(b)) - [\sum_1^n g[R(\epsilon_n)]  \in b_n(\epsilon_n)]
+\end{equation*}
+\subsection{Merkle-Chain}
+\subsection{VDF \& Forks }
+
+VDF how it works - continuous hash in a single thread, with concated snips data, each snip is bunch of transactions in linear.
+
+Snip = pre-image + snip(transactions++)
+
+all should attach preimage
+
+When validating hash continuous with pre-image, if not empty snip, hash continuous - Find sum of hashes
+
+Block time $\tau$ in given in number of hashes in global
+
+local/global = intermediate
+
+For each pubkey different intermediate hash
+
+If sum of all snips <= intermediate hash - finish block
+
+Each producer will have different snip data with merkle chain
+
+To resolve, previous block with merkle chain root concated with next block.
+
+All producers upgrade it, fork resolved
+
+\subsection{Weights}
+Weights shall increment or decrement the posted bandwidth costing capital to nodes due to dishonest, lower performance or bandwidth.
+
+
+\begin{align*}
+\text{Null Block} = -0.015 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Fork$^{1deg}$} = -0.005 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Forks$^{2deg}$} = -0.07 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Fork Proof$^{1deg}$} = +0.005 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Fork Proof$^{2deg}$} = +0.07 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Age} = +0.03 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Extras} = +x \cdot (\widetilde{x}|\mathbb{R}|)\\
+\end{align*}
+Null Block weight is added if a producer fails to add any snip. Forks of degree 1 refer to the fork created by the first destination producer. Forks of degree 2 refer to the fork created by further destinations. Both the sender and receiver shall incur the negative weight equally shared during forks. Fork proofs are provided by the producer before the fork, incentivized for their honesty. Age is a positive weight provided to producers with full block production without forks for the epoch. Extras is given for further native protocols such as oracles, etc.
+
+\section{Zk Circuits }
+\subsection{Bandwidth Proof}
+%Purva
+\subsection{VoC Vote (Ownership Proof)}
+The trapdoor and nullifier are private values of the semaphore identity. It uses Poseidon hash function to create the identity commitment using these signals and generate a binary Merkle tree that stores the public identity commitment of each member
+\subsection{IHR Proof}
+%Purva
+
+\section{Bitcoin Scripts}
+\subsection{Taxes}
+%During the unlocking script stack execution, with the solutions offered by sCrypt to take the preimage of the entire transaction, the outputs are validated with aaccuracy of providing the capital gains tax to the regulating authority of the unlocking script. Capital gains are imposed to the profits by feeding from an onchain oracle for the token id. Profits are calculated from the time of minting the script to spending. TDS or Tax Deducted at Source, a fixed percentage of a entire balance can be imposed by employers and payers to payees. It restricts the TDS amount when the script balance is spent and sends to the regulator. Sales tax is direct tax payment with two outputs imposed when a product is bought where the merchant provides information about the tax amount with its regulator and the price excluding the tax paid to merchant. Implementations can be contributed to \url{https://github.com/projectblink/Blink_sCrypts} 
+\subsection{Stake Proof}
+
+Delegators provide bitcoins or the staking token for accepted token id to nodes. For non-accepted tokens, delegators $(h1 \in D_T)$ can create their script along with specifying node $(M)$.
+\begin{equation*}
+\mathbb{SS} = lim,id,R,D_T(am_n,Pub_k,e_i), P(am_n,Pub(M),er_i),F_t(am,er_i). \sum D_T(am_n)
+\end{equation*}
+When deposited, each stake of delegators $(D_T)$ is identified along with its $(k)$ Pubkey and $(er_i)$ initial exchange rate to deduct gains tax during withdrawal $(W)$. Each script $(\mathbb{SS})$ will have a limit $(lim)$ in bitcoins or staking token along with $id$ for what token $(t)$ it is being staked.
+\begin{equation*}
+W(\mathbb{SS}) \leq
+\begin{cases} 
+[D_T(am_n) \cdot R] + [F_t(am) \cdot \frac{D_T(Pub_k(am_n))}{\sum D_T(am_n)}]  , & \text{ if } D_T(Pub_k) \\
+o=F_t(am) \cdot C & \text{ if } P(Pub(M)) \wedge Pub(M)= h1 \in D_T\\
+\frac{(\sum D_T(am_n) \cdot er_c(T))-(o \cdot er_c(t))}{er_c(T)}  & \text{ if } P(Pub(M)) \wedge Pub(M)\neq h1 \in D_T\\
+\end{cases}
+\end{equation*}
+During the production of blocks, producers $P(M)$ can reject their stake script transactions to freeze the collateral as proof for validation. Each script can only be proved once where the sum of all deposits will be made constant. For accepted tokens, validators create outputs for themselves and deposit fees. For non-accepted tokens producers inflate the ratio $(R)$, to withdraw staked tokens $(T)$ for commissions.
+
+\begin{equation*}
+y=(F_t(am) \cdot er_c)(C)
+\end{equation*}
+\begin{equation*}
+R=\frac{[\sum D_T(am_n)]-y}{\sum D_T(am_n)}
+\end{equation*}
+
+
+\subsection{Oracle}
+Oracle Feed Funding
+Positive Weight
+Reputation
+\subsection{DAO}
+Anonymous Proposal Voting Protocol
+Membership Protocol
+%Joby
+%To remove a temporary member - Vote percentage - (Temporary members 100\% (except the member to be removed ), Permanent Members 0\%, Employees - 75\%) - Period is first 20 days of the month
+%To remove a contract -(Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 25\%) - Period is last 10 days of the month
+% To include a contract (Temporary members - 51\%, Permanent members - 0\% (can vote), Employees - 25\%) - Period is first 20 days of the month
+% To assign Heir of a temporary member (Temporary - 51\%), permanent member (No Vote)
+
+\end{document}

@@ -1,0 +1,7 @@
+\documentclass[../Bitcoin Blink.tex]{subfiles}
+\graphicspath{{\subfix{../assets/images/}}}
+\begin{document}
+\subsection{Oracles}
+
+Oracle data provide real-time market rates to unlocking scripts for every x interval of blocks. Various oracle protocols \cite{chainlink} fall to freeloading and duplication issues due to its trustless nature. A per-feed subscription-based price-oracle protocol is introduced with participants - exchanges, nodes, and users. Exchanges provide real-time market rates along with traded volume for weighted aggregation of data. Nodes subscribe per request to exchange price feeds for each token id. Each exchange's feeds will have a reputation score similar to prediction markets maintained by users to avoid faulty data. Exchanges are incentivized by subscription fees, nodes provided with positive weights for the next elections, and users profit from removing faulty data oracles. Freeloading is avoided by exchange participation and equally distributing positive weights per feed to producer nodes. 
+\end{document}

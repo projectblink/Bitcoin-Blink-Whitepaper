@@ -1,0 +1,14 @@
+\documentclass[../Bitcoin Blink.tex]{subfiles}
+\graphicspath{{\subfix{../assets/images/}}}
+\begin{document}
+\subsection{Propagation}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=11cm]{Snips}
+\caption{Snips}
+\end{center}
+\end{figure}
+A Block is collectively validated but constructed as snips - divisible block chunks by the producer and directly messaged to the block's ring nodes with routing instructions to propagate and get confirmed. Each snip references the previous snip's hash similar to the chain of blocks for proper identification of each block's snips. For a block, a competition to deliver all snips under $x$ time interval is required to win rewards and avoid slashing of fees. When a block fails to win, it will do a intra-block fork and not mint its last of snips which will contain the fees and rewards. VDF proofs are attached for every snip during propagation among its assigned ring validators to declare the state of each block's competition and resolve forks. Failed block fees and rewards are slashed by sending them to a burn address by next blocks and results in addition of negative weights that indirectly slashes the bandwidth costing capital. Null-Blocks are self-minted by its ring validators with proofs.
+
+To synchronize time, each node's hash rate per second of a specific hash function is proved cryptographically onchain and taken in multiples of a common hardware's hash rate. An Individual hash-rate proof is provided along with bandwidth proof for every $x$ blocks before it expires which trustlessly synchronizes all nodes as a single hardware producing continuous hashes concated with all snips. The ZK IHR proofs are algorithmically similar to the bandwidth proofs, where the hash rate provided by the node is compared to the threshold range of the desired hash rate and salt is used to prevent tampering attacks.  This provides cryptographic timestamped proofs to validate each block's size and time, under which all snips have to arrive and win the time-based propagation competition. The competition is termed "Proof of Speed".
+\end{document}

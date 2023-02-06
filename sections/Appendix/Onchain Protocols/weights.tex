@@ -1,0 +1,20 @@
+\documentclass[../Bitcoin Blink.tex]{subfiles}
+\graphicspath{{\subfix{../assets/images/}}}
+\begin{document}
+\normalsize
+\subsection{Weights}
+Weights shall increment or decrement the posted bandwidth costing capital to nodes due to dishonest, lower performance or bandwidth.
+
+
+\begin{align*}
+\text{Null Block} = -0.015 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Fork$^{1deg}$} = -0.005 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Forks$^{2deg}$} = -0.07 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Fork Proof$^{1deg}$} = +0.005 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Fork Proof$^{2deg}$} = +0.07 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Age} = +0.03 \cdot (\widetilde{x}|\mathbb{R}|)\\
+\text{Extras} = +x \cdot (\widetilde{x}|\mathbb{R}|)\\
+\end{align*}
+Null Block weight is added if a producer fails to add any snip. Forks of degree 1 refer to the fork created by the first destination producer. Forks of degree 2 refer to the fork created by further destinations. Both the sender and receiver shall incur the negative weight equally shared during forks. Fork proofs are provided by the producer before the fork, incentivized for their honesty. Age is a positive weight provided to producers with full block production without forks for the epoch. Extras is given for further native protocols such as oracles, etc.
+
+\end{document}
