@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  6 FEB 2023 23:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  6 FEB 2023 23:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -653,12 +653,8 @@ Excluding 'comment' comment.) (./sections/Appendix/Zk Circuits/header.tex)
 (./sections/Appendix/Zk Circuits/ownership.tex)
 (./sections/Appendix/Bitcoin Scripts/header.tex)
 (./sections/Appendix/Bitcoin Scripts/tax.tex)
-(./sections/Appendix/Bitcoin Scripts/staking.tex
-Overfull \hbox (28.73714pt too wide) detected at line 18
-\OML/cmm/m/it/10 W\OT1/cmr/m/n/10 ([]) \OMS/cmsy/m/n/10 ^^T []
- []
-
-[9]) (./sections/Appendix/Bitcoin Scripts/oracle.tex)
+(./sections/Appendix/Bitcoin Scripts/staking.tex Excluding 'comment' comment.)
+(./sections/Appendix/Bitcoin Scripts/oracle.tex [9])
 (./sections/Appendix/Bitcoin Scripts/dao.tex) [10] (./Bitcoin Blink.aux)
 Package rerunfilecheck Info: File `"Bitcoin Blink".out' has not changed.
 (rerunfilecheck)             Checksum: 97B0DF2C940F912EF7B393DA3175584C;3634.
@@ -670,26 +666,20 @@ Here is how much of TeX's memory you used:
  29810 multiletter control sequences out of 15000+600000
  481005 words of font info for 69 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 60i,9n,63p,1609b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,6n,63p,1609b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Bitcoin Blink.pdf" (10 pages, 443075 bytes).
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmtt10.pfb>
+Output written on "Bitcoin Blink.pdf" (10 pages, 379008 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 258 compressed objects within 3 object streams
+ 274 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
  57 named destinations out of 1000 (max. 500000)
  293 words of extra memory for PDF output out of 10000 (max. 10000000)
 
