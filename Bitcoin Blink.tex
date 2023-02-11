@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage[a4paper , top=38mm, right=38mm,left=38mm, bottom=38mm]{geometry}
+\usepackage[a4paper , top=36mm, right=36mm,left=36mm, bottom=36mm]{geometry}
 %packages
 \usepackage{hyperref}
 \usepackage{subfiles} % subtex files package
@@ -11,6 +11,7 @@
 \usepackage{amssymb}
 \usepackage{xurl}
 \usepackage{colonequals}
+\usepackage{listings}
 \usepackage{multicol}
 \newcommand*{\logeq}{\ratio\Leftrightarrow}
 \usepackage{amsfonts} 
@@ -29,9 +30,34 @@
 \DeclareUnicodeCharacter{00BF}{\tmquestiondown}
 \DeclareRobustCommand{\tmquestiondown}{%
   \ifmmode\invques\else\textquestiondown\fi
+%\setlength{\belowcaptionskip}{-8mm}  
 }
+\usepackage{xcolor}
+\definecolor{listback}{rgb}{0.95,0.95,0.95}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{listback},   
+    basicstyle=\ttfamily\footnotesize,
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 \hypersetup{
-    pdftitle={Bitcoin (Blink) - Peer to Peer Global Cash system},
+    pdftitle={Bitcoin (Blink) - Peer to Peer Global Finance system},
     pdfauthor={Joby Reuben, Purva Chaudhari},
     pdfsubject={Bitcoin},
     pdfkeywords={bitcoin,projectblink,blink,blockchain,proofofspeed},
@@ -48,16 +74,13 @@
 
 %content starts here
 \title{
- \large \textbf{Bitcoin (Blink) - Peer to Peer Global Cash System}\\
-\vspace{6mm}
-\scriptsize[WORKING-DRAFT-v0.1]
-}
-\author{ \myfontt Joby Reuben \\ \myfontt joby@projectblink.org \and  \myfontt Purva Chaudhari \\ \myfontt purva@projectblink.org}
+ \large \textbf{Bitcoin (Blink) - Peer to Peer Global Finance System v1}
+\author{ \myfontt Joby Reuben \\ \myfontt joby@projectblink.org \and  \myfontt Purva Chaudhari \\ \myfontt purva@projectblink.org}}
 \date{}
 \begin{document}
 \maketitle
 \begin{abstract}
-\noindent \textbf{Abstract :} Bitcoin's PoW is replaced with a propagation competition on blocks sent across validators under a certain time interval stamped with cryptographic proofs to claim fees and solve forks as per proof weight. To achieve adaptable scalability, each block's size is determined in consensus among elected nodes to reduce transaction waiting time. Gossip systems are replaced with a privacy-centered direct messaging system by constructing encrypted paths to deliver unconfirmed transactions and confirmed blocks. Apart from bringing speed, we resolved the need for a single transaction fee token for a blockchain by bringing forth a novel non-custodial per-token staking system to allow users to pay in any token. The ``bitcoin" as a currency will ensure network security and hold Layer-1 tokens with staking and yielding fees. Since Bitcoin script adapts a Turing-incomplete language, the fees imposed for renting UTXOs make the transactions cheaper and the chain's ledger size optimized. We propose solutions for regulation revolving around taxation within the self-custody wallet ecosystem without compromising users' privacy. 
+\noindent \textbf{Abstract :} Bitcoin's PoW is replaced with a propagation competition on blocks sent across certain set of validators under a time interval stamped with cryptographic proofs to claim fees and solve forks as per proof weight. To achieve adaptable scalability, each block's size is determined in consensus among elected nodes to reduce transaction waiting time. Gossip systems are replaced with a privacy-centered direct messaging system by constructing encrypted paths to deliver unconfirmed transactions and confirmed blocks. Apart from bringing speed, we resolved the need for a single transaction fee token for a blockchain by bringing forth a novel non-custodial per-token staking system to allow users to pay in any token. The ``bitcoin" as a currency will ensure network security and hold Layer-1 tokens with staking and yielding fees. Since Bitcoin script adapts a Turing-incomplete language, the fees imposed for renting UTXOs make the transactions cheaper and the chain's ledger size optimized. We propose solutions for regulation revolving around taxation within the self-custody wallet ecosystem without compromising users' privacy. 
 \end{abstract}
 \subfile{sections/Theory/introduction}
 \subfile{sections/Theory/election}
@@ -68,53 +91,31 @@
 \subfile{sections/Theory/rewards}
 \subfile{sections/Theory/renting}
 \subfile{sections/Theory/forks}
-\subfile{sections/Theory/oracles}
+\subfile{sections/Theory/exchange}
 \subfile{sections/Theory/treasury}
 \subfile{sections/Theory/future}
 \bibliographystyle{ieeetr}
 \bibliography{citation.bib}
-\vspace{5mm}
+
+\newpage
 \normalsize
 \appendix
-\noindent \Large \textbf{Appendix}
-\subfile{sections/Appendix/Onchain Protocols/header}
-\subfile{sections/Appendix/Onchain Protocols/vdf}
-@Joby
-\subfile{sections/Appendix/Onchain Protocols/ring}
-@Joby
-\subfile{sections/Appendix/Onchain Protocols/election}
-@Joby
-\subfile{sections/Appendix/Onchain Protocols/block}
-@Joby
-\subfile{sections/Appendix/Onchain Protocols/fork}
-@Joby
-\subfile{sections/Appendix/Onchain Protocols/merklechain}
-@Ajay
-\subfile{sections/Appendix/Onchain Protocols/hash-reward}
-@Joby
-\subfile{sections/Appendix/Onchain Protocols/network graph}
-@Purva
-\subfile{sections/Appendix/Onchain Protocols/routing path}
-@Purva
-\subfile{sections/Appendix/Onchain Protocols/rent}
-@Joby
-\subfile{sections/Appendix/Onchain Protocols/stake-req}
-@Joby
-\subfile{sections/Appendix/Zk Circuits/header}
-\subfile{sections/Appendix/Zk Circuits/bandwidth}
-@Purva
-\subfile{sections/Appendix/Zk Circuits/ihr}
-@Purva
-\subfile{sections/Appendix/Zk Circuits/ownership}
-@Purva
-\subfile{sections/Appendix/Bitcoin Scripts/header}
-\subfile{sections/Appendix/Bitcoin Scripts/tax}
-@Ajay
-\subfile{sections/Appendix/Bitcoin Scripts/staking}
-@Purva
-\subfile{sections/Appendix/Bitcoin Scripts/oracle}
-@Joby
-\subfile{sections/Appendix/Bitcoin Scripts/dao}
-@Purva
+\section{Appendix}
+\subfile{sections/Appendix/ihr}
+\subfile{sections/Appendix/vdf}
+\subfile{sections/Appendix/merklechain}
+\subfile{sections/Appendix/ring}
+\subfile{sections/Appendix/bandwidth}
+\subfile{sections/Appendix/election}
+\subfile{sections/Appendix/block}
+\subfile{sections/Appendix/fork}
+\subfile{sections/Appendix/hash-reward}
+\subfile{sections/Appendix/network graph}
+\subfile{sections/Appendix/routing path}
+\subfile{sections/Appendix/rent}
+\subfile{sections/Appendix/stake-req}
+\subfile{sections/Appendix/tax}
+\subfile{sections/Appendix/exchange}
+\subfile{sections/Appendix/dao}
 
 \end{document}

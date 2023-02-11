@@ -5,8 +5,12 @@ S.~Nakamoto, ``Bitcoin : A peer-to-peer electronic cash system,'' {\em
   Whitepaper}, p.~9, 2008.
 
 \bibitem{sCrypt}
-``scrypt — a high level smart contract language for bitcoin sv.''
+``scrypt — a high level smart contract language for bitcoin sv.''
   \url{https://scrypt.io/}.
+
+\bibitem{stablecoin}
+``Dai stablecoin purple paper.''
+  \url{https://web.archive.org/web/20210127042114/https://makerdao.com/purple/}.
 
 \bibitem{wood2014ethereum}
 G.~Wood {\em et~al.}, ``Ethereum: A secure decentralised generalised
@@ -17,13 +21,18 @@ G.~Wood {\em et~al.}, ``Ethereum: A secure decentralised generalised
 A.~Yakovenko, ``Solana: A new architecture for a high performance blockchain
   v0. 8.13,'' {\em Whitepaper}, 2018.
 
+\bibitem{semaphore}
+``semaphore-protocol/semaphore: A zero-knowledge protocol for anonymous
+  signalling on ethereum.''
+  \url{https://github.com/semaphore-protocol/semaphore}.
+
 \bibitem{poon2016bitcoin}
 J.~Poon and T.~Dryja, ``The bitcoin lightning network: Scalable off-chain
   instant payments,'' 2016.
 
-\bibitem{chainlink}
-S.~Ellis, A.~Juels, and S.~Nazarov, ``Chainlink : A decentralized oracle
-  network v1,'' {\em Whitepaper}, 2017.
+\bibitem{stateupdate}
+``Stateful contract — scrypt 0.0.1 documentation.''
+  \url{https://scryptdoc.readthedocs.io/en/latest/state.html}.
 
 \bibitem{llvm}
 ``The llvm compiler infrastructure project.'' \url{https://llvm.org/}.

@@ -1,0 +1,32 @@
+\documentclass[../Bitcoin Blink.tex]{subfiles}
+\graphicspath{{\subfix{../assets/images/}}}
+\begin{document}
+\normalsize
+\subsection{Individual Hash Rate}
+\begin{lstlisting}[language=Java, caption=IHR Circuit]
+// Public inputs
+signal input : node_ihr 
+signal input : ihr_hash
+// Private signals 
+signal input : salt
+Signal input : required_ihr
+// Output signal
+signal output : if_pass
+// Range proof check 
+signal buffer
+signal range_check
+if (node_ihr > required_ihr - buffer&& node_ihr < required_ihr + buffer) : range_check = true
+// Verify hash
+signal hash
+signal hash_check
+// RIPEMD160 to calculate the hash
+hash = RIPEMD160 (salt, required_ihr)
+if (hash == ihr_hash)
+	hash_check = true
+if (range_check && hash_check)
+	if_pass = true
+else 
+if_pass = false
+\end{lstlisting}
+
+\end{document}

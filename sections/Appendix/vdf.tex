@@ -1,0 +1,19 @@
+\documentclass[../Bitcoin Blink.tex]{subfiles}
+\graphicspath{{\subfix{../assets/images/}}}
+\begin{document}
+\normalsize
+\subsection{VDF Proofs}
+
+A common hardware single threaded hash-rate in seconds () is taken where the IHR proofs synchronize all the nodes in multiples of () to identify time in means of () hash-rate per second. All nodes IHR proof provided along with its PubKey for identification.
+
+VDF Proofs provide timestamps of external data by concatenating it to a continuous hashing function restricted in a single threaded operation. During Multi-core validation, it can prove that a delay in real-time happened and the exact delay value can be calculated in hashes. Since our nodes synchronize as a constant hash-rate network, we can convert eitherwise from hash-rates to seconds.
+
+Each node will have a hash-clock that produces continuous hashes and oncatenates the external data received. Clocks are initiated with the arrival of first external data (transactions)
+
+Transactions are divided as snips and a bunch of snips form a block. Each snip shall be the external data concated to the clock's hashes.
+
+Proofs are attached along with the external data when sent to the next node. Proofs include pre images and its signature which includes the public key. A Block time in hash-count will be provided for each block. This hash-count is given in () where the nodes shall take it in multiples and integer. 
+
+From snip 1 to last snip it should be inside the hash-count or else reject the upcoming snips. If the block size is more also reject the upcoming snips. This creates a intra-block fork and resolved in the next block. 
+
+\end{document}
