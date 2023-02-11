@@ -6,6 +6,33 @@
 
 A common hardware single threaded hash-rate in seconds () is taken where the IHR proofs synchronize all the nodes in multiples of () to identify time in means of () hash-rate per second. All nodes IHR proof provided along with its PubKey for identification.
 
+The ZK IHR Proof... @Purva
+\begin{lstlisting}[language=Java, caption=IHR Circuit]
+//Public inputs
+signal input : node_ihr 
+signal input : ihr_hash
+//Private signals 
+signal input : salt
+signal input : required_ihr
+//Output signal
+signal output : if_pass
+//Range proof check 
+signal buffer
+signal range_check
+if (node_ihr > required_ihr - buffer&& node_ihr < required_ihr + buffer) : range_check = true
+//Verify hash
+signal hash
+signal hash_check
+//RIPEMD160 to calculate the hash
+hash = RIPEMD160 (salt, required_ihr)
+if (hash == ihr_hash)
+	hash_check = true
+if (range_check && hash_check)
+	if_pass = true
+else 
+if_pass = false
+\end{lstlisting}
+
 VDF Proofs provide timestamps of external data by concatenating it to a continuous hashing function restricted in a single threaded operation. During Multi-core validation, it can prove that a delay in real-time happened and the exact delay value can be calculated in hashes. Since our nodes synchronize as a constant hash-rate network, we can convert eitherwise from hash-rates to seconds.
 
 Each node will have a hash-clock that produces continuous hashes and oncatenates the external data received. Clocks are initiated with the arrival of first external data (transactions)
