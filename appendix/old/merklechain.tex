@@ -1,0 +1,90 @@
+\documentclass[../Bitcoin Blink.tex]{subfiles}
+\graphicspath{{\subfix{../assets/images/}}}
+\begin{document}
+\normalsize
+\textbf{Merkle Chain}
+\begin{multicols}{2}
+\begin{algorithm}[H]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\KwPre{the snip is added to the data}
+\KwPost{the data is added to the chain}
+\Begin{
+ add\_node(snip)\;
+ d $\gets$ snip\;
+  \uIf{head = null}{
+    head,tail $\gets$ add\_data(d)\;}
+    \Else {tail $\gets$ add\_data(d)\;}
+    }
+\scriptsize
+\caption{\textbf{class} MerkleChain}
+\end{algorithm}
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\KwPre{the value is added to the vector}
+\KwPost{the vector is generated to a merkle tree and added to the chain}
+New Vector data\;
+\Begin{
+data $\gets$ d\;
+\If{size(data) == max\_block\_size}
+{generate\_root(data)}
+\EndIf
+}
+ \caption{add\_data(d)}
+\end{algorithm}
+
+
+
+
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\KwPre{the vector data is added as the leaves}
+\KwPost{merkel tree and its root is generated }
+New Vector temp\_data\;
+\Begin{
+temp\_data $\gets$ data\;
+\While {temp\_data $>$ 1}
+\For{i = 0  i < size(temp_data)  i+2}
+Left $\gets$ temp\_data[i];\
+Right $\gets$ \IF {i+1 == size(temp_data)}{temp_data[i]} \Else {temp_data[i+1]}
+combined = Left + Right ;\
+new\_temp\_data $\gets$ hash(combined)\;
+\EndFor
+temp\_data $\gets$ new\_temp\_data\;
+\EndWhile
+node\_root $\gets$ temp\_data[0]\;
+      }
+ \caption{generate\_root()}
+\end{algorithm}
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\KwInitialized{chain is a object of class MerkleChain and  string data}
+\Begin{
+\While {true}
+{Output “enter data (q to quit)”}
+Get data\;
+\If data = q 
+\Break 
+\Else 
+addnode(data)\;
+\EndIf
+\EndWhile
+      }
+ \caption{main()}
+\end{algorithm}
+\end{multicols}
+
+\end{document}

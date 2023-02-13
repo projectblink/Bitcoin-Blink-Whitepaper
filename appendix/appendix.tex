@@ -1,0 +1,359 @@
+\documentclass[a4paper,10pt, twocolumn]{article}
+\usepackage[a4paper , top=15mm, right=15mm,left=15mm, bottom=15mm]{geometry}
+\usepackage{nopageno}
+\thispagestyle{empty}
+\usepackage{amsmath} % for math and equations
+\usepackage{amssymb} % for symbols
+\usepackage[boxed]{algorithm2e} %algorithm
+\usepackage{algorithmicx} %algorithm
+\SetAlCapNameFnt{\scriptsize}
+\SetAlCapFnt{\scriptsize}
+%Algorithm2e Declarations
+\SetKwInput{KwInput}{Input} % Set the Input
+\SetKwInput{KwOutput}{Output} % set the Output
+\SetKwInput{KwPre}{pre} % Set the Pre
+\SetKwInput{KwPost}{post} % set the Post
+\SetKwInput{KwInitialized}{initialized} % set the Initialized
+\SetKwInput{KwSigIn}{signal input} % set the Signal Input
+\SetKwInput{KwSigOut}{signal output} % set the Signal Input
+\algnewcommand\Signal{\textbf{signal}}
+\begin{document}
+\normalsize
+\noindent \Large \textbf{Appendix}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\tcc{Public signals}
+\KwSigIn{node\_ihr}
+\KwSigIn{ihr\_hash}
+\tcc{Private signals}
+\KwSigIn{salt}
+\KwSigIn{required\_ihr}
+\tcc{Output signal}
+\KwSigOut{if\_pass}
+\tcc{Range proof check}
+signal  \textbf{buffer}\;
+signal  \textbf{range\_check}\;
+\If{node\_ihr $>$ required\_ihr - buffer \&\& node\_ihr $<$ required\_ihr + buffer} {range\_check = true\;}
+\tcc{Verify hash}
+signal  \textbf{hash}\;
+signal  \textbf{hash\_check}\;
+\tcc{RIPEMD160 to calculate the hash}
+hash = RIPEMD160 (salt, required\_ihr)\;
+\If{hash == ihr\_hash} {hash\_check = true\;}
+\uIf{range\_check \&\& hash\_check} {if\_pass = true\;}
+\Else{if\_pass = false\;}
+\caption{ZK IHR Circuit}
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{VDF Proof}
+%Continuous Hashing (Single core) + Preimage attach with signature(pubkey) and concatenating snip + hashclock start with tail'f first snip, if given block time is passes don't add vdf proof, if block size also > don't add proof, Set of validators called ring
+\end{algorithm}
+
+\normalsize Merkle Chain
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\KwPre{the snip is added to the data}
+\KwPost{the data is added to the chain}
+\Begin{
+ add\_node(snip)\;
+ d $\gets$ snip\;
+  \uIf{head = null}{
+    head,tail $\gets$ add\_data(d)\;}
+    \Else {tail $\gets$ add\_data(d)\;}
+    }
+\scriptsize
+\caption{\textbf{class} MerkleChain}
+\end{algorithm}
+
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\KwPre{the value is added to the vector}
+\KwPost{the vector is generated to a merkle tree and added to the chain}
+New Vector data\;
+\Begin{
+data $\gets$ d\;
+\If{size(data) == max\_block\_size}
+{generate\_root(data)}
+}
+\caption{add\_data(d)}
+\end{algorithm}
+
+
+
+
+
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\KwPre{the vector data is added as the leaves}
+\KwPost{merkel tree and its root is generated }
+New Vector temp\_data\;
+\Begin{
+temp\_data $\gets$ data\;
+\While {temp\_data $>$ 1}
+\For{i = 0  i < size(temp_data)  i+2}
+Left $\gets$ temp\_data[i];\
+Right $\gets$ \IF {i+1 == size(temp_data)}{temp_data[i]} \Else {temp_data[i+1]}
+combined = Left + Right ;\
+new\_temp\_data $\gets$ hash(combined)\;
+\EndFor
+temp\_data $\gets$ new\_temp\_data\;
+\EndWhile
+node\_root $\gets$ temp\_data[0]\;
+      }
+\caption{generate\_root()}
+\end{algorithm}
+
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\KwInitialized{chain is a object of class MerkleChain and  string data}
+\Begin{
+\While {true}
+{Output “enter data (q to quit)”}
+Get data\;
+\If data = q 
+\Break 
+\Else 
+addnode(data)\;
+\EndIf
+\EndWhile
+      }
+ \caption{main()}
+\end{algorithm}
+
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Ring}
+%Ring - finite, unique, < total nodes, ring validation n to n+k to n+1,
+\end{algorithm}
+
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Gossip}
+%Gossip confirmed block to other full nodes except validators
+\end{algorithm}
+
+
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Fork Resolve}
+%Check which block has heavy proof
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Update Weight}
+%Each Node Weight and negative weight constant, Scan all blocks and add null block proofs -0.02 update weight
+\end{algorithm}
+
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Fork Proof}
+%Fork Proof -0.01 & +0.01 and update weights 
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Tail Election}
+%Tail Election, Take Weights in desecending, mean value joining req, mcr+vdf = MD160(h), heaviest weight>mean value && pubkey<h or if no lesser value then nearby greatest pubkey with most weight above join req or the heaviest weight regarless of join req, 
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Block Req}
+%Block size is min of ring val's bandwidth, block time is mean of n-1, n-2 block's block hash count.
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Block Req}
+% Ring size if fork --, if not fork 2 tails ++
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Hash Reward}
+% Per hash reward from total hash count (total sec * legacy hashrate) till next halve will have g bitcoins, if fork slash, if not rest counts will be added to g, Per hash reward = g/total remaining count
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Network Graph}
+% from signatures messages with 2 pubkeys, forming a topology map
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Routing Path}
+% nlocktime, encrypted onion path with routing instruction, data size kept constant
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Stake Requirement}
+% Finiding the requirement per token per block
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Stake Withdrawal}
+% Direct commission, deposit to script, ct inflation
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Taxes}
+% Taxes
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Regulator Script}
+% Taxes
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Swap Script}
+% Two token swap with conditions
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{Exchange Rate}
+% Nodes find exchange rate and accepting script state update, script update unlock after x blocks - ring validator
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{DAO Contracts}
+% Adding contracts
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{DAO Payout}
+% Contracts withdrawal by proving
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{DAO Dividend}
+% Paying dividend according to weightage
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\Begin{
+    }
+\caption{DAO removal}
+% Removing contracts and temp membership
+\end{algorithm}
+
+\end{document}
