@@ -34,12 +34,12 @@
 \tcc{Output signal}
 \KwSigOut{if\_pass}
 \tcc{Range proof check}
-signal  \textbf{buffer}\;
-signal  \textbf{range\_check}\;
+\textbf{signal}  buffer\;
+\textbf{signal}  range\_check\;
 \If{node\_ihr $>$ required\_ihr - buffer \&\& node\_ihr $<$ required\_ihr + buffer} {range\_check = true\;}
 \tcc{Verify hash}
-signal  \textbf{hash}\;
-signal  \textbf{hash\_check}\;
+\textbf{signal}  hash\;
+\textbf{signal}  hash\_check\;
 \tcc{RIPEMD160 to calculate the hash}
 hash = RIPEMD160 (salt, required\_ihr)\;
 \If{hash == ihr\_hash} {hash\_check = true\;}
