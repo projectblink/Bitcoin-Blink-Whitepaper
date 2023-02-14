@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  14 FEB 2023 13:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  14 FEB 2023 15:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -190,28 +190,49 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \c@ALG@storecount=\count284
 \c@ALG@tmpcounter=\count285
 \ALG@tmplength=\skip73
-) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+\c@blindtext=\count286
+\c@Blindtext=\count287
+\c@blind@countparstart=\count288
+\blind@countxx=\count289
+\blindtext@numBlindtext=\count290
+\blind@countyy=\count291
+\c@blindlist=\count292
+\c@blindlistlevel=\count293
+\c@blindlist@level=\count294
+\blind@listitem=\count295
+\c@blind@listcount=\count296
+\c@blind@levelcount=\count297
+\blind@mathformula=\count298
+\blind@Mathformula=\count299
+\c@blind@randomcount=\count300
+\c@blind@randommax=\count301
+\c@blind@pangramcount=\count302
+\c@blind@pangrammax=\count303
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count286
+\l__color_backend_stack_int=\count304
 \l__pdf_internal_box=\box60
 )
 (./appendix.aux)
 \openout1 = `appendix.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -221,15 +242,15 @@ LaTeX Font Info:    ... okay on input line 20.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(42.67912pt, 512.14963pt, 42.67912pt)
-* v-part:(T,H,B)=(42.67912pt, 759.6886pt, 42.67912pt)
+* h-part:(L,W,R)=(28.45274pt, 540.60239pt, 28.45274pt)
+* v-part:(T,H,B)=(28.45274pt, 788.14136pt, 28.45274pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=512.14963pt
-* \textheight=759.6886pt
-* \oddsidemargin=-29.59087pt
-* \evensidemargin=-29.59087pt
-* \topmargin=-66.59087pt
+* \textwidth=540.60239pt
+* \textheight=788.14136pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-80.81725pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -247,21 +268,24 @@ LaTeX Font Info:    ... okay on input line 20.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 40.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 40.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+
+LaTeX Warning: No \author given.
+
 ! Argument of \algocf@Forstrip has an extra }.
 <inserted text> 
                 \par 
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -274,7 +298,7 @@ Runaway argument?
 ! Paragraph ended before \algocf@Forstrip was complete.
 <to be read again> 
                    \par 
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
@@ -283,7 +307,7 @@ My plan is to forget the whole thing and hope for the best.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -291,7 +315,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <argument> ...\For {i = 0 i < size(temp_data) i+2}
                                                    Left $\gets $ temp\_data[...
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -302,7 +326,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -310,7 +334,7 @@ you left one out. Proceed, with fingers crossed.
 ! Undefined control sequence.
 <argument> ...emp\_data[i];\^^MRight $\gets $ \IF 
                                                   {i+1 == size(temp_data)}{t...
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -321,7 +345,7 @@ and I'll forget about whatever was undefined.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -329,7 +353,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <argument> ...\gets $ \IF {i+1 == size(temp_data)}
                                                   {temp_data[i]} \Else {temp...
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -340,7 +364,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -348,7 +372,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -356,7 +380,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
                                                   }}\algocf@pop {\skiprule }...
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -367,7 +391,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
                                                   }\algocf@pop {\skiprule }\...
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -378,7 +402,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
                                                   \algocf@pop {\skiprule }\a...
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -389,7 +413,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -397,7 +421,7 @@ you left one out. Proceed, with fingers crossed.
 ! Undefined control sequence.
 <argument> ...a $\gets $ hash(combined)\; \EndFor 
                                                   temp\_data $\gets $ new\_t...
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -408,7 +432,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...\gets $ new\_temp\_data\; \EndWhile 
                                                   node\_root $\gets $ temp\_...
-l.121 \caption
+l.130 \caption
               {generate\_root()}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -419,7 +443,7 @@ and I'll forget about whatever was undefined.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.122 \end{algorithm}
+l.131 \end{algorithm}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -430,7 +454,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.122 \end{algorithm}
+l.131 \end{algorithm}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -441,7 +465,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.122 \end{algorithm}
+l.131 \end{algorithm}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -452,7 +476,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.122 \end{algorithm}
+l.131 \end{algorithm}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -461,14 +485,14 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Underfull \hbox (badness 10000) detected at line 122
+Underfull \hbox (badness 10000) detected at line 131
 [][]
  []
 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.122 \end{algorithm}
+l.131 \end{algorithm}
                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -482,7 +506,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 ! Undefined control sequence.
 <argument> ...”} Get data\; \If data = q \Break 
                                                   \Else addnode(data)\; \End...
-l.141  \caption
+l.150  \caption
                {main()}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -493,7 +517,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...\Break \Else addnode(data)\; \EndIf 
                                                   \EndWhile 
-l.141  \caption
+l.150  \caption
                {main()}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -504,7 +528,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...se addnode(data)\; \EndIf \EndWhile 
                                                   
-l.141  \caption
+l.150  \caption
                {main()}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -578,19 +602,23 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+LaTeX Warning: Text page 1 contains only floats.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+] [2
 
 ] (./appendix.aux) ) 
 Here is how much of TeX's memory you used:
- 3627 strings out of 480129
- 56042 string characters out of 5893409
- 385839 words of memory out of 5000000
- 21586 multiletter control sequences out of 15000+600000
- 472599 words of font info for 41 fonts, out of 8000000 for 9000
+ 3820 strings out of 480129
+ 59157 string characters out of 5893409
+ 392433 words of memory out of 5000000
+ 21764 multiletter control sequences out of 15000+600000
+ 477245 words of font info for 59 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 55i,16n,62p,324b,593s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,16n,62p,324b,595s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 x7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb>
@@ -600,7 +628,7 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on appendix.pdf (2 pages, 108902 bytes).
+Output written on appendix.pdf (2 pages, 110520 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  33 compressed objects within 1 object stream

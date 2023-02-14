@@ -1,11 +1,12 @@
 \documentclass[a4paper,10pt, twocolumn]{article}
-\usepackage[a4paper , top=15mm, right=15mm,left=15mm, bottom=15mm]{geometry}
+\usepackage[a4paper , top=10mm, right=10mm,left=10mm, bottom=10mm]{geometry}
 \usepackage{nopageno}
 \thispagestyle{empty}
 \usepackage{amsmath} % for math and equations
 \usepackage{amssymb} % for symbols
 \usepackage[boxed]{algorithm2e} %algorithm
 \usepackage{algorithmicx} %algorithm
+\usepackage{blindtext}
 \SetAlCapNameFnt{\scriptsize}
 \SetAlCapFnt{\scriptsize}
 %Algorithm2e Declarations
@@ -16,10 +17,18 @@
 \SetKwInput{KwInitialized}{initialized} % set the Initialized
 \SetKwInput{KwSigIn}{signal input} % set the Signal Input
 \SetKwInput{KwSigOut}{signal output} % set the Signal Input
+
+
+\title{\vspace{-5mm} \large \textbf{Appendix} \vspace{3mm}\\
+\scriptsize Git-user : @jobyreuben, @Purva-Chaudhari, @I-Corinthian \vspace{-13mm}}
+\date{\scriptsize \today \vspace{-5mm}}
+
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
-\normalsize
-\noindent \Large \textbf{Appendix}
+\maketitle
+\scriptsize
+
+\blindtext
 
 \begin{algorithm}[h!]
 \SetAlgoLined
