@@ -1,12 +1,14 @@
-\documentclass[a4paper,10pt, twocolumn]{article}
+\documentclass[a4paper,10pt,twocolumn]{article}
 \usepackage[a4paper , top=10mm, right=10mm,left=10mm, bottom=10mm]{geometry}
 \usepackage{nopageno}
 \thispagestyle{empty}
 \usepackage{amsmath} % for math and equations
 \usepackage{amssymb} % for symbols
-\usepackage[boxed]{algorithm2e} %algorithm
+\usepackage[boxruled]{algorithm2e} %algorithm
 \usepackage{algorithmicx} %algorithm
-\usepackage{blindtext}
+\usepackage{comment}
+\usepackage{float}
+\usepackage{hyperref}
 \SetAlCapNameFnt{\scriptsize}
 \SetAlCapFnt{\scriptsize}
 %Algorithm2e Declarations
@@ -19,18 +21,19 @@
 \SetKwInput{KwSigOut}{signal output} % set the Signal Input
 
 
-\title{\vspace{-5mm} \large \textbf{Appendix} \vspace{3mm}\\
-\scriptsize Git-user : @jobyreuben, @Purva-Chaudhari, @I-Corinthian \vspace{-13mm}}
-\date{\scriptsize \today \vspace{-5mm}}
+\title{\vspace{-10mm} \large \textbf{Appendix} \vspace{3mm}\\
+\scriptsize  \url{https://github.com/projectblink}  \vspace{-13mm}}
+\date{\scriptsize \today \hspace{1mm} (Updated) \vspace{-5mm}}
 
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
+
+
+
 \maketitle
 \scriptsize
 
-\blindtext
-
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
@@ -54,22 +57,14 @@ hash = RIPEMD160 (salt, required\_ihr)\;
 \If{hash == ihr\_hash} {hash\_check = true\;}
 \uIf{range\_check \&\& hash\_check} {if\_pass = true\;}
 \Else{if\_pass = false\;}
+\tcc{Bandwidth circuit $\equiv$ IHR circuit}
 \caption{ZK IHR Circuit}
 \end{algorithm}
 
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{VDF Proof}
-%Continuous Hashing (Single core) + Preimage attach with signature(pubkey) and concatenating snip + hashclock start with tail'f first snip, if given block time is passes don't add vdf proof, if block size also > don't add proof, Set of validators called ring
-\end{algorithm}
 
-\normalsize Merkle Chain
+\scriptsize \noindent Merkle Chain
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
@@ -83,23 +78,23 @@ hash = RIPEMD160 (salt, required\_ihr)\;
     \Else {tail $\gets$ add\_data(d)\;}
     }
 \scriptsize
-\caption{\textbf{class} MerkleChain}
+\caption{class MerkleChain}
 \end{algorithm}
 
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
 \KwPre{the value is added to the vector}
 \KwPost{the vector is generated to a merkle tree and added to the chain}
+\Begin {
 New Vector data\;
-\Begin{
 data $\gets$ d\;
 \If{size(data) == max\_block\_size}
 {generate\_root(data)}
 }
-\caption{add\_data(d)}
+\caption{class add\_data(d)}
 \end{algorithm}
 
 
@@ -107,262 +102,199 @@ data $\gets$ d\;
 
 
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
 \KwPre{the vector data is added as the leaves}
 \KwPost{merkel tree and its root is generated }
-New Vector temp\_data\;
 \Begin{
+New Vector temp\_data\;
 temp\_data $\gets$ data\;
-\While {temp\_data $>$ 1}
-\For{i = 0  i < size(temp_data)  i+2}
-Left $\gets$ temp\_data[i];\
-Right $\gets$ \IF {i+1 == size(temp_data)}{temp_data[i]} \Else {temp_data[i+1]}
-combined = Left + Right ;\
+\While {temp\_data $>$ 1}{
+\For{i = 0  i $<$ size(temp\_data)  i+2}{
+Left $\gets$ temp\_data[i]\;
+Right $\gets$ (i+1 == size(temp\_data)) ? temp\_data[i] : temp\_data[i+1]\;
+combined = Left + Right \;
 new\_temp\_data $\gets$ hash(combined)\;
-\EndFor
+}
 temp\_data $\gets$ new\_temp\_data\;
-\EndWhile
+}
 node\_root $\gets$ temp\_data[0]\;
-      }
+}
 \caption{generate\_root()}
 \end{algorithm}
 
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
 \KwInitialized{chain is a object of class MerkleChain and  string data}
 \Begin{
 \While {true}
-{Output “enter data (q to quit)”}
+{Output “enter data (q to quit)”
 Get data\;
-\If data = q 
-\Break 
-\Else 
-addnode(data)\;
-\EndIf
-\EndWhile
+\If {data = q}
+{ 
+Break\;
+\Else {
+addnode(data)\;}
       }
+     }
+     }
  \caption{main()}
 \end{algorithm}
 
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
-\caption{Ring}
-%Ring - finite, unique, < total nodes, ring validation n to n+k to n+1,
+\caption{Node Weights}
+Algo\;
+%Scan the blockchain for node join script with bandwidth x, weight 0
+%Scan from genesis block to current block
+% Add weight and store in temp in node itself
+%If Sucessful block add weight by 0.0001*block size limit per sec
+%If unsucessful block without fee snip add weight -0.02* block size limit per sec
+%If Fork Proof provided add weight to the prover node +0.01 *block size limit per sec and add weight to the forker -0.01 * block size limit per sec 
+%Loop it after every block is added
 \end{algorithm}
 
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
-\caption{Gossip}
-%Gossip confirmed block to other full nodes except validators
+Algo\;
+% If block time is over or block size is capped or end snip received, add block to chain
+% Update block by receiving last blocks updated hash proof
+% If new proof of block n is heavy than old proof, update the block % Find the snips to remove by linearly hashing one by one snip and when the MCR output = new proof MCR output then reject remaining snips
+% Update the block and add to chain
+% Add the next new block now to the chain
+% Calculate the ring size after a block is received and confirmed by next block
+% Ring size > 1 < no of nodes in node join req
+% If the confirmed block is forked then, reduce ring size by 1 int, end election
+% If the confirmed block is not forked, add ring size by 1 int, which denotes two tails should be elected
+% Set the ring size in int
+% From all node joining scripts make a set A of bandwidths descending
+% Remove current ring validators from it
+% From all node joining scripts make a set B of with updated weights in descending
+% remove current ring validators from it
+%From previous ring validators of previous block calculate the mean value >= 0
+% set the mean value as ring tail join requirement
+% Current head shall calculate the h by MCR of the block + Linear Hash of Hash Proofs
+% Set h as K
+% Update set A by > join req
+% Update set B by choosing set A pubkeys only
+% Order set B by descending
+% Find 2 pubkeys of MD160 hash in set B which is lesser than K
+% If no Find 2 pubkeys of MD160 hash in set B which is greater than K
+% When the pubkey is found
+% Find their bandwidth from their node joining script
+% Take the median value from it and keep it as block size limit per sec
+% Now we have to find per block time to find per block size
+%Take ring size number of blocks
+%For new upcoming n block find the block time
+% using ring size take all the previous block
+% Find the median of it = block time
+% From the block time, find the per block size
+% give block size in bits / sec and block time in global hashes
+% from block time global hashes calculate the individual block time count using its IHR
+% Set a cap that not more than the individual block time the producer should produce
+\caption{Snip Construction}
 \end{algorithm}
 
-
-
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
-\caption{Fork Resolve}
-%Check which block has heavy proof
+\caption{Hash Proofing}
+Algo\;
+%Hashclock (single thread hashing) start with first snip arrival
+%Rebuild the ring validators for the block
+%From ring validators rebuild the block size and individual time in hash counts
+%Snip + Preimage + Signature attach for the hash that produces from concatenating
+%Send to next instructed node on the routing instruction
+% If ind block time finish stop accepting snips and add that as block
+% If block size is exceeding reject snips and add that as block
 \end{algorithm}
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
-\caption{Update Weight}
-%Each Node Weight and negative weight constant, Scan all blocks and add null block proofs -0.02 update weight
-\end{algorithm}
-
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{Fork Proof}
-%Fork Proof -0.01 & +0.01 and update weights 
-\end{algorithm}
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{Tail Election}
-%Tail Election, Take Weights in desecending, mean value joining req, mcr+vdf = MD160(h), heaviest weight>mean value && pubkey<h or if no lesser value then nearby greatest pubkey with most weight above join req or the heaviest weight regarless of join req, 
-\end{algorithm}
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{Block Req}
-%Block size is min of ring val's bandwidth, block time is mean of n-1, n-2 block's block hash count.
-\end{algorithm}
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{Block Req}
-% Ring size if fork --, if not fork 2 tails ++
-\end{algorithm}
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
 \caption{Hash Reward}
 % Per hash reward from total hash count (total sec * legacy hashrate) till next halve will have g bitcoins, if fork slash, if not rest counts will be added to g, Per hash reward = g/total remaining count
 \end{algorithm}
 
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{Network Graph}
-% from signatures messages with 2 pubkeys, forming a topology map
-\end{algorithm}
+Tokens should be traded for bitcoins inorder for nodes to fix its market price which will assist in facilitating its transactions, per block stake requirement, non-accepted token producer commission, etc as every procedure follows up with denominations in bitcoin. For regulators they can select a specific any token id, can also possibly be their fiat currency as a L1 token on bitcoin for taxing oppurtunities on profits (capital gains).
 
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{Routing Path}
-% nlocktime, encrypted onion path with routing instruction, data size kept constant
-\end{algorithm}
 
-\begin{algorithm}[h!]
+\begin{comment}
+
+
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
-\caption{Stake Requirement}
+\caption{Staking}
 % Finiding the requirement per token per block
-\end{algorithm}
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{Stake Withdrawal}
 % Direct commission, deposit to script, ct inflation
 \end{algorithm}
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
+\caption{Regulation}
+\end{algorithm}
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
 \caption{Taxes}
 % Taxes
 \end{algorithm}
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
 \caption{Regulator Script}
 % Taxes
 \end{algorithm}
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
 \caption{Swap Script}
 % Two token swap with conditions
 \end{algorithm}
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
 \caption{Exchange Rate}
 % Nodes find exchange rate and accepting script state update, script update unlock after x blocks - ring validator
 \end{algorithm}
 
-\begin{algorithm}[h!]
+\begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\Begin{
-    }
 \caption{DAO Contracts}
 % Adding contracts
-\end{algorithm}
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{DAO Payout}
 % Contracts withdrawal by proving
-\end{algorithm}
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{DAO Dividend}
 % Paying dividend according to weightage
-\end{algorithm}
-
-\begin{algorithm}[h!]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\Begin{
-    }
-\caption{DAO removal}
 % Removing contracts and temp membership
 \end{algorithm}
+
+\end{comment}
 
 \end{document}
