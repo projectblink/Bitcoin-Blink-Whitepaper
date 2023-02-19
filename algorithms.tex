@@ -1,47 +1,59 @@
-\documentclass[a4paper,10pt,twocolumn]{article}
+\documentclass[a4paper,10pt,twocolumn]{extarticle}
 \usepackage[a4paper , top=10mm, right=10mm,left=10mm, bottom=10mm]{geometry}
 \usepackage{nopageno}
 \thispagestyle{empty}
+\usepackage{geometry}
 \usepackage{amsmath} % for math and equations
 \usepackage{amssymb} % for symbols
 \usepackage[boxruled]{algorithm2e} %algorithm
 \usepackage{algorithmicx} %algorithm
+\usepackage{algpseudocode}
+%declarations
+\algnewcommand{\algorithmicand}{\textbf{ and }}
+\algnewcommand{\algorithmicor}{\textbf{ or }}
+\algnewcommand{\OR}{\algorithmicor}
+\algnewcommand{\AND}{\algorithmicand}
+\algnewcommand{\var}{\texttt}
 \usepackage{comment}
 \usepackage{color}
 \usepackage{float}
 \usepackage{hyperref}
 \SetAlCapNameFnt{\scriptsize}
 \SetAlCapFnt{\scriptsize}
+
 %Algorithm2e Declarations
+\SetKwProg{Fn}{Function}{ is}{end}
+
+
 \SetKwInput{KwInput}{Input} % Set the Input
 \SetKwInput{KwOutput}{Output} % set the Output
 \SetKwInput{KwPre}{pre} % Set the Pre
 \SetKwInput{KwPost}{post} % set the Post
-\SetKwInput{KwInitialized}{initialized} % set the Initialized
-\SetKwInput{KwSigIn}{signal input} % set the Signal Input
-\SetKwInput{KwSigOut}{signal output} % set the Signal Input
 
 
 \definecolor{pagecolor}{rgb}{1,0.98,0.9}
 
 
 \title{\vspace{-10mm} \scriptsize \textbf{REFERENCE ALGORITHMS} \vspace{3mm}\\
-\scriptsize \vspace{-2mm} Purva Choudhari\thanks{https://github.com/Purva-Chaudhari}, Joby Reuben\thanks{https://github.com/jobyreuben}, Ajay Joshua\thanks{https://github.com/I-Corinthian}, %Shantanu Gaikwad\thanks{https://github.com/Srg213} }
-\vspace{-14mm}}
+\scriptsize \vspace{-2mm} Purva Choudhari\thanks{https://github.com/Purva-Chaudhari}, Ajay Joshua\thanks{https://github.com/I-Corinthian}\vspace{-14mm}}
 \date{\scriptsize \today \hspace{0.5mm} (Updated) \vspace{-5mm}}
 
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
-\pagecolor{pagecolor}
 
 
 \maketitle
 \scriptsize
 
+\noindent Individual Hash-rate zk-Circuit
+
 \begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
+\SetKwInput{KwSigIn}{signal input} % set the Signal Input
+\SetKwInput{KwSigOut}{signal output} % set the Signal Input
+
 \tcc{Public signals}
 \KwSigIn{node\_ihr}
 \KwSigIn{ihr\_hash}
@@ -53,7 +65,7 @@
 \tcc{Range proof check}
 \textbf{signal}  buffer\;
 \textbf{signal}  range\_check\;
-\If{node\_ihr $>$ required\_ihr - buffer \&\& node\_ihr $<$ required\_ihr + buffer} {range\_check = true\;}
+\If{node\_ihr $>$ required\_ihr - buffer \AND node\_ihr $<$ required\_ihr + buffer} {range\_check = true\;}
 \tcc{Verify hash}
 \textbf{signal}  hash\;
 \textbf{signal}  hash\_check\;
@@ -66,6 +78,61 @@ hash = RIPEMD160 (salt, required\_ihr)\;
 \caption{ZK IHR Circuit}
 \end{algorithm}
 
+\noindent Tax Script
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\SetKwInput{KwKey}{Key} % Set the Key
+\SetKwFunction{Fspend}{spend}
+\SetKwProg{Func}{Function}{:}{{end}}
+\caption{Tax Script}
+
+\KwKey{signature, amount, current\_exchange\_rate preimage\_of\_signature}
+\KwOut{updated stateful contract for the sender \& new stateful contract for the receiver}
+\Begin {
+
+DataLen = 1\;
+
+amount = 0\;
+
+pubKey = null\;
+
+exchange\_rate = 0\;
+
+tds = 0\;
+
+	\Func {\Fspend(sig, amount, current\_exchange\_rate, preimage)}{
+
+		\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage)}{
+
+			scriptCode \gets SigHash.scriptCode(preimage)\;
+
+			codeend \gets \text{position where the opcode ends}\;
+
+			codepart \gets scriptCode[:codeend]\;
+
+			sender \gets  PubKey(scriptCode[codeend+DataLen+1):(codeend+DataLen+1)+Constants.PubKeyLen])\;
+
+			gains \gets (amount * current\_exchange\_rate) - (amount * exchange\_rate)\;
+
+				\If {gains $>$ 0 }{
+ 
+					 amount \gets amount - (gains*(30/100))*(current\_exchange\_rate)\;
+
+}
+
+				\If {amount \leq (amount - tds) \AND sender == pubKey \AND amount \geq 0}{
+
+					 amount \gets amount - amount\;
+ 
+					}
+
+			}
+	}
+}
+\end{algorithm}
 
 \scriptsize \noindent Merkle Chain
 
@@ -135,7 +202,8 @@ node\_root $\gets$ temp\_data[0]\;
 \SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\KwInitialized{chain is a object of class MerkleChain and  string data}
+\SetKwInput{KwInitialized}{initialized} % set the Initialized
+\KwInitialized{chain is an object of class MerkleChain and  string data}
 \Begin{
 \While {true}
 {Output “enter data (q to quit)”
@@ -150,6 +218,9 @@ addnode(data)\;}
      }
  \caption{main()}
 \end{algorithm}
+
+
+\begin{comment}
 
 
 \begin{algorithm}[H]
@@ -239,8 +310,6 @@ Algo\;
 Tokens should be traded for bitcoins inorder for nodes to fix its market price which will assist in facilitating its transactions, per block stake requirement, non-accepted token producer commission, etc as every procedure follows up with denominations in bitcoin. For regulators they can select a specific any token id, can also possibly be their fiat currency as a L1 token on bitcoin for taxing oppurtunities on profits (capital gains). A token map is drawn 
 
 
-\begin{comment}
-
 \begin{algorithm}[H]
 \SetAlgoLined
 \scriptsize
@@ -257,15 +326,6 @@ Tokens should be traded for bitcoins inorder for nodes to fix its market price w
 \caption{Staking}
 % Finiding the requirement per token per block
 % Direct commission, deposit to script, ct inflation
-\end{algorithm}
-
-
-\begin{algorithm}[H]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\caption{Taxes}
-% Taxes
 \end{algorithm}
 
 
@@ -299,3 +359,4 @@ Tokens should be traded for bitcoins inorder for nodes to fix its market price w
 \end{comment}
 
 \end{document}
+
