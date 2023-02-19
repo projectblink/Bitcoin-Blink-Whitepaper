@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  19 FEB 2023 13:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  19 FEB 2023 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -653,7 +653,28 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \c@ALG@storecount=\count330
 \c@ALG@tmpcounter=\count331
 \ALG@tmplength=\skip76
-) (/usr/share/texmf/tex/latex/lm/lmodern.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+\c@blindtext=\count332
+\c@Blindtext=\count333
+\c@blind@countparstart=\count334
+\blind@countxx=\count335
+\blindtext@numBlindtext=\count336
+\blind@countyy=\count337
+\c@blindlist=\count338
+\c@blindlistlevel=\count339
+\c@blindlist@level=\count340
+\blind@listitem=\count341
+\c@blind@listcount=\count342
+\c@blind@levelcount=\count343
+\blind@mathformula=\count344
+\blind@Mathformula=\count345
+\c@blind@randomcount=\count346
+\c@blind@randommax=\count347
+\c@blind@pangramcount=\count348
+\c@blind@pangrammax=\count349
+)
+(/usr/share/texmf/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -702,8 +723,8 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen290
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count332
-\c@continuedfloat=\count333
+\c@caption@flags=\count350
+\c@continuedfloat=\count351
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 )
@@ -729,32 +750,32 @@ Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
 
 Excluding comment 'comment')
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
-6.
+7.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count334
+\l__color_backend_stack_int=\count352
 \l__pdf_internal_box=\box132
 )
 (./theory.aux)
 \openout1 = `theory.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -792,16 +813,16 @@ LaTeX Font Info:    ... okay on input line 86.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
+\scratchcounter=\count353
 \scratchdimen=\dimen293
 \scratchbox=\box133
-\nofMPsegments=\count336
-\nofMParguments=\count337
+\nofMPsegments=\count354
+\nofMParguments=\count355
 \everyMPshowfont=\toks42
-\MPscratchCnt=\count338
+\MPscratchCnt=\count356
 \MPscratchDim=\dimen294
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
+\MPnumerator=\count357
+\makeMPintoPDFobject=\count358
 \everyMPtoPDFconversion=\toks43
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -812,93 +833,93 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count341
+\c@lstlisting=\count359
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
-7.
+9.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-87.
+89.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-87.
+89.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 87.
+(Font)              <12> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 87.
+(Font)              <8> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 87.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
+(Font)              <6> on input line 89.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-87.
+89.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 92.
+(Font)              <10> on input line 100.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 92.
+(Font)              <7> on input line 100.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 92.
+(Font)              <5> on input line 100.
 <assets/images//ring.jpg, id=4, 809.0225pt x 334.24875pt>
 File: assets/images//ring.jpg Graphic file (type jpg)
 <use assets/images//ring.jpg>
-Package pdftex.def Info: assets/images//ring.jpg  used on input line 101.
+Package pdftex.def Info: assets/images//ring.jpg  used on input line 103.
 (pdftex.def)             Requested size: 312.9803pt x 129.31093pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<assets/images//Snips.jpg, id=18, 1123.19624pt x 619.31375pt>
+<assets/images//Snips.jpg, id=15, 1123.19624pt x 619.31375pt>
 File: assets/images//Snips.jpg Graphic file (type jpg)
 <use assets/images//Snips.jpg>
 Package pdftex.def Info: assets/images//Snips.jpg  used on input line 112.
 (pdftex.def)             Requested size: 341.43306pt x 188.262pt.
  [2 <./assets/images//ring.jpg>]
-<assets/images//intrafork.jpg, id=24, 825.0825pt x 406.51875pt>
+<assets/images//intrafork.jpg, id=20, 825.0825pt x 406.51875pt>
 File: assets/images//intrafork.jpg Graphic file (type jpg)
 <use assets/images//intrafork.jpg>
-Package pdftex.def Info: assets/images//intrafork.jpg  used on input line 123.
+Package pdftex.def Info: assets/images//intrafork.jpg  used on input line 121.
 (pdftex.def)             Requested size: 284.52756pt x 140.18709pt.
 
-Overfull \hbox (46.19899pt too wide) in paragraph at lines 128--129
+Overfull \hbox (46.19899pt too wide) in paragraph at lines 124--125
 []\OT1/lmr/m/n/10 Confirmed blocks as snips are streamed in a back-ward ring ma
 n-ner (block$[]$ to block$[]$...block$[]$).
  []
 
 [3 <./assets/images/snips.jpg> <./assets/images//intrafork.jpg>]
-<assets/images//topology.jpg, id=29, 950.55125pt x 345.29pt>
+<assets/images//topology.jpg, id=26, 950.55125pt x 345.29pt>
 File: assets/images//topology.jpg Graphic file (type jpg)
 <use assets/images//topology.jpg>
-Package pdftex.def Info: assets/images//topology.jpg  used on input line 133.
+Package pdftex.def Info: assets/images//topology.jpg  used on input line 129.
 (pdftex.def)             Requested size: 227.62204pt x 82.68161pt.
  [4 <./assets/images//topology.jpg>]
-<assets/images//merklechain.jpg, id=33, 2189.17876pt x 472.76625pt>
+<assets/images//merklechain.jpg, id=30, 2189.17876pt x 472.76625pt>
 File: assets/images//merklechain.jpg Graphic file (type jpg)
 <use assets/images//merklechain.jpg>
-Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 146
+Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 140
 .
 (pdftex.def)             Requested size: 369.88582pt x 79.87865pt.
  [5 <./assets/images//merklechain.jpg>] [6] (./theory.bbl
@@ -909,29 +930,28 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )) [7] (./theory.aux) ) 
 Here is how much of TeX's memory you used:
- 21791 strings out of 480129
- 440774 string characters out of 5893409
- 751262 words of memory out of 5000000
- 39383 multiletter control sequences out of 15000+600000
- 521786 words of font info for 75 fonts, out of 8000000 for 9000
+ 21942 strings out of 480129
+ 443462 string characters out of 5893409
+ 754699 words of memory out of 5000000
+ 39531 multiletter control sequences out of 15000+600000
+ 518843 words of font info for 74 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 83i,8n,89p,1626b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,7n,89p,1601b,411s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
 -mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on theory.pdf (7 pages, 475760 bytes).
+/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sh
+are/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt1
+0.pfb>
+Output written on theory.pdf (7 pages, 409571 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
