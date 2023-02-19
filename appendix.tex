@@ -7,6 +7,7 @@
 \usepackage[boxruled]{algorithm2e} %algorithm
 \usepackage{algorithmicx} %algorithm
 \usepackage{comment}
+\usepackage{color}
 \usepackage{float}
 \usepackage{hyperref}
 \SetAlCapNameFnt{\scriptsize}
@@ -21,13 +22,17 @@
 \SetKwInput{KwSigOut}{signal output} % set the Signal Input
 
 
-\title{\vspace{-10mm} \large \textbf{Appendix} \vspace{3mm}\\
-\scriptsize  \url{https://github.com/projectblink}  \vspace{-13mm}}
-\date{\scriptsize \today \hspace{1mm} (Updated) \vspace{-5mm}}
+\definecolor{pagecolor}{rgb}{1,0.98,0.9}
+
+
+\title{\vspace{-10mm} \scriptsize \textbf{REFERENCE ALGORITHMS} \vspace{3mm}\\
+\scriptsize \vspace{-2mm} Purva Choudhari\thanks{https://github.com/Purva-Chaudhari}, Joby Reuben\thanks{https://github.com/jobyreuben}, Ajay Joshua\thanks{https://github.com/I-Corinthian}, %Shantanu Gaikwad\thanks{https://github.com/Srg213} }
+\vspace{-14mm}}
+\date{\scriptsize \today \hspace{0.5mm} (Updated) \vspace{-5mm}}
 
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
-
+\pagecolor{pagecolor}
 
 
 \maketitle
@@ -226,13 +231,23 @@ Algo\;
 \scriptsize
 \DontPrintSemicolon
 \caption{Hash Reward}
+% Calculate Total hashes H and Total bitcoins g remaining for the halving period
+
 % Per hash reward from total hash count (total sec * legacy hashrate) till next halve will have g bitcoins, if fork slash, if not rest counts will be added to g, Per hash reward = g/total remaining count
 \end{algorithm}
 
-Tokens should be traded for bitcoins inorder for nodes to fix its market price which will assist in facilitating its transactions, per block stake requirement, non-accepted token producer commission, etc as every procedure follows up with denominations in bitcoin. For regulators they can select a specific any token id, can also possibly be their fiat currency as a L1 token on bitcoin for taxing oppurtunities on profits (capital gains).
+Tokens should be traded for bitcoins inorder for nodes to fix its market price which will assist in facilitating its transactions, per block stake requirement, non-accepted token producer commission, etc as every procedure follows up with denominations in bitcoin. For regulators they can select a specific any token id, can also possibly be their fiat currency as a L1 token on bitcoin for taxing oppurtunities on profits (capital gains). A token map is drawn 
 
 
 \begin{comment}
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\caption{Transfer and renting fees}
+% Transfer Fee
+\end{algorithm}
 
 
 \begin{algorithm}[H]
@@ -244,13 +259,6 @@ Tokens should be traded for bitcoins inorder for nodes to fix its market price w
 % Direct commission, deposit to script, ct inflation
 \end{algorithm}
 
-\begin{algorithm}[H]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\caption{Regulation}
-\end{algorithm}
-
 
 \begin{algorithm}[H]
 \SetAlgoLined
@@ -260,13 +268,6 @@ Tokens should be traded for bitcoins inorder for nodes to fix its market price w
 % Taxes
 \end{algorithm}
 
-\begin{algorithm}[H]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\caption{Regulator Script}
-% Taxes
-\end{algorithm}
 
 \begin{algorithm}[H]
 \SetAlgoLined

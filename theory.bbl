@@ -21,14 +21,14 @@ G.~Wood {\em et~al.}, ``Ethereum: A secure decentralised generalised
 A.~Yakovenko, ``Solana: A new architecture for a high performance blockchain
   v0. 8.13,'' {\em Whitepaper}, 2018.
 
+\bibitem{poon2016bitcoin}
+J.~Poon and T.~Dryja, ``The bitcoin lightning network: Scalable off-chain
+  instant payments,'' 2016.
+
 \bibitem{semaphore}
 ``semaphore-protocol/semaphore: A zero-knowledge protocol for anonymous
   signalling on ethereum.''
   \url{https://github.com/semaphore-protocol/semaphore}.
-
-\bibitem{poon2016bitcoin}
-J.~Poon and T.~Dryja, ``The bitcoin lightning network: Scalable off-chain
-  instant payments,'' 2016.
 
 \bibitem{stateupdate}
 ``Stateful contract — scrypt 0.0.1 documentation.''

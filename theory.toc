@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {2}Bitcoin (Blink)}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Validation}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Propagation}{2}{}%
+\contentsline {subsection}{\numberline {2.3}Forks}{3}{}%
+\contentsline {subsection}{\numberline {2.4}Messaging}{4}{}%
+\contentsline {subsection}{\numberline {2.5}Staking}{4}{}%
+\contentsline {subsection}{\numberline {2.6}Renting}{5}{}%
+\contentsline {subsection}{\numberline {2.7}Rewards}{5}{}%
+\contentsline {subsection}{\numberline {2.8}Taxes}{6}{}%
+\contentsline {subsection}{\numberline {2.9}Treasury}{6}{}%
+\contentsline {section}{\numberline {3}Future}{6}{}%
