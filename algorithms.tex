@@ -1,11 +1,11 @@
 \documentclass[a4paper,10pt,twocolumn]{extarticle}
-\usepackage[a4paper , top=10mm, right=10mm,left=10mm, bottom=10mm]{geometry}
+\usepackage[a4paper , top=8mm, right=8mm,left=8mm, bottom=8mm]{geometry}
 \usepackage{nopageno}
 \thispagestyle{empty}
 \usepackage{geometry}
 \usepackage{amsmath} % for math and equations
 \usepackage{amssymb} % for symbols
-\usepackage[boxruled]{algorithm2e} %algorithm
+\usepackage[boxruled,lined]{algorithm2e} %algorithm
 \usepackage{algorithmicx} %algorithm
 \usepackage{algpseudocode}
 %declarations
@@ -34,197 +34,30 @@
 \definecolor{pagecolor}{rgb}{1,0.98,0.9}
 
 
-\title{\vspace{-10mm} \scriptsize \textbf{REFERENCE ALGORITHMS} \vspace{3mm}\\
-\scriptsize \vspace{-2mm} Purva Choudhari\thanks{https://github.com/Purva-Chaudhari}, Ajay Joshua\thanks{https://github.com/I-Corinthian}\vspace{-14mm}}
-\date{\scriptsize \today \hspace{0.5mm} (Updated) \vspace{-5mm}}
+\title{\vspace{-10mm} \footnotesize \textbf{REFERENCE ALGORITHMS} \vspace{3mm}\\
+\scriptsize \vspace{-2mm} Purva Choudhari\thanks{https://github.com/Purva-Chaudhari}, Ajay Joshua\thanks{https://github.com/I-Corinthian} \vspace{1mm}\\
+\url{https://github.com/projectblink}\vspace{-14mm}}
+\date{\scriptsize \today \hspace{0.5mm} (Genesis Version) \vspace{-7mm}}
 
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
-
-
 \maketitle
 \scriptsize
-
-\noindent Individual Hash-rate zk-Circuit
-
 \begin{algorithm}[H]
-\SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\SetKwInput{KwSigIn}{signal input} % set the Signal Input
-\SetKwInput{KwSigOut}{signal output} % set the Signal Input
-
-\tcc{Public signals}
-\KwSigIn{node\_ihr}
-\KwSigIn{ihr\_hash}
-\tcc{Private signals}
-\KwSigIn{salt}
-\KwSigIn{required\_ihr}
-\tcc{Output signal}
-\KwSigOut{if\_pass}
-\tcc{Range proof check}
-\textbf{signal}  buffer\;
-\textbf{signal}  range\_check\;
-\If{node\_ihr $>$ required\_ihr - buffer \AND node\_ihr $<$ required\_ihr + buffer} {range\_check = true\;}
-\tcc{Verify hash}
-\textbf{signal}  hash\;
-\textbf{signal}  hash\_check\;
-\tcc{RIPEMD160 to calculate the hash}
-hash = RIPEMD160 (salt, required\_ihr)\;
-\If{hash == ihr\_hash} {hash\_check = true\;}
-\uIf{range\_check \&\& hash\_check} {if\_pass = true\;}
-\Else{if\_pass = false\;}
-\tcc{Bandwidth circuit $\equiv$ IHR circuit}
-\caption{ZK IHR Circuit}
+\caption{Network Graph \& Path Finding}
+Algo\;
 \end{algorithm}
 
-\noindent Tax Script
-
 \begin{algorithm}[H]
-\SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\SetKwInput{KwKey}{Key} % Set the Key
-\SetKwFunction{Fspend}{spend}
-\SetKwProg{Func}{Function}{:}{{end}}
-\caption{Tax Script}
-
-\KwKey{signature, amount, current\_exchange\_rate preimage\_of\_signature}
-\KwOut{updated stateful contract for the sender \& new stateful contract for the receiver}
-\Begin {
-
-DataLen = 1\;
-
-amount = 0\;
-
-pubKey = null\;
-
-exchange\_rate = 0\;
-
-tds = 0\;
-
-	\Func {\Fspend(sig, amount, current\_exchange\_rate, preimage)}{
-
-		\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage)}{
-
-			scriptCode \gets SigHash.scriptCode(preimage)\;
-
-			codeend \gets \text{position where the opcode ends}\;
-
-			codepart \gets scriptCode[:codeend]\;
-
-			sender \gets  PubKey(scriptCode[codeend+DataLen+1):(codeend+DataLen+1)+Constants.PubKeyLen])\;
-
-			gains \gets (amount * current\_exchange\_rate) - (amount * exchange\_rate)\;
-
-				\If {gains $>$ 0 }{
- 
-					 amount \gets amount - (gains*(30/100))*(current\_exchange\_rate)\;
-
-}
-
-				\If {amount \leq (amount - tds) \AND sender == pubKey \AND amount \geq 0}{
-
-					 amount \gets amount - amount\;
- 
-					}
-
-			}
-	}
-}
+\caption{Onion Peeling}
+Algo\;
 \end{algorithm}
 
-\scriptsize \noindent Merkle Chain
-
 \begin{algorithm}[H]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\KwPre{the snip is added to the data}
-\KwPost{the data is added to the chain}
-\Begin{
- add\_node(snip)\;
- d $\gets$ snip\;
-  \uIf{head = null}{
-    head,tail $\gets$ add\_data(d)\;}
-    \Else {tail $\gets$ add\_data(d)\;}
-    }
-\scriptsize
-\caption{class MerkleChain}
-\end{algorithm}
-
-
-\begin{algorithm}[H]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\KwPre{the value is added to the vector}
-\KwPost{the vector is generated to a merkle tree and added to the chain}
-\Begin {
-New Vector data\;
-data $\gets$ d\;
-\If{size(data) == max\_block\_size}
-{generate\_root(data)}
-}
-\caption{class add\_data(d)}
-\end{algorithm}
-
-
-
-
-
-
-\begin{algorithm}[H]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\KwPre{the vector data is added as the leaves}
-\KwPost{merkel tree and its root is generated }
-\Begin{
-New Vector temp\_data\;
-temp\_data $\gets$ data\;
-\While {temp\_data $>$ 1}{
-\For{i = 0  i $<$ size(temp\_data)  i+2}{
-Left $\gets$ temp\_data[i]\;
-Right $\gets$ (i+1 == size(temp\_data)) ? temp\_data[i] : temp\_data[i+1]\;
-combined = Left + Right \;
-new\_temp\_data $\gets$ hash(combined)\;
-}
-temp\_data $\gets$ new\_temp\_data\;
-}
-node\_root $\gets$ temp\_data[0]\;
-}
-\caption{generate\_root()}
-\end{algorithm}
-
-
-\begin{algorithm}[H]
-\SetAlgoLined
-\scriptsize
-\DontPrintSemicolon
-\SetKwInput{KwInitialized}{initialized} % set the Initialized
-\KwInitialized{chain is an object of class MerkleChain and  string data}
-\Begin{
-\While {true}
-{Output “enter data (q to quit)”
-Get data\;
-\If {data = q}
-{ 
-Break\;
-\Else {
-addnode(data)\;}
-      }
-     }
-     }
- \caption{main()}
-\end{algorithm}
-
-
-\begin{comment}
-
-
-\begin{algorithm}[H]
-\SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
 \caption{Node Weights}
@@ -240,7 +73,6 @@ Algo\;
 
 
 \begin{algorithm}[H]
-\SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
 Algo\;
@@ -283,7 +115,6 @@ Algo\;
 \end{algorithm}
 
 \begin{algorithm}[H]
-\SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
 \caption{Hash Proofing}
@@ -298,55 +129,198 @@ Algo\;
 \end{algorithm}
 
 \begin{algorithm}[H]
-\SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
 \caption{Hash Reward}
 % Calculate Total hashes H and Total bitcoins g remaining for the halving period
-
 % Per hash reward from total hash count (total sec * legacy hashrate) till next halve will have g bitcoins, if fork slash, if not rest counts will be added to g, Per hash reward = g/total remaining count
 \end{algorithm}
-
-Tokens should be traded for bitcoins inorder for nodes to fix its market price which will assist in facilitating its transactions, per block stake requirement, non-accepted token producer commission, etc as every procedure follows up with denominations in bitcoin. For regulators they can select a specific any token id, can also possibly be their fiat currency as a L1 token on bitcoin for taxing oppurtunities on profits (capital gains). A token map is drawn 
-
-
 \begin{algorithm}[H]
-\SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\caption{Transfer and renting fees}
-% Transfer Fee
+\SetKwInput{KwSigIn}{signal input} % set the Signal Input
+\SetKwInput{KwSigOut}{signal output} % set the Signal Input
+
+\tcc{Public signals}
+\KwSigIn{node\_ihr}
+\KwSigIn{ihr\_hash}
+\tcc{Private signals}
+\KwSigIn{salt}
+\KwSigIn{required\_ihr}
+\tcc{Output signal}
+\KwSigOut{if\_pass}
+\tcc{Range proof check}
+\textbf{signal}  buffer\;
+\textbf{signal}  range\_check\;
+\If{node\_ihr $>$ required\_ihr - buffer \AND node\_ihr $<$ required\_ihr + buffer} {range\_check = true\;}
+\tcc{Verify hash}
+\textbf{signal}  hash\;
+\textbf{signal}  hash\_check\;
+\tcc{RIPEMD160 to calculate the hash}
+hash = RIPEMD160 (salt, required\_ihr)\;
+\If{hash == ihr\_hash} {hash\_check = true\;}
+\uIf{range\_check \&\& hash\_check} {if\_pass = true\;}
+\Else{if\_pass = false\;}
+\tcc{Bandwidth circuit $\equiv$ IHR circuit}
+\caption{ZK IHR Circuit}
 \end{algorithm}
 
-
 \begin{algorithm}[H]
-\SetAlgoLined
 \scriptsize
 \DontPrintSemicolon
-\caption{Staking}
-% Finiding the requirement per token per block
-% Direct commission, deposit to script, ct inflation
+\SetKwInput{KwKey}{Key} % Set the Key
+\SetKwFunction{Fspend}{spend}
+\SetKwProg{Func}{Function}{:}{{end}}
+\caption{Tax Script}
+\KwKey{signature, amount, current\_exchange\_rate, preimage\_of\_signature, tax\_percent}
+\KwOut{updated stateful contract for the sender & new stateful contract for the receiver}
+\Begin{
+	DataLen = 1\;
+	utxo\_amount \gets initial\_amount\;
+	
+	pubKey \gets \text{pubkey of the sender}\;
+	
+	exchange\_rate \gets initial\_exchange\_rate\;
+	
+	tds \gets TDS \;
+
+	\Func {\Fspend(sig, amount, current\_exchange\_rate, tax\_percent, receiver\_pubkey,preimage)}
+		{
+
+		\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage)}
+			{
+
+			scriptCode \gets SigHash.scriptCode(preimage)\;
+
+			codeend \gets \text{position where the opcode ends}\;
+
+			codepart \gets scriptCode[:codeend]\;
+
+			gains \gets (amount * current\_exchange\_rate) - (amount * exchange\_rate)\;
+
+			\If {gains $>$ 0}
+				{
+
+					amount \gets amount - (gains*(tax\_percent/100))*(current\_exchange\_rate)\;
+
+					\If {amount \leq (amount - tds) \AND sender == pubKey \AND amount \geq 0}
+						{
+
+						utxo\_amount \gets utxo\_amount - amount\; 
+						} 
+				}
+					
+			updated\_script \gets codepart+utxo\_amount+sender+current\_exchange\_rate+tds\;				 
+
+			new\_script \gets codepart+utxo\_amount+receiver\_pubkey+current\_exchange\_rate+tds\;
+   
+			hash \gets sha256(updated\_script+new\_script)\;    
+  
+			\If{hash == SigHash.hashOutputs(preimage)}
+				{  
+				TRUE\; 
+}
+}
+}
+}
 \end{algorithm}
 
-
-\begin{algorithm}[H]
-\SetAlgoLined
+\begin{algorithm}
 \scriptsize
 \DontPrintSemicolon
-\caption{Swap Script}
+class MerkleChain\;
+\KwPre{the snip is added to the data}
+\KwPost{the data is added to the chain}
+\Begin{
+ add\_node(snip)\;
+ d $\gets$ snip\;
+  \uIf{head = null}{
+    head,tail $\gets$ add\_data(d)\;}
+    \Else {tail $\gets$ add\_data(d)\;}
+    }
+
+\hrulefill
+
+class add\_data(d)\;
+\KwPre{the value is added to the vector}
+\KwPost{the vector is generated to a merkle tree and added to the chain}
+\Begin {
+New Vector data\;
+data $\gets$ d\;
+\If{size(data) == max\_block\_size}
+{generate\_root(data)}
+}
+
+\hrulefill
+
+generate\_root()\;
+\KwPre{the vector data is added as the leaves}
+\KwPost{merkel tree and its root is generated }
+\Begin{
+New Vector temp\_data\;
+temp\_data $\gets$ data\;
+\While {temp\_data $>$ 1}{
+\For{i = 0  i $<$ size(temp\_data)  i+2}{
+Left $\gets$ temp\_data[i]\;
+Right $\gets$ (i+1 == size(temp\_data)) ? temp\_data[i] : temp\_data[i+1]\;
+combined = Left + Right \;
+new\_temp\_data $\gets$ hash(combined)\;
+}
+temp\_data $\gets$ new\_temp\_data\;
+}
+node\_root $\gets$ temp\_data[0]\;
+}
+
+\hrulefill
+
+main()\;
+\SetKwInput{KwInitialized}{initialized} % set the Initialized
+\KwInitialized{chain is an object of class MerkleChain and  string data}
+\Begin{
+\While {true}
+{Output “enter data (q to quit)”
+Get data\;
+\If {data = q}
+{ 
+Break\;
+\Else {
+addnode(data)\;}
+      }
+     }
+     }
+
+\caption{Merkle Chain}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\scriptsize
+\DontPrintSemicolon
+\caption{Open Order Swap Script}
 % Two token swap with conditions
 \end{algorithm}
 
 \begin{algorithm}[H]
-\SetAlgoLined
+
 \scriptsize
 \DontPrintSemicolon
-\caption{Exchange Rate}
-% Nodes find exchange rate and accepting script state update, script update unlock after x blocks - ring validator
+\caption{Exchange Rate Calculation}
+% Calculate mid_market_price = (highest ask + lowest bid)/2 for every token pair for every x blocks
+%Make a graph of pairs
+% If Token has direct connection with bitcoin as a pair fix that mid_market_price of pair as exchange rate of the token
+% If no direct connection then find the shortest path of pair connecting to bitcoin
+	% Update the exchange rate of the token
+% If not connected to bitcoin, make exchange_rate as invalid, so transaction invalid
+% For bitcoin take all the pair's exchange rate, and calculate the weighted average move according to each pairs volume.
 \end{algorithm}
 
 \begin{algorithm}[H]
-\SetAlgoLined
+\scriptsize
+\DontPrintSemicolon
+\caption{Staking Script}
+Algo\;
+\end{algorithm}
+
+\begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
 \caption{DAO Contracts}
@@ -356,7 +330,19 @@ Tokens should be traded for bitcoins inorder for nodes to fix its market price w
 % Removing contracts and temp membership
 \end{algorithm}
 
-\end{comment}
+\begin{algorithm}[H]
+\scriptsize
+\DontPrintSemicolon
+\caption{Token Minting Procedure}
+\end{algorithm}
+
+\begin{algorithm}[H]
+
+\tcc{Transfer and renting fees can only be deployed after a stable algorithm is written.}
+\scriptsize
+\DontPrintSemicolon
+\caption{Transfer and renting fees}
+\end{algorithm}
 
 \end{document}
 

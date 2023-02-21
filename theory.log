@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  20 FEB 2023 01:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  21 FEB 2023 12:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -759,7 +759,7 @@ Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
 
 Excluding comment 'comment')
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
-7.
+0.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -771,20 +771,20 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 (./theory.aux)
 \openout1 = `theory.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -846,73 +846,88 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
-9.
+1.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-89.
+81.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-89.
+81.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 89.
+(Font)              <12> on input line 81.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 89.
+(Font)              <8> on input line 81.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 89.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
+(Font)              <6> on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-89.
+81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
-) [1
+)
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+ []
+
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 109.
+(Font)              <10> on input line 93.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 109.
+(Font)              <7> on input line 93.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 109.
-<assets/images//ring.jpg, id=14, 809.0225pt x 333.245pt>
+(Font)              <5> on input line 93.
+<assets/images//ring.jpg, id=4, 809.0225pt x 333.245pt>
 File: assets/images//ring.jpg Graphic file (type jpg)
 <use assets/images//ring.jpg>
-Package pdftex.def Info: assets/images//ring.jpg  used on input line 112.
+Package pdftex.def Info: assets/images//ring.jpg  used on input line 96.
 (pdftex.def)             Requested size: 312.9803pt x 128.9226pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--98
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 <assets/images//Snips.jpg, id=15, 1083.04625pt x 495.8525pt>
 File: assets/images//Snips.jpg Graphic file (type jpg)
 <use assets/images//Snips.jpg>
-Package pdftex.def Info: assets/images//Snips.jpg  used on input line 121.
+Package pdftex.def Info: assets/images//Snips.jpg  used on input line 105.
 (pdftex.def)             Requested size: 341.43306pt x 156.31541pt.
- [2 <./assets/images//ring.jpg>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--107
+
+ []
+
+[2 <./assets/images//ring.jpg>]
 <assets/images//intrafork.jpg, id=20, 825.0825pt x 409.53pt>
 File: assets/images//intrafork.jpg Graphic file (type jpg)
 <use assets/images//intrafork.jpg>
-Package pdftex.def Info: assets/images//intrafork.jpg  used on input line 130.
+Package pdftex.def Info: assets/images//intrafork.jpg  used on input line 113.
 (pdftex.def)             Requested size: 256.0748pt x 127.10295pt.
 
-Overfull \hbox (46.19899pt too wide) in paragraph at lines 133--134
+Overfull \hbox (46.19899pt too wide) in paragraph at lines 116--117
 []\OT1/lmr/m/n/10 Confirmed blocks as snips are streamed in a back-ward ring ma
 n-ner (block$[]$ to block$[]$...block$[]$).
  []
@@ -921,30 +936,54 @@ n-ner (block$[]$ to block$[]$...block$[]$).
 <assets/images//topology.jpg, id=26, 950.55125pt x 345.29pt>
 File: assets/images//topology.jpg Graphic file (type jpg)
 <use assets/images//topology.jpg>
-Package pdftex.def Info: assets/images//topology.jpg  used on input line 138.
+Package pdftex.def Info: assets/images//topology.jpg  used on input line 122.
 (pdftex.def)             Requested size: 227.62204pt x 82.68161pt.
- [4 <./assets/images//topology.jpg>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--124
+
+ []
+
+[4 <./assets/images//topology.jpg>]
 <assets/images//merklechain.jpg, id=30, 2146.0175pt x 504.88625pt>
 File: assets/images//merklechain.jpg Graphic file (type jpg)
 <use assets/images//merklechain.jpg>
-Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 151
+Package pdftex.def Info: assets/images//merklechain.jpg  used on input line 132
 .
 (pdftex.def)             Requested size: 369.88582pt x 87.01593pt.
- [5 <./assets/images//merklechain.jpg>] [6] (./theory.bbl
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-18.
 
-(/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
+Underfull \hbox (badness 10000) in paragraph at lines 129--134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
+
+ []
+
+[5 <./assets/images//merklechain.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
+(./theory.bbl
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
+9.
+ (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )) [7] (./theory.aux) ) 
 Here is how much of TeX's memory you used:
  21987 strings out of 480129
- 446130 string characters out of 5893409
+ 446127 string characters out of 5893409
  753879 words of memory out of 5000000
  39572 multiletter control sequences out of 15000+600000
  518843 words of font info for 74 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 83i,7n,89p,1487b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,7n,89p,1487b,409s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
 -mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texl
@@ -956,7 +995,7 @@ are/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf
 /fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt1
 0.pfb>
-Output written on theory.pdf (7 pages, 500750 bytes).
+Output written on theory.pdf (7 pages, 499699 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
