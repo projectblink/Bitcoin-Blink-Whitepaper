@@ -9,6 +9,7 @@
 \usepackage{algorithmicx} %algorithm
 \usepackage{algpseudocode}
 %declarations
+
 \algnewcommand{\algorithmicand}{\textbf{ and }}
 \algnewcommand{\algorithmicor}{\textbf{ or }}
 \algnewcommand{\OR}{\algorithmicor}
@@ -22,9 +23,12 @@
 \SetAlCapFnt{\scriptsize}
 
 %Algorithm2e Declarations
-\SetKwProg{Fn}{Function}{ is}{end}
-
-
+\SetKwProg{Func}{Function}{:}{{end}}
+\SetKwInput{In}{in}
+\SetKwInput{Not}{not}
+\SetKwInput{Return}{return}
+\SetKwInput{Declare}{declare}
+\SetKwInput{Set}{set}
 \SetKwInput{KwInput}{Input} % Set the Input
 \SetKwInput{KwOutput}{Output} % set the Output
 \SetKwInput{KwPre}{pre} % Set the Pre
@@ -43,11 +47,28 @@
 \begin{document}
 \maketitle
 \scriptsize
+
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
-\caption{Network Graph \& Path Finding}
-Algo\;
+\caption{Path Finding}
+\SetKwFunction{Findpath}{findPath}
+\Func{\Findpath(fromNode, toNode)}{
+\tcc{Find a route from from Node to to Node}
+paths = getAllPaths(fromNode)\;
+routes = [ ]\;
+\For{path \textbf{in} paths}{
+\tcc{Check if the path is connected to the destination node}
+\If {path.toNode == toNode}{
+\textbf{return} [path]\;
+\tcc{Try to find a route from the destination node through this channel}
+route = findPath(path.toNode, toNode)\;
+\If{route is \textbf{not} None}{
+
+\tcc{Add this path to the route}
+routes.append([path] + route)\;}}
+\tcc{Return the route}
+\If{len(routes) $>$ 0}{\textbf{return} (routes)\;}\lElse{\textbf{return} None\;}}}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -128,6 +149,8 @@ Algo\;
 % If block size is exceeding reject snips and add that as block
 \end{algorithm}
 
+\noindent \textbf{Rewards}
+
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
@@ -135,6 +158,7 @@ Algo\;
 % Calculate Total hashes H and Total bitcoins g remaining for the halving period
 % Per hash reward from total hash count (total sec * legacy hashrate) till next halve will have g bitcoins, if fork slash, if not rest counts will be added to g, Per hash reward = g/total remaining count
 \end{algorithm}
+
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
@@ -159,71 +183,12 @@ Algo\;
 \tcc{RIPEMD160 to calculate the hash}
 hash = RIPEMD160 (salt, required\_ihr)\;
 \If{hash == ihr\_hash} {hash\_check = true\;}
-\uIf{range\_check \&\& hash\_check} {if\_pass = true\;}
+\uIf{range\_check \AND hash\_check} {if\_pass = true\;}
 \Else{if\_pass = false\;}
 \tcc{Bandwidth circuit $\equiv$ IHR circuit}
 \caption{ZK IHR Circuit}
 \end{algorithm}
 
-\begin{algorithm}[H]
-\scriptsize
-\DontPrintSemicolon
-\SetKwInput{KwKey}{Key} % Set the Key
-\SetKwFunction{Fspend}{spend}
-\SetKwProg{Func}{Function}{:}{{end}}
-\caption{Tax Script}
-\KwKey{signature, amount, current\_exchange\_rate, preimage\_of\_signature, tax\_percent}
-\KwOut{updated stateful contract for the sender & new stateful contract for the receiver}
-\Begin{
-	DataLen = 1\;
-	utxo\_amount \gets initial\_amount\;
-	
-	pubKey \gets \text{pubkey of the sender}\;
-	
-	exchange\_rate \gets initial\_exchange\_rate\;
-	
-	tds \gets TDS \;
-
-	\Func {\Fspend(sig, amount, current\_exchange\_rate, tax\_percent, receiver\_pubkey,preimage)}
-		{
-
-		\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage)}
-			{
-
-			scriptCode \gets SigHash.scriptCode(preimage)\;
-
-			codeend \gets \text{position where the opcode ends}\;
-
-			codepart \gets scriptCode[:codeend]\;
-
-			gains \gets (amount * current\_exchange\_rate) - (amount * exchange\_rate)\;
-
-			\If {gains $>$ 0}
-				{
-
-					amount \gets amount - (gains*(tax\_percent/100))*(current\_exchange\_rate)\;
-
-					\If {amount \leq (amount - tds) \AND sender == pubKey \AND amount \geq 0}
-						{
-
-						utxo\_amount \gets utxo\_amount - amount\; 
-						} 
-				}
-					
-			updated\_script \gets codepart+utxo\_amount+sender+current\_exchange\_rate+tds\;				 
-
-			new\_script \gets codepart+utxo\_amount+receiver\_pubkey+current\_exchange\_rate+tds\;
-   
-			hash \gets sha256(updated\_script+new\_script)\;    
-  
-			\If{hash == SigHash.hashOutputs(preimage)}
-				{  
-				TRUE\; 
-}
-}
-}
-}
-\end{algorithm}
 
 \begin{algorithm}
 \scriptsize
@@ -231,32 +196,32 @@ hash = RIPEMD160 (salt, required\_ihr)\;
 class MerkleChain\;
 \KwPre{the snip is added to the data}
 \KwPost{the data is added to the chain}
-\Begin{
+
  add\_node(snip)\;
  d $\gets$ snip\;
   \uIf{head = null}{
     head,tail $\gets$ add\_data(d)\;}
     \Else {tail $\gets$ add\_data(d)\;}
-    }
+
 
 \hrulefill
 
 class add\_data(d)\;
 \KwPre{the value is added to the vector}
 \KwPost{the vector is generated to a merkle tree and added to the chain}
-\Begin {
+
 New Vector data\;
 data $\gets$ d\;
 \If{size(data) == max\_block\_size}
 {generate\_root(data)}
-}
+
 
 \hrulefill
 
 generate\_root()\;
 \KwPre{the vector data is added as the leaves}
 \KwPost{merkel tree and its root is generated }
-\Begin{
+
 New Vector temp\_data\;
 temp\_data $\gets$ data\;
 \While {temp\_data $>$ 1}{
@@ -269,14 +234,14 @@ new\_temp\_data $\gets$ hash(combined)\;
 temp\_data $\gets$ new\_temp\_data\;
 }
 node\_root $\gets$ temp\_data[0]\;
-}
+
 
 \hrulefill
 
 main()\;
 \SetKwInput{KwInitialized}{initialized} % set the Initialized
 \KwInitialized{chain is an object of class MerkleChain and  string data}
-\Begin{
+
 \While {true}
 {Output “enter data (q to quit)”
 Get data\;
@@ -287,7 +252,6 @@ Break\;
 addnode(data)\;}
       }
      }
-     }
 
 \caption{Merkle Chain}
 \end{algorithm}
@@ -295,8 +259,139 @@ addnode(data)\;}
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
+\SetKwInput{KwKey}{Key} % Set the Key
+\SetKwFunction{Fspend}{spend}
+\SetKwProg{Func}{Function}{:}{{end}}
+\caption{Tax Script}
+\KwKey{signature, amount, current\_exchange\_rate, preimage\_of\_signature, tax\_percent}
+\KwOut{updated stateful contract for the sender \& new stateful contract for the receiver}
+
+	DataLen = 1\;
+	
+	utxo\_amount $\gets$ initial\_amount\;
+	
+	pubKey $\gets$ \text{pubkey of the sender}\;
+	
+	exchange\_rate $\gets$ initial\_exchange\_rate\;
+	
+	tds $\gets$ TDS \;
+
+	\Func {\Fspend(sig, amount, current\_exchange\_rate, tax\_percent, receiver\_pubkey,preimage)}
+		{
+
+		\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage)}
+			{
+
+			scriptCode $\gets$ SigHash.scriptCode(preimage)\;
+
+			codeend $\gets$ \text{position where the opcode ends}\;
+
+			codepart $\gets$ scriptCode[:codeend]\;
+
+			gains $\gets$ (amount * current\_exchange\_rate) - (amount * exchange\_rate)\;
+
+			\If {gains $>$ 0}
+				{
+
+					amount $\gets$ amount - (gains*(tax\_percent/100))*(current\_exchange\_rate)\;
+
+					\If {amount \leq (amount - tds) \AND sender == pubKey \AND amount \geq 0}
+						{
+
+						utxo\_amount $\gets$ utxo\_amount - amount\; 
+						} 
+				}
+					
+			updated\_script $\gets$ codepart + utxo\_amount+sender + current\_exchange\_rate + tds\;				 
+
+			new\_script $\gets$ codepart+utxo\_amount + receiver\_pubkey + current\_exchange\_rate + tds\;
+   
+			hash $\gets$ sha256(updated\_script+new\_script)\;    
+  
+			\If{hash == SigHash.hashOutputs(preimage)}
+				{  
+				\textbf{true}\; 
+}
+}
+}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\scriptsize
+\DontPrintSemicolon
+\Linesnumbered
 \caption{Open Order Swap Script}
-% Two token swap with conditions
+\SetKwFunction{Order}{order}
+\SetKwFunction{Claim}{claim}
+
+\textbf{declare} token\_a \textbf{as} integer\;
+
+\textbf{declare} seller \textbf{as} PubKey\;
+
+\textbf{declare} token\_b \textbf{as} integer\;
+
+\textbf{declare} mature\_time \textbf{as} integer\;
+
+\textbf{set} mature\_time \textbf{as} expiry\_time\;
+
+\Func{\Order(sig, b, buyer, current\_exchange\_rate\_value, preimage)}{
+\If{mature\_time $>$ SigHash.nLocktime(preimage)}{
+\If{checkSig(sig, buyer)}{
+\If{Tx.checkPreimage(preimage)}{
+\If{b == this.token\_b}{
+scriptCode = SigHash.scriptCode(preimage)\;
+
+codeend = 104\;
+
+codepart = scriptCode[:104]\;
+
+outputScript\_send = codepart + buyer + num2bin(this.token\_a, 8) + num2bin(current\_exchange\_rate\_value, 8) + num2bin(tds, 8)\;
+
+output\_send = Utils.writeVarint(outputScript\_send)\;
+
+outputScript\_receive = codepart + this.seller + num2bin(this.token\_b, 8) + num2bin(current\_exchange\_rate\_value, 8) + num2bin(tds, 8)\;
+
+output\_receive = Utils.writeVarint(outputScript\_send)\;
+
+hashoutput = hash256(output\_send+output\_receive)\;
+\If{hashoutput == SigHash.hashOutputs(preimage)}{
+\tcc{order is open & placed}
+}
+}
+}
+}
+}
+}
+\hrulefill
+
+\Func{\Claim(sig, value, pubKey, current\_exchange\_rate\_value, preimage)}{
+\If{mature\_time $<$ SigHash.nLocktime(preimage)}{
+\If{pubKey == this.seller}{
+\If{checkSig(sig, pubKey)}{
+\If{Tx.checkPreimage(preimage)}{
+\If{value == this.token\_a}{
+scriptCode = SigHash.scriptCode(preimage)\;
+
+codeend = 104\;
+
+codepart = scriptCode[:104]\;
+
+outputScript\_claim = codepart + pubKey + num2bin(this.token_a,8) + num2bin(current\_exchange\_rate\_value,8) + num2bin(tds, 8)\;
+
+output\_claim = Utils.writeVarint(outputScript\_claim)\;
+
+hashoutput = hash256(output\_claim)\;
+
+\If{hashoutput == SigHash.hashOutputs(preimage)}{
+\tcc{claim is successful}
+}
+}
+}
+}
+}
+}
+}
+
 \end{algorithm}
 
 \begin{algorithm}[H]

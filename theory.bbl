@@ -26,6 +26,10 @@ J.~Poon and T.~Dryja, ``The bitcoin lightning network: Scalable off-chain
   signalling on ethereum.''
   \url{https://github.com/semaphore-protocol/semaphore}.
 
+\bibitem{moneroct}
+S.~Noether, A.~Mackenzie, and t.~M. Research~Lab, ``Ring confidential
+  transactions,'' {\em Ledger}, vol.~1, p.~1–18, Dec. 2016.
+
 \bibitem{llvm}
 ``The llvm compiler infrastructure project.'' \url{https://llvm.org/}.
 
