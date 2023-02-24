@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  23 FEB 2023 02:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  23 FEB 2023 15:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -966,11 +966,11 @@ File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 Here is how much of TeX's memory you used:
  21988 strings out of 480129
  446137 string characters out of 5893409
- 752881 words of memory out of 5000000
+ 753882 words of memory out of 5000000
  39573 multiletter control sequences out of 15000+600000
  518843 words of font info for 74 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 83i,7n,89p,1487b,409s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,7n,89p,1496b,409s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
 -mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texl
@@ -982,7 +982,7 @@ are/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf
 /fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt1
 0.pfb>
-Output written on theory.pdf (7 pages, 500396 bytes).
+Output written on theory.pdf (7 pages, 500896 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream

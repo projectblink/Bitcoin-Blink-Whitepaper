@@ -34,10 +34,7 @@
 \SetKwInput{KwPre}{pre} % Set the Pre
 \SetKwInput{KwPost}{post} % set the Post
 
-
 \definecolor{pagecolor}{rgb}{1,0.98,0.9}
-
-
 \title{\vspace{-10mm} \footnotesize \textbf{REFERENCE ALGORITHMS} \vspace{3mm}\\
 \scriptsize \vspace{-2mm} Purva Choudhari\thanks{https://github.com/Purva-Chaudhari}, Ajay Joshua\thanks{https://github.com/I-Corinthian} \vspace{1mm}\\
 \url{https://github.com/projectblink}\vspace{-14mm}}
@@ -45,9 +42,9 @@
 
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
+
 \maketitle
 \scriptsize
-
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
@@ -68,14 +65,47 @@ route = findPath(path.toNode, toNode)\;
 \tcc{Add this path to the route}
 routes.append([path] + route)\;}}
 \tcc{Return the route}
-\If{len(routes) $>$ 0}{\textbf{return} (routes)\;}\lElse{\textbf{return} None\;}}}
+\If{len(routes) $>$ 0}{\textbf{return} (routes)\;\Else{\textbf{return} None\;}}}}
 \end{algorithm}
 
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
 \caption{Onion Peeling}
-Algo\;
+\SetKwFunction{Onionpath}{onion\_path}
+\Func{\Onionpath(mint\_hash, route)}{
+\tcc{Get the next hop path in the route}
+
+next\_path = route.pop()\;
+
+packet = create\_onion\_packet(mint\_hash, next\_path)\;
+
+\For{path \textbf{in} reversed(route)}{
+eph\_key = generate\_ephemeral\_key()\;
+
+packet = add\_path\_to\_onion\_route(path, eph\_key, packet)\;
+}
+send\_packet\_to\_next\_hop\_path(packet, next\_path)\;
+
+response = receive\_response\_from\_next\_hop\_path()\;
+
+\For{path \textbf{in} reversed(route)}{
+
+response = decrypt\_response\_with\_ephemeral\_key(response, path, eph\_key)\;
+
+}
+\textbf{return} response\;
+}
+\vspace{2mm}
+\tcc{Notes : The onion peeling algorithm is used to protect the privacy of the mint route, by encrypting the mint information multiple times, with each layer containing information for the next hop. As the payment packet is passed from hop to hop, each node removes a layer of encryption to reveal the next hop in the route.
+\begin{itemize}
+\item mint\_hash is the unique identifier for the minted transaction
+\vspace{-0.2cm}
+\item route is a list of the nodes in the mint route
+\vspace{-0.2cm}
+\item add\_path\_to\_onion\_packet function adds a new layer to the onion packet for the current hop
+\vspace{-0.2cm}
+\item ephemeral key will be used to decrypt the response from that hop \end{itemize}}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -91,7 +121,6 @@ Algo\;
 %If Fork Proof provided add weight to the prover node +0.01 *block size limit per sec and add weight to the forker -0.01 * block size limit per sec 
 %Loop it after every block is added
 \end{algorithm}
-
 
 \begin{algorithm}[H]
 \scriptsize
@@ -149,8 +178,6 @@ Algo\;
 % If block size is exceeding reject snips and add that as block
 \end{algorithm}
 
-\noindent \textbf{Rewards}
-
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
@@ -164,7 +191,6 @@ Algo\;
 \DontPrintSemicolon
 \SetKwInput{KwSigIn}{signal input} % set the Signal Input
 \SetKwInput{KwSigOut}{signal output} % set the Signal Input
-
 \tcc{Public signals}
 \KwSigIn{node\_ihr}
 \KwSigIn{ihr\_hash}
@@ -189,7 +215,6 @@ hash = RIPEMD160 (salt, required\_ihr)\;
 \caption{ZK IHR Circuit}
 \end{algorithm}
 
-
 \begin{algorithm}
 \scriptsize
 \DontPrintSemicolon
@@ -203,7 +228,6 @@ class MerkleChain\;
     head,tail $\gets$ add\_data(d)\;}
     \Else {tail $\gets$ add\_data(d)\;}
 
-
 \hrulefill
 
 class add\_data(d)\;
@@ -214,7 +238,6 @@ New Vector data\;
 data $\gets$ d\;
 \If{size(data) == max\_block\_size}
 {generate\_root(data)}
-
 
 \hrulefill
 
@@ -235,7 +258,6 @@ temp\_data $\gets$ new\_temp\_data\;
 }
 node\_root $\gets$ temp\_data[0]\;
 
-
 \hrulefill
 
 main()\;
@@ -247,73 +269,12 @@ main()\;
 Get data\;
 \If {data = q}
 { 
-Break\;
+\textbf{break}\;
 \Else {
 addnode(data)\;}
       }
      }
-
 \caption{Merkle Chain}
-\end{algorithm}
-
-\begin{algorithm}[H]
-\scriptsize
-\DontPrintSemicolon
-\SetKwInput{KwKey}{Key} % Set the Key
-\SetKwFunction{Fspend}{spend}
-\SetKwProg{Func}{Function}{:}{{end}}
-\caption{Tax Script}
-\KwKey{signature, amount, current\_exchange\_rate, preimage\_of\_signature, tax\_percent}
-\KwOut{updated stateful contract for the sender \& new stateful contract for the receiver}
-
-	DataLen = 1\;
-	
-	utxo\_amount $\gets$ initial\_amount\;
-	
-	pubKey $\gets$ \text{pubkey of the sender}\;
-	
-	exchange\_rate $\gets$ initial\_exchange\_rate\;
-	
-	tds $\gets$ TDS \;
-
-	\Func {\Fspend(sig, amount, current\_exchange\_rate, tax\_percent, receiver\_pubkey,preimage)}
-		{
-
-		\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage)}
-			{
-
-			scriptCode $\gets$ SigHash.scriptCode(preimage)\;
-
-			codeend $\gets$ \text{position where the opcode ends}\;
-
-			codepart $\gets$ scriptCode[:codeend]\;
-
-			gains $\gets$ (amount * current\_exchange\_rate) - (amount * exchange\_rate)\;
-
-			\If {gains $>$ 0}
-				{
-
-					amount $\gets$ amount - (gains*(tax\_percent/100))*(current\_exchange\_rate)\;
-
-					\If {amount \leq (amount - tds) \AND sender == pubKey \AND amount \geq 0}
-						{
-
-						utxo\_amount $\gets$ utxo\_amount - amount\; 
-						} 
-				}
-					
-			updated\_script $\gets$ codepart + utxo\_amount+sender + current\_exchange\_rate + tds\;				 
-
-			new\_script $\gets$ codepart+utxo\_amount + receiver\_pubkey + current\_exchange\_rate + tds\;
-   
-			hash $\gets$ sha256(updated\_script+new\_script)\;    
-  
-			\If{hash == SigHash.hashOutputs(preimage)}
-				{  
-				\textbf{true}\; 
-}
-}
-}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -376,7 +337,7 @@ codeend = 104\;
 
 codepart = scriptCode[:104]\;
 
-outputScript\_claim = codepart + pubKey + num2bin(this.token_a,8) + num2bin(current\_exchange\_rate\_value,8) + num2bin(tds, 8)\;
+outputScript\_claim = codepart + pubKey + num2bin(this.token\_a,8) + num2bin(current\_exchange\_rate\_value,8) + num2bin(tds, 8)\;
 
 output\_claim = Utils.writeVarint(outputScript\_claim)\;
 
@@ -391,22 +352,79 @@ hashoutput = hash256(output\_claim)\;
 }
 }
 }
-
 \end{algorithm}
 
 \begin{algorithm}[H]
-
 \scriptsize
 \DontPrintSemicolon
 \caption{Exchange Rate Calculation}
-% Calculate mid_market_price = (highest ask + lowest bid)/2 for every token pair for every x blocks
-%Make a graph of pairs
-% If Token has direct connection with bitcoin as a pair fix that mid_market_price of pair as exchange rate of the token
-% If no direct connection then find the shortest path of pair connecting to bitcoin
-	% Update the exchange rate of the token
-% If not connected to bitcoin, make exchange_rate as invalid, so transaction invalid
-% For bitcoin take all the pair's exchange rate, and calculate the weighted average move according to each pairs volume.
+% bitcoin 0 , other tokenid x
+% Calculate Bitcoin Exchange rate from list of orders of all tokens
+% For Bitcoin calculate by taking weighted average of all token pairs
+% Set token id = bitcoin exchange rate
+% Update for every x blocks
 \end{algorithm}
+
+\begin{algorithm}[H]
+\scriptsize
+\DontPrintSemicolon
+\SetKwInput{KwKey}{Key} % Set the Key
+\SetKwFunction{Fspend}{spend}
+\SetKwProg{Func}{Function}{:}{{end}}
+\caption{Tax Script}
+\KwKey{signature, amount, current\_exchange\_rate, preimage\_of\_signature, tax\_percent}
+\KwOut{updated stateful contract for the sender \& new stateful contract for the receiver}
+
+	DataLen = 1\;
+	
+	utxo\_amount $\gets$ initial\_amount\;
+	
+	pubKey $\gets$ \text{pubkey of the sender}\;
+	
+	exchange\_rate $\gets$ initial\_exchange\_rate\;
+	
+	tds $\gets$ TDS \;
+
+	\Func {\Fspend(sig, amount, current\_exchange\_rate, tax\_percent, receiver\_pubkey,preimage)}
+		{
+
+		\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage)}
+			{
+
+			scriptCode $\gets$ SigHash.scriptCode(preimage)\;
+
+			codeend $\gets$ \text{position where the opcode ends}\;
+
+			codepart $\gets$ scriptCode[:codeend]\;
+
+			gains $\gets$ (amount * current\_exchange\_rate) - (amount * exchange\_rate)\;
+
+			\If {gains $>$ 0}
+				{
+
+					amount $\gets$ amount - (gains*(tax\_percent/100))*(current\_exchange\_rate)\;
+
+					\If {amount \leq (amount - tds) \AND sender == pubKey \AND amount \geq 0}
+						{
+
+						utxo\_amount $\gets$ utxo\_amount - amount\; 
+						} 
+				}
+					
+			updated\_script $\gets$ codepart + utxo\_amount+sender + current\_exchange\_rate + tds\;				 
+
+			new\_script $\gets$ codepart+utxo\_amount + receiver\_pubkey + current\_exchange\_rate + tds\;
+   
+			hash $\gets$ sha256(updated\_script+new\_script)\;    
+  
+			\If{hash == SigHash.hashOutputs(preimage)}
+				{  
+				\textbf{true}\; 
+}
+}
+}
+\end{algorithm}
+
 
 \begin{algorithm}[H]
 \scriptsize
@@ -433,7 +451,7 @@ Algo\;
 
 \begin{algorithm}[H]
 
-\tcc{Transfer and renting fees can only be deployed after a stable algorithm is written.}
+\tcc{Transfer and renting fees can only be deployed after the stable coin algorithm is written.}
 \scriptsize
 \DontPrintSemicolon
 \caption{Transfer and renting fees}
