@@ -5,9 +5,10 @@
 \usepackage{geometry}
 \usepackage{amsmath} % for math and equations
 \usepackage{amssymb} % for symbols
-\usepackage[boxruled,lined]{algorithm2e} %algorithm
+\usepackage[boxruled,noline,noend,vlined]{algorithm2e} %algorithm
 \usepackage{algorithmicx} %algorithm
 \usepackage{algpseudocode}
+\usepackage{hyperref}
 %declarations
 
 \algnewcommand{\algorithmicand}{\textbf{ and }}
@@ -36,8 +37,7 @@
 
 \definecolor{pagecolor}{rgb}{1,0.98,0.9}
 \title{\vspace{-10mm} \footnotesize \textbf{REFERENCE ALGORITHMS} \vspace{3mm}\\
-\scriptsize \vspace{-2mm} Purva Choudhari\thanks{https://github.com/Purva-Chaudhari}, Ajay Joshua\thanks{https://github.com/I-Corinthian} \vspace{1mm}\\
-\url{https://github.com/projectblink}\vspace{-14mm}}
+\scriptsize \vspace{-2mm} Purva Choudhari, Ajay Joshua\thanks{ajay@projectblink.org}\vspace{-14mm}}
 \date{\scriptsize \today \hspace{0.5mm} (Genesis Version) \vspace{-7mm}}
 
 \algnewcommand\Signal{\textbf{signal}}
@@ -45,6 +45,119 @@
 
 \maketitle
 \scriptsize
+
+
+\begin{algorithm}[H]
+\scriptsize
+\DontPrintSemicolon
+\caption{Network Graph}
+\SetKwFunction{AddPeerToGraph}{addPeerToGraph}
+\SetKwFunction{RemovePeerFromGraph}{removePeerFromGraph}
+\SetKwFunction{SignAndSendRandomMessage}{signAndSendRandomMessage}
+\SetKwFunction{ReceiveAndVerifyRandomMessage}{receiveAndVerifyRandomMessage}
+\SetKwFunction{UpdateNetworkGraph}{updateNetworkGraph}
+\textbf{var} networkGraph = \{\}\; 
+\tcc{an empty object to represent the network graph}
+\textbf{var} transactions = [ ]\;
+\Func{\AddPeerToGraph(peer)}{
+networkGraph[peer.publicKey] = peer\;
+}
+\Func{\RemovePeerFromGraph(peer)}{
+delete networkGraph[peer.publicKey]\;
+}
+\Func{\SignAndSendRandomMessage(peer)}{
+\textbf{var} randomMessage = generateRandomMessage()\;
+\textbf{var} signedMessage = signMessage(randomMessage)\;
+sendMessage(peer, signedMessage)\;
+}
+\Func{\ReceiveAndVerifyRandomMessage(peer, message)}{
+\textbf{var} verified = verifyMessage(peer.publicKey, message)\;
+\If{(verified)}{
+updateNetworkGraph(peer, message)\;
+}}
+\Func{\UpdateNetworkGraph(peer, message)}{
+ networkGraph[peer.publicKey] = \{
+    
+    publicKey: peer.publicKey,\;
+    address: peer.address,\;
+    status: `online',\;
+    lastMessage: message,\;
+    lastUpdated: Date.now()\;
+  \}
+}
+
+\end{algorithm}
+
+\begin{algorithm}
+\scriptsize
+\DontPrintSemicolon
+\caption{Network Graph Transaction functions}
+\SetKwFunction{SendTransaction}{sendTransaction}
+\SetKwFunction{Addproducer}{add\_producer}
+\SetKwFunction{ProcessTransactions}{processTransactions}
+\SetKwFunction{ConstructTransaction}{constructTransaction}
+\Func{\SendTransaction(origin, destination, message)}{
+\tcc{Construct the transaction with path and encrypted instructions}
+\textbf{var} transaction = constructTransaction(origin, destination, message)\;
+\tcc{Add the transaction to the list of unconfirmed transactions}
+transactions.push(transaction)\;
+}
+\tcc{Function to process unconfirmed transactions and add them to blocks}
+\Func{\ProcessTransactions()}{
+\textbf{var} producers = getProducers()\;
+\For{(var i = 0; i $<$ transactions.length; i++)}{
+\textbf{var} transaction = transactions[i]\;
+\tcc{Add the transaction to each producer's block}
+\For{(var j = 0; j $<$ producers.length; j++)}{
+\textbf{var} producer = producers[j]\;
+\textbf{var} added = addTransactionToBlock(producer, transaction)\;
+\If{(added)}{
+\tcc{Remove the transaction from the list of unconfirmed transactions}
+transactions.splice(i, 1)\;
+i-\;
+\textbf{break}\;
+}
+}
+}
+}
+\Func{\ConstructTransaction(origin, destination, message)}{
+\tcc{Find the shortest path between the origin and destination}
+\textbf{var} shortestPath = findShortestPath(origin, destination)\;
+\textbf{var} encryptedMessage = encryptMessage(message, destination.publicKey)\;
+ \textbf{var} transaction = \{
+ 
+    path: shortestPath,\;
+    instructions: encryptedMessage,\;
+  \}
+\tcc{Return the constructed transaction}
+\textbf{return} transaction\;
+}
+\tcc{Function to add a new producer to the network}
+\Func{\Addproducer(public\_key, allocated\_blocks)}{
+producer = (public\_key, allocated\_blocks)\;
+producers.append(producer)\;
+}
+
+\end{algorithm}
+
+\begin{algorithm}
+\scriptsize
+\DontPrintSemicolon
+\caption{Network Graph Topology}
+\SetKwFunction{Gettopology}{get\_topology}
+\tcc{Function to get the network topology from a given reference node}
+\Func{\Gettopology(reference\_node)}{
+topology = [ ]\;
+\For{node \textbf{in} nodes}{
+\If{node != reference\_node}{
+path = shortest\_path(reference\_node, node)\;
+topology.append((node, path))\;
+}
+}
+\textbf{return} topology\;
+}
+\end{algorithm}
+
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
@@ -112,55 +225,40 @@ response = decrypt\_response\_with\_ephemeral\_key(response, path, eph\_key)\;
 \scriptsize
 \DontPrintSemicolon
 \caption{Node Weights}
-Algo\;
-%Scan the blockchain for node join script with bandwidth x, weight 0
-%Scan from genesis block to current block
-% Add weight and store in temp in node itself
-%If Sucessful block add weight by 0.0001*block size limit per sec
-%If unsucessful block without fee snip add weight -0.02* block size limit per sec
-%If Fork Proof provided add weight to the prover node +0.01 *block size limit per sec and add weight to the forker -0.01 * block size limit per sec 
-%Loop it after every block is added
+bandwidth = x\;
+block\_size\_limit = 1000000 \tcc{in bytes}\;
+node\_weights = \{\}\;
+\tcc{Scan the blockchain from the genesis block to the current block}
+
+\For {\textbf{each block} in blockchain}{
+
+proof\_utxo = get\_bandwidth\_proof\_utxo(\textbf{block})\;
+
+proof\_data = get\_proof\_data(proof\_utxo)\;
+
+node\_weight = calculate\_weight(proof\_data, bandwidth)\;
+
+fork\_proof = get\_fork\_proof(\textbf{block})\;
+\If{fork\_proof \textbf{is not} None}{
+
+prover\_node = fork\_proof.prover\_node\;
+
+forker\_node = fork\_proof.forker\_node\;
+
+node\_weights[prover\_node] += 0.01 * block\_size\_limit\;
+node\_weights[forker\_node] -= 0.01 * block\_size\_limit\;
+}
+\tcc{Add the node weight to the temporary storage for the current node}
+node\_weights[\textbf{block}.node\_id] = node\_weight\;
+
+\textbf{continue}\;
+}
+
 \end{algorithm}
 
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
-Algo\;
-% If block time is over or block size is capped or end snip received, add block to chain
-% Update block by receiving last blocks updated hash proof
-% If new proof of block n is heavy than old proof, update the block % Find the snips to remove by linearly hashing one by one snip and when the MCR output = new proof MCR output then reject remaining snips
-% Update the block and add to chain
-% Add the next new block now to the chain
-% Calculate the ring size after a block is received and confirmed by next block
-% Ring size > 1 < no of nodes in node join req
-% If the confirmed block is forked then, reduce ring size by 1 int, end election
-% If the confirmed block is not forked, add ring size by 1 int, which denotes two tails should be elected
-% Set the ring size in int
-% From all node joining scripts make a set A of bandwidths descending
-% Remove current ring validators from it
-% From all node joining scripts make a set B of with updated weights in descending
-% remove current ring validators from it
-%From previous ring validators of previous block calculate the mean value >= 0
-% set the mean value as ring tail join requirement
-% Current head shall calculate the h by MCR of the block + Linear Hash of Hash Proofs
-% Set h as K
-% Update set A by > join req
-% Update set B by choosing set A pubkeys only
-% Order set B by descending
-% Find 2 pubkeys of MD160 hash in set B which is lesser than K
-% If no Find 2 pubkeys of MD160 hash in set B which is greater than K
-% When the pubkey is found
-% Find their bandwidth from their node joining script
-% Take the median value from it and keep it as block size limit per sec
-% Now we have to find per block time to find per block size
-%Take ring size number of blocks
-%For new upcoming n block find the block time
-% using ring size take all the previous block
-% Find the median of it = block time
-% From the block time, find the per block size
-% give block size in bits / sec and block time in global hashes
-% from block time global hashes calculate the individual block time count using its IHR
-% Set a cap that not more than the individual block time the producer should produce
 \caption{Snip Construction}
 \end{algorithm}
 
@@ -168,22 +266,12 @@ Algo\;
 \scriptsize
 \DontPrintSemicolon
 \caption{Hash Proofing}
-Algo\;
-%Hashclock (single thread hashing) start with first snip arrival
-%Rebuild the ring validators for the block
-%From ring validators rebuild the block size and individual time in hash counts
-%Snip + Preimage + Signature attach for the hash that produces from concatenating
-%Send to next instructed node on the routing instruction
-% If ind block time finish stop accepting snips and add that as block
-% If block size is exceeding reject snips and add that as block
 \end{algorithm}
 
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
 \caption{Hash Reward}
-% Calculate Total hashes H and Total bitcoins g remaining for the halving period
-% Per hash reward from total hash count (total sec * legacy hashrate) till next halve will have g bitcoins, if fork slash, if not rest counts will be added to g, Per hash reward = g/total remaining count
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -280,8 +368,7 @@ addnode(data)\;}
 \begin{algorithm}[H]
 \scriptsize
 \DontPrintSemicolon
-\Linesnumbered
-\caption{Open Order Swap Script}
+\caption{Open Order Script Deploy}
 \SetKwFunction{Order}{order}
 \SetKwFunction{Claim}{claim}
 
@@ -323,7 +410,14 @@ hashoutput = hash256(output\_send+output\_receive)\;
 }
 }
 }
-\hrulefill
+\end{algorithm}
+
+\begin{algorithm}[H]
+\scriptsize
+\DontPrintSemicolon
+\Linesnumbered
+\caption{Open Order Claim}
+\SetKwFunction{Claim}{claim}
 
 \Func{\Claim(sig, value, pubKey, current\_exchange\_rate\_value, preimage)}{
 \If{mature\_time $<$ SigHash.nLocktime(preimage)}{
@@ -358,11 +452,58 @@ hashoutput = hash256(output\_claim)\;
 \scriptsize
 \DontPrintSemicolon
 \caption{Exchange Rate Calculation}
-% bitcoin 0 , other tokenid x
-% Calculate Bitcoin Exchange rate from list of orders of all tokens
-% For Bitcoin calculate by taking weighted average of all token pairs
-% Set token id = bitcoin exchange rate
-% Update for every x blocks
+\SetKwFunction{Updatetokenpricelist}{update\_token\_price\_list}
+\SetKwFunction{CalBDR}{cal\_bdr}
+
+
+\Func{\Updatetokenpricelist(open\_order\_list: List[List[str]]) $\gets$ Dict[str, Dict[str, float]]}{
+
+token\_price\_dict = \{\}\;
+
+\For{\textbf{each} order \textbf{in} open\_order\_list}{
+token\_pair = order[0]\;
+
+token\_id = token\_pair.split (`/')[0]\;
+
+bitcoin\_rate = float (order[1])\;
+
+token\_rate = calculate\_mid\_market\_price (float(order[2]), float(order[3]))\;
+
+percentage\_movement = calculate\_percentage\_movement (float(order[4]), token\_rate)\;
+
+\If{token\_pair \textbf{not} \textbf{in} token\_price\_dict}{
+token\_price\_dict[token\_pair] = \{`exchange\_rate': token\_rate, `percentage\_movement': percentage\_movement\}\;
+}
+\Else{
+token\_price\_dict[token\_pair][`exchange\_rate'] = token\_rate\;
+token\_price\_dict[token\_pair][`percentage\_movement'] = percentage\_movement\;
+}
+}
+\textbf{return} token\_price\_dict\;
+}
+
+\Func{\CalBDR(token\_price\_dict)}{
+token\_pairs = [pair for pair \textbf{in} token\_price\_dict \textbf{if} pair[0] != ``00000000"]\;
+    total\_volume = 0\;
+\For{\textbf{each} pair\_info \textbf{in} token\_price\_dict.values() }{
+total\_volume = total\_volume + pair\_info[`volume']\;
+}
+\For{\textbf{each} pair \textbf{in} token\_pairs}{
+pair\_info = token\_price\_dict[pair]\;
+weight = pair\_info[`volume'] / total\_volume\;
+pair\_info[`weight'] = weight\;
+}
+\For{\textbf{each} pair\_info \textbf{in} token\_price\_dict.values()}{
+pair\_info[`inv\_pct\_mov'] = -pair\_info[`pct\_mov']
+}
+bdr\_pct\_mov = 0\;
+\For{\textbf{each} pair\_info \textbf{in} token\_price\_dict.values()}{
+bdr\_pct\_mov = bdr\_pct\_mov + (pair\_info[`inv\_pct\_mov'] * pair\_info[`weight'])\;
+}
+bdr = 1 + (bdr\_pct\_mov / 100)\;
+\textbf{return} bdr\;
+}
+
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -425,6 +566,7 @@ hashoutput = hash256(output\_claim)\;
 }
 \end{algorithm}
 
+\begin{comment}
 
 \begin{algorithm}[H]
 \scriptsize
@@ -450,12 +592,11 @@ Algo\;
 \end{algorithm}
 
 \begin{algorithm}[H]
-
-\tcc{Transfer and renting fees can only be deployed after the stable coin algorithm is written.}
 \scriptsize
 \DontPrintSemicolon
 \caption{Transfer and renting fees}
 \end{algorithm}
+\end{comment}
 
 \end{document}
 
