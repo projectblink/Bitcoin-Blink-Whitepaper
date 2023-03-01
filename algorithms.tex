@@ -5,7 +5,7 @@
 \usepackage{geometry}
 \usepackage{amsmath} % for math and equations
 \usepackage{amssymb} % for symbols
-\usepackage[boxruled,noline,noend,vlined]{algorithm2e} %algorithm
+\usepackage[boxruled,noend,noline]{algorithm2e}
 \usepackage{algorithmicx} %algorithm
 \usepackage{algpseudocode}
 \usepackage{hyperref}
@@ -24,7 +24,7 @@
 \SetAlCapFnt{\scriptsize}
 
 %Algorithm2e Declarations
-\SetKwProg{Func}{Function}{:}{{end}}
+\SetKwProg{Func}{function}{:}{{end}}
 \SetKwInput{In}{in}
 \SetKwInput{Not}{not}
 \SetKwInput{Return}{return}
@@ -42,12 +42,9 @@
 
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
-
 \maketitle
 \scriptsize
-
-
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Network Graph}
@@ -76,16 +73,13 @@ sendMessage(peer, signedMessage)\;
 updateNetworkGraph(peer, message)\;
 }}
 \Func{\UpdateNetworkGraph(peer, message)}{
- networkGraph[peer.publicKey] = \{
-    
+ networkGraph[peer.publicKey] = \{   
     publicKey: peer.publicKey,\;
     address: peer.address,\;
     status: `online',\;
     lastMessage: message,\;
-    lastUpdated: Date.now()\;
-  \}
+    lastUpdated: Date.now() \}\;
 }
-
 \end{algorithm}
 
 \begin{algorithm}
@@ -158,13 +152,13 @@ topology.append((node, path))\;
 }
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Path Finding}
 \SetKwFunction{Findpath}{findPath}
 \Func{\Findpath(fromNode, toNode)}{
-\tcc{Find a route from from Node to to Node}
+\tcc{Find a route from Node to Node}
 paths = getAllPaths(fromNode)\;
 routes = [ ]\;
 \For{path \textbf{in} paths}{
@@ -174,38 +168,29 @@ routes = [ ]\;
 \tcc{Try to find a route from the destination node through this channel}
 route = findPath(path.toNode, toNode)\;
 \If{route is \textbf{not} None}{
-
 \tcc{Add this path to the route}
 routes.append([path] + route)\;}}
 \tcc{Return the route}
 \If{len(routes) $>$ 0}{\textbf{return} (routes)\;\Else{\textbf{return} None\;}}}}
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Onion Peeling}
 \SetKwFunction{Onionpath}{onion\_path}
 \Func{\Onionpath(mint\_hash, route)}{
 \tcc{Get the next hop path in the route}
-
 next\_path = route.pop()\;
-
 packet = create\_onion\_packet(mint\_hash, next\_path)\;
-
 \For{path \textbf{in} reversed(route)}{
 eph\_key = generate\_ephemeral\_key()\;
-
 packet = add\_path\_to\_onion\_route(path, eph\_key, packet)\;
 }
 send\_packet\_to\_next\_hop\_path(packet, next\_path)\;
-
 response = receive\_response\_from\_next\_hop\_path()\;
-
 \For{path \textbf{in} reversed(route)}{
-
 response = decrypt\_response\_with\_ephemeral\_key(response, path, eph\_key)\;
-
 }
 \textbf{return} response\;
 }
@@ -221,7 +206,7 @@ response = decrypt\_response\_with\_ephemeral\_key(response, path, eph\_key)\;
 \item ephemeral key will be used to decrypt the response from that hop \end{itemize}}
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Node Weights}
@@ -229,52 +214,186 @@ bandwidth = x\;
 block\_size\_limit = 1000000 \tcc{in bytes}\;
 node\_weights = \{\}\;
 \tcc{Scan the blockchain from the genesis block to the current block}
-
 \For {\textbf{each block} in blockchain}{
-
 proof\_utxo = get\_bandwidth\_proof\_utxo(\textbf{block})\;
-
 proof\_data = get\_proof\_data(proof\_utxo)\;
-
 node\_weight = calculate\_weight(proof\_data, bandwidth)\;
-
 fork\_proof = get\_fork\_proof(\textbf{block})\;
 \If{fork\_proof \textbf{is not} None}{
-
 prover\_node = fork\_proof.prover\_node\;
-
 forker\_node = fork\_proof.forker\_node\;
-
 node\_weights[prover\_node] += 0.01 * block\_size\_limit\;
 node\_weights[forker\_node] -= 0.01 * block\_size\_limit\;
 }
 \tcc{Add the node weight to the temporary storage for the current node}
 node\_weights[\textbf{block}.node\_id] = node\_weight\;
-
 \textbf{continue}\;
 }
-
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
-\caption{Snip Construction}
+chain = [ ]\;
+ring\_size = 1\;
+block\_size\_limit\_per\_sec = 0\;
+set\_weights = [ ]\;
+confirm\_snips = false\;
+\Func{\texttt{add\_new\_block}()}{
+\textbf{new}\_\texttt{block} = get\_new\_\texttt{block}()\;
+last\_block = get\_last\_block(chain)\;
+\textbf{new}\_\texttt{hash\_proof} = last\_block.hash\_proof\;
+\textbf{new}\_\texttt{block}.hash\_proof = new\_\texttt{hash\_proof}\;
+\If{\textbf{new}\_\texttt{hash\_proof}.node\_weight $>$ last\_block.hash\_proof.node\_weight}{
+\tcc{Find the snips to remove by linearly hashing one by one snip}
+\textbf{new}\_\texttt{snips} = last\_block.snips\;
+\For{snip \textbf{in} last\_block.snips}{
+\If{linear\_hash(snip) == \textbf{new}\_\texttt{hash\_proof}.MCR\_output}{
+\textbf{break}\;
+}
+\textbf{new}\_\texttt{snips}.remove(snip)\;
+}
+\textbf{new}\_\texttt{block}.snips =  \textbf{new}\_\texttt{snips}\;
+}
+\If {block\_time(\textbf{new}\_\texttt{block}) \OR block\_size\_capped(\textbf{new}\_\texttt{block}) \OR end\_snip(\textbf{new}\_\texttt{block})}{
+chain.append(\textbf{new}\_\texttt{block})\;
+}
+}
+\caption{Adding new block}
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
+\scriptsize
+\DontPrintSemicolon
+\caption{Set new ring Validators}
+\Func{set\_ring\_size(new\_block)}{
+\If{is\_confirmed(\textbf{new}\_\texttt{block})}{
+\If{is\_forked(\textbf{new}\_\texttt{block})}{
+ring\_size -= 1\;
+end\_election()\;
+}
+\Else{
+ring\_size += 1\;
+tail\_join\_req = 2\;
+set\_ring\_size(ring\_size)\;
+}
+return ring\_size\;
+}
+}
+\Func{set\_ring\_validators()}{
+set\_weights = sorted(nodes, key=lambda node: \texttt{node}[``\texttt{weight}"], reverse=True)\;
+set\_weights = [n \textbf{for} n \textbf{in} set\_weights \textbf{if} n not \textbf{in} prev\_ring\_validators]\;
+prev\_ring\_validator\_weights = [n.weight \textbf{for} n \textbf{in} prev\_ring\_validators \textbf{if} n.weight $\geq$ 0]\;
+mean\_weight = mean(prev\_ring\_validator\_weights)\;
+tail\_join = mean\_weight\;
+k = calculate\_MD160hash(\textbf{new}\_\texttt{block})\;
+set\_weights = [n \textbf{for} n \textbf{in} set\_weights \textbf{if} n.bandwidth $>$ tail\_join]\;
+\tcc{Current hex should be lesser than k}
+Valid\_keys = [ ]\;
+\For{i in range(len(set\_weights))}{
+\If{set\_weights[i].pubkey.hex $<$ k}{
+valid\_keys.append(set\_weights[i].pubkey)\;
+}
+}
+Rand1, rand2 = get2\_random\_numbers\_in\_range(0, len(valid\_keys)-1)\;
+pubkeys.append(valid\_keys[rand1])\;
+pubkeys.append(valid\_keys[rand1])\;
+\tcc{If none , take immediate greater 2 values}
+\If{pubkeys is None}{
+Valid\_keys = sorted(nodes, key=lambda node: \texttt{set\_weights}, reverse=false)\;
+pubkeys.append(valid\_keys[0]) \;
+pubkeys.append(valid\_keys[1])\;
+}
+ring\_validators = set\_weights\;
+ring\_validators.append(keys \textbf{for} key \textbf{in} pubkeys)\;
+}
+\end{algorithm}
+
+\begin{algorithm}[h]
+\scriptsize
+\DontPrintSemicolon
+\caption{Confirm Snips}
+\Func{confirm\_snips()}{
+block\_size\_limit = min([node.bandwidth \textbf{for} node \textbf{in} ring\_validators])\;
+block\_times = [block.time \textbf{for} block \textbf{in} previous\_blocks]\;
+block\_time\_median = median(block\_times)\;
+per\_block\_size = block\_size\_limit $*$ block\_time\_median\;
+per\_block\_time\_count = int(per\_block\_size / ihr)\;
+\tcc{Set a cap that not more than the individual block time the producer should produce}
+max\_individual\_block\_time\_count = cap\_value\;
+\If{per\_block\_time\_count $>$ max\_individual\_block\_time\_coun}{
+per\_block\_time\_count = max\_individual\_block\_time\_count - 1\;
+confirm\_snips = true\;
+}
+\Else{confirm\_snips = false\;}
+}
+\end{algorithm}
+
+\begin{algorithm}
+\scriptsize
+\DontPrintSemicolon
+class MerkleChain\;
+\KwPre{the snip is added to the data}
+\KwPost{the data is added to the chain}
+ add\_node(snip)\;
+ d $\gets$ snip\;
+  \uIf{head = null}{
+    head,tail $\gets$ add\_data(d)\;}
+    \Else {tail $\gets$ add\_data(d)\;}
+\hrulefill
+class add\_data(d)\;
+\KwPre{the value is added to the vector}
+\KwPost{the vector is generated to a merkle tree and added to the chain}
+New Vector data\;
+data $\gets$ d\;
+\If{size(data) == max\_block\_size}{generate\_root(data)}
+\hrulefill
+generate\_root()\;
+\KwPre{the vector data is added as the leaves}
+\KwPost{merkel tree and its root is generated }
+New Vector temp\_data\;
+temp\_data $\gets$ data\;
+\While {temp\_data $>$ 1}{
+\For{i = 0  i $<$ size(temp\_data)  i+2}{
+Left $\gets$ temp\_data[i]\;
+Right $\gets$ (i+1 == size(temp\_data)) ? temp\_data[i] : temp\_data[i+1]\;
+combined = Left + Right \;
+new\_temp\_data $\gets$ hash(combined)\;
+}
+temp\_data $\gets$ new\_temp\_data\;
+}
+node\_root $\gets$ temp\_data[0]\;
+\hrulefill
+main()\;
+\SetKwInput{KwInitialized}{initialized} % set the Initialized
+\KwInitialized{chain is an object of class MerkleChain and  string data}
+\While {true}
+{Output “enter data (q to quit)”
+Get data\;
+\If {data = q}
+{ 
+\textbf{break}\;
+\Else {
+addnode(data)\;}
+      }
+     }
+\caption{Merkle Chain}
+\end{algorithm}
+
+
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Hash Proofing}
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Hash Reward}
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \SetKwInput{KwSigIn}{signal input} % set the Signal Input
@@ -303,107 +422,32 @@ hash = RIPEMD160 (salt, required\_ihr)\;
 \caption{ZK IHR Circuit}
 \end{algorithm}
 
-\begin{algorithm}
-\scriptsize
-\DontPrintSemicolon
-class MerkleChain\;
-\KwPre{the snip is added to the data}
-\KwPost{the data is added to the chain}
-
- add\_node(snip)\;
- d $\gets$ snip\;
-  \uIf{head = null}{
-    head,tail $\gets$ add\_data(d)\;}
-    \Else {tail $\gets$ add\_data(d)\;}
-
-\hrulefill
-
-class add\_data(d)\;
-\KwPre{the value is added to the vector}
-\KwPost{the vector is generated to a merkle tree and added to the chain}
-
-New Vector data\;
-data $\gets$ d\;
-\If{size(data) == max\_block\_size}
-{generate\_root(data)}
-
-\hrulefill
-
-generate\_root()\;
-\KwPre{the vector data is added as the leaves}
-\KwPost{merkel tree and its root is generated }
-
-New Vector temp\_data\;
-temp\_data $\gets$ data\;
-\While {temp\_data $>$ 1}{
-\For{i = 0  i $<$ size(temp\_data)  i+2}{
-Left $\gets$ temp\_data[i]\;
-Right $\gets$ (i+1 == size(temp\_data)) ? temp\_data[i] : temp\_data[i+1]\;
-combined = Left + Right \;
-new\_temp\_data $\gets$ hash(combined)\;
-}
-temp\_data $\gets$ new\_temp\_data\;
-}
-node\_root $\gets$ temp\_data[0]\;
-
-\hrulefill
-
-main()\;
-\SetKwInput{KwInitialized}{initialized} % set the Initialized
-\KwInitialized{chain is an object of class MerkleChain and  string data}
-
-\While {true}
-{Output “enter data (q to quit)”
-Get data\;
-\If {data = q}
-{ 
-\textbf{break}\;
-\Else {
-addnode(data)\;}
-      }
-     }
-\caption{Merkle Chain}
-\end{algorithm}
-
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Open Order Script Deploy}
 \SetKwFunction{Order}{order}
 \SetKwFunction{Claim}{claim}
-
 \textbf{declare} token\_a \textbf{as} integer\;
-
 \textbf{declare} seller \textbf{as} PubKey\;
-
 \textbf{declare} token\_b \textbf{as} integer\;
-
 \textbf{declare} mature\_time \textbf{as} integer\;
-
 \textbf{set} mature\_time \textbf{as} expiry\_time\;
-
 \Func{\Order(sig, b, buyer, current\_exchange\_rate\_value, preimage)}{
 \If{mature\_time $>$ SigHash.nLocktime(preimage)}{
 \If{checkSig(sig, buyer)}{
 \If{Tx.checkPreimage(preimage)}{
 \If{b == this.token\_b}{
 scriptCode = SigHash.scriptCode(preimage)\;
-
 codeend = 104\;
-
 codepart = scriptCode[:104]\;
-
 outputScript\_send = codepart + buyer + num2bin(this.token\_a, 8) + num2bin(current\_exchange\_rate\_value, 8) + num2bin(tds, 8)\;
-
 output\_send = Utils.writeVarint(outputScript\_send)\;
-
 outputScript\_receive = codepart + this.seller + num2bin(this.token\_b, 8) + num2bin(current\_exchange\_rate\_value, 8) + num2bin(tds, 8)\;
-
 output\_receive = Utils.writeVarint(outputScript\_send)\;
-
 hashoutput = hash256(output\_send+output\_receive)\;
 \If{hashoutput == SigHash.hashOutputs(preimage)}{
-\tcc{order is open & placed}
+\tcc{order is open \& placed}
 }
 }
 }
@@ -412,13 +456,11 @@ hashoutput = hash256(output\_send+output\_receive)\;
 }
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
-\Linesnumbered
 \caption{Open Order Claim}
 \SetKwFunction{Claim}{claim}
-
 \Func{\Claim(sig, value, pubKey, current\_exchange\_rate\_value, preimage)}{
 \If{mature\_time $<$ SigHash.nLocktime(preimage)}{
 \If{pubKey == this.seller}{
@@ -426,17 +468,11 @@ hashoutput = hash256(output\_send+output\_receive)\;
 \If{Tx.checkPreimage(preimage)}{
 \If{value == this.token\_a}{
 scriptCode = SigHash.scriptCode(preimage)\;
-
 codeend = 104\;
-
 codepart = scriptCode[:104]\;
-
 outputScript\_claim = codepart + pubKey + num2bin(this.token\_a,8) + num2bin(current\_exchange\_rate\_value,8) + num2bin(tds, 8)\;
-
 output\_claim = Utils.writeVarint(outputScript\_claim)\;
-
 hashoutput = hash256(output\_claim)\;
-
 \If{hashoutput == SigHash.hashOutputs(preimage)}{
 \tcc{claim is successful}
 }
@@ -448,29 +484,20 @@ hashoutput = hash256(output\_claim)\;
 }
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
-\caption{Exchange Rate Calculation}
+\caption{Bitcoin Exchange \& Demand Rate}
 \SetKwFunction{Updatetokenpricelist}{update\_token\_price\_list}
 \SetKwFunction{CalBDR}{cal\_bdr}
-
-
 \Func{\Updatetokenpricelist(open\_order\_list: List[List[str]]) $\gets$ Dict[str, Dict[str, float]]}{
-
 token\_price\_dict = \{\}\;
-
 \For{\textbf{each} order \textbf{in} open\_order\_list}{
 token\_pair = order[0]\;
-
 token\_id = token\_pair.split (`/')[0]\;
-
 bitcoin\_rate = float (order[1])\;
-
 token\_rate = calculate\_mid\_market\_price (float(order[2]), float(order[3]))\;
-
 percentage\_movement = calculate\_percentage\_movement (float(order[4]), token\_rate)\;
-
 \If{token\_pair \textbf{not} \textbf{in} token\_price\_dict}{
 token\_price\_dict[token\_pair] = \{`exchange\_rate': token\_rate, `percentage\_movement': percentage\_movement\}\;
 }
@@ -481,7 +508,6 @@ token\_price\_dict[token\_pair][`percentage\_movement'] = percentage\_movement\;
 }
 \textbf{return} token\_price\_dict\;
 }
-
 \Func{\CalBDR(token\_price\_dict)}{
 token\_pairs = [pair for pair \textbf{in} token\_price\_dict \textbf{if} pair[0] != ``00000000"]\;
     total\_volume = 0\;
@@ -503,10 +529,9 @@ bdr\_pct\_mov = bdr\_pct\_mov + (pair\_info[`inv\_pct\_mov'] * pair\_info[`weigh
 bdr = 1 + (bdr\_pct\_mov / 100)\;
 \textbf{return} bdr\;
 }
-
 \end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \SetKwInput{KwKey}{Key} % Set the Key
@@ -515,88 +540,49 @@ bdr = 1 + (bdr\_pct\_mov / 100)\;
 \caption{Tax Script}
 \KwKey{signature, amount, current\_exchange\_rate, preimage\_of\_signature, tax\_percent}
 \KwOut{updated stateful contract for the sender \& new stateful contract for the receiver}
-
-	DataLen = 1\;
-	
-	utxo\_amount $\gets$ initial\_amount\;
-	
-	pubKey $\gets$ \text{pubkey of the sender}\;
-	
-	exchange\_rate $\gets$ initial\_exchange\_rate\;
-	
-	tds $\gets$ TDS \;
-
-	\Func {\Fspend(sig, amount, current\_exchange\_rate, tax\_percent, receiver\_pubkey,preimage)}
-		{
-
-		\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage)}
-			{
-
-			scriptCode $\gets$ SigHash.scriptCode(preimage)\;
-
-			codeend $\gets$ \text{position where the opcode ends}\;
-
-			codepart $\gets$ scriptCode[:codeend]\;
-
-			gains $\gets$ (amount * current\_exchange\_rate) - (amount * exchange\_rate)\;
-
-			\If {gains $>$ 0}
-				{
-
-					amount $\gets$ amount - (gains*(tax\_percent/100))*(current\_exchange\_rate)\;
-
-					\If {amount \leq (amount - tds) \AND sender == pubKey \AND amount \geq 0}
-						{
-
-						utxo\_amount $\gets$ utxo\_amount - amount\; 
-						} 
-				}
-					
-			updated\_script $\gets$ codepart + utxo\_amount+sender + current\_exchange\_rate + tds\;				 
-
-			new\_script $\gets$ codepart+utxo\_amount + receiver\_pubkey + current\_exchange\_rate + tds\;
-   
-			hash $\gets$ sha256(updated\_script+new\_script)\;    
-  
-			\If{hash == SigHash.hashOutputs(preimage)}
-				{  
-				\textbf{true}\; 
+DataLen = 1\;
+utxo\_amount $\gets$ initial\_amount\;
+pubKey $\gets$ \text{pubkey of the sender}\;
+initial\_exchange\_rate $\gets$ initial exchange rate of the token\; 
+region\_code $\gets$ region code of the person\;
+tds $\gets$ TDS \;
+\Func {\Fspend(sig, amount, current\_exchangerate, tax\_percent, receiver\_pubkey, preimage)}{
+\If{checkSig(sig, pubKey) \AND Tx.checkPreimage(preimage) \AND check\_regiontax(region\_code,tax\_percent)}{
+scriptCode $\gets$ SigHash.scriptCode(preimage)\;
+codeend $\gets$ \text{position where the opcode ends}\;
+codepart $\gets$ scriptCode[:codeend]\;
+percentage\_movement $\gets$ get\_percentage\_movement(initial\_exchangerate, current\_exchangerate)\;
+\If {percentage\_movement $>$ 0}{
+gains $\gets$ (percentage\_movement* (tax\_percent*10$^{-2}$)* utxo\_amount) /(percentage\_movement + 1)\;
+spendable\_amount $\gets$ utxo\_amount - gains -tds\;
 }
+\Else{
+spendable\_amount $\gets$ utxo\_amount - tds\;
+}
+\If {amount $\leq$ spendable\_amount \AND sender == pubKey \AND amount $\geq$ 0}{
+utxo\_amount $\gets$ utxo\_amount - amount\; 
+} 
+}
+updated\_script $\gets$ codepart + utxo\_amount+sender + current\_exchange\_rate + tds\;				 
+new\_script $\gets$ codepart+utxo\_amount + receiver\_pubkey + current\_exchange\_rate + tds\;
+hash $\gets$ sha256(updated\_script+new\_script)\;    
+\If{hash == SigHash.hashOutputs(preimage)}{  
+\textbf{true}\; 
 }
 }
 \end{algorithm}
 
-\begin{comment}
-
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Staking Script}
-Algo\;
 \end{algorithm}
 
-\begin{algorithm}[H]
-\scriptsize
-\DontPrintSemicolon
-\caption{DAO Contracts}
-% Adding contracts
-% Contracts withdrawal by proving
-% Paying dividend according to weightage
-% Removing contracts and temp membership
-\end{algorithm}
-
-\begin{algorithm}[H]
-\scriptsize
-\DontPrintSemicolon
-\caption{Token Minting Procedure}
-\end{algorithm}
-
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Transfer and renting fees}
 \end{algorithm}
-\end{comment}
 
 \end{document}
 
