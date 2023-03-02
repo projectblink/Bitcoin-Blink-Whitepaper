@@ -5,7 +5,7 @@
 \usepackage{geometry}
 \usepackage{amsmath} % for math and equations
 \usepackage{amssymb} % for symbols
-\usepackage[boxruled,noend,noline]{algorithm2e}
+\usepackage[boxruled,noend]{algorithm2e}
 \usepackage{algorithmicx} %algorithm
 \usepackage{algpseudocode}
 \usepackage{hyperref}
@@ -22,6 +22,8 @@
 \usepackage{hyperref}
 \SetAlCapNameFnt{\scriptsize}
 \SetAlCapFnt{\scriptsize}
+\renewcommand{\abstractname}{\vspace{-\baselineskip}}
+\setlength{\belowcaptionskip}{-10pt}
 
 %Algorithm2e Declarations
 \SetKwProg{Func}{function}{:}{{end}}
@@ -37,13 +39,16 @@
 
 \definecolor{pagecolor}{rgb}{1,0.98,0.9}
 \title{\vspace{-10mm} \footnotesize \textbf{REFERENCE ALGORITHMS} \vspace{3mm}\\
-\scriptsize \vspace{-2mm} Purva Choudhari, Ajay Joshua\thanks{ajay@projectblink.org}\vspace{-14mm}}
-\date{\scriptsize \today \hspace{0.5mm} (Genesis Version) \vspace{-7mm}}
+\scriptsize \vspace{-2mm} Purva Choudhari, Ajay Joshua\thanks{ajay@bitcoinblink.org}\vspace{-14mm}}
+\date{\scriptsize \today \hspace{0.5mm} (Genesis Version) \vspace{-4mm}}
 
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
 \maketitle
 \scriptsize
+\begin{abstract}
+\noindent \textbf{Disclaimer :} The below psedocodes provide basic instructions for the implementation of bitcoin blink protocols. It is constantly reviewed and updated by core-programmers and co-authors.
+\end{abstract}
 \begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
@@ -222,8 +227,8 @@ fork\_proof = get\_fork\_proof(\textbf{block})\;
 \If{fork\_proof \textbf{is not} None}{
 prover\_node = fork\_proof.prover\_node\;
 forker\_node = fork\_proof.forker\_node\;
-node\_weights[prover\_node] += 0.01 * block\_size\_limit\;
-node\_weights[forker\_node] -= 0.01 * block\_size\_limit\;
+node\_weights[prover\_node] += 0.01 $*$ block\_size\_limit\;
+node\_weights[forker\_node] -= 0.01 $*$ block\_size\_limit\;
 }
 \tcc{Add the node weight to the temporary storage for the current node}
 node\_weights[\textbf{block}.node\_id] = node\_weight\;
@@ -234,12 +239,13 @@ node\_weights[\textbf{block}.node\_id] = node\_weight\;
 \begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
+\SetKwFunction{Addnewblock}{add\_new\_block()}
 chain = [ ]\;
 ring\_size = 1\;
 block\_size\_limit\_per\_sec = 0\;
 set\_weights = [ ]\;
 confirm\_snips = false\;
-\Func{\texttt{add\_new\_block}()}{
+\Func{\Addnewblock}{
 \textbf{new}\_\texttt{block} = get\_new\_\texttt{block}()\;
 last\_block = get\_last\_block(chain)\;
 \textbf{new}\_\texttt{hash\_proof} = last\_block.hash\_proof\;
@@ -265,8 +271,10 @@ chain.append(\textbf{new}\_\texttt{block})\;
 \begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
+\SetKwFunction{Setringsizenewblock}{set\_ring\_size(new\_block)}
+\SetKwFunction{Setringval}{set\_ring\_validators()}
 \caption{Set new ring Validators}
-\Func{set\_ring\_size(new\_block)}{
+\Func{\Setringsizenewblock}{
 \If{is\_confirmed(\textbf{new}\_\texttt{block})}{
 \If{is\_forked(\textbf{new}\_\texttt{block})}{
 ring\_size -= 1\;
@@ -280,7 +288,7 @@ set\_ring\_size(ring\_size)\;
 return ring\_size\;
 }
 }
-\Func{set\_ring\_validators()}{
+\Func{\Setringval}{
 set\_weights = sorted(nodes, key=lambda node: \texttt{node}[``\texttt{weight}"], reverse=True)\;
 set\_weights = [n \textbf{for} n \textbf{in} set\_weights \textbf{if} n not \textbf{in} prev\_ring\_validators]\;
 prev\_ring\_validator\_weights = [n.weight \textbf{for} n \textbf{in} prev\_ring\_validators \textbf{if} n.weight $\geq$ 0]\;
@@ -312,8 +320,9 @@ ring\_validators.append(keys \textbf{for} key \textbf{in} pubkeys)\;
 \begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
+\SetKwFunction{ConfirmSnips}{confirm\_snips()}
 \caption{Confirm Snips}
-\Func{confirm\_snips()}{
+\Func{\ConfirmSnips}{
 block\_size\_limit = min([node.bandwidth \textbf{for} node \textbf{in} ring\_validators])\;
 block\_times = [block.time \textbf{for} block \textbf{in} previous\_blocks]\;
 block\_time\_median = median(block\_times)\;
@@ -384,13 +393,91 @@ addnode(data)\;}
 \begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
-\caption{Hash Proofing}
+\caption{Hash Proofs : helper functions}
+\SetKwFunction{RejectSnips}{reject\_snips()}
+\SetKwFunction{AcceptSnips}{accept\_snips()}
+\Func{\RejectSnips}{
+new\_block\_hash = produce\_block(prev\_block\_hash, current\_block\_snips, current\_block\_time)\;
+send\_block\_to\_network(new\_block\_hash)\;
+\tcc{Reset variables for new block}
+current\_block\_snips = []\;
+current\_block\_size = 0\;
+current\_block\_time = 0\;
+prev\_block\_hash = new\_block\_hash\;
+snips\_received = false\;
+}
+\Func{\AcceptSnips}{
+\tcc{single threaded hash concatenate}
+routing\_instruction = get\_routing\_instruction()\;
+snip\_data = receive\_snip\_data()\;
+preimage = generate\_preimage(snip\_data, prev\_snip\_hash)\;
+signature = sign\_preimage(preimage)\;
+hashed\_data = hash(concatenate(preimage, signature))\;
+send\_snip\_to\_next\_node(routing\_instruction, hashed\_data)\;
+current\_block\_snips.append(hashed\_data)\;
+current\_block\_size += get\_snip\_size(hashed\_data)\;
+current\_block\_time = get\_current\_block\_time()\;
+prev\_snip\_hash = hashed\_data\;
+mcr = produce\_mcr(snips)\;
+block\_header.add(mcr)\;
+snips\_received = true\;
+}
+\end{algorithm}
+
+\begin{algorithm}[h]
+\scriptsize
+\DontPrintSemicolon
+\caption{Hash Proofs}
+prev\_snip\_hash = null\;
+prev\_block\_hash = genesis\_block\_hash\;
+current\_block\_size = 0\;
+current\_block\_snips = [ ]\;
+current\_block\_time = 0\;
+block\_size\_limit\_per\_sec = initial\_block\_size\_limit\_per\_sec\;
+snips\_received = confirm\_snips() \tcc{snips\_algo-3}
+\While{true}{
+\If{snips\_received}{
+\If{current\_block\_size $\geq$ block\_size\_limit\_per\_sec $*$ current\_block\_time \OR current\_block\_time $\geq$ individual\_block\_time\_cap}{
+reject\_snips()\;
+}
+\tcc{Move on to next snip}
+current\_snip = next\_snip()\;
+\Else{accept\_snips()}
+}
+\Else{accept\_snips()}
+}
+
 \end{algorithm}
 
 \begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
 \caption{Hash Reward}
+initial\_reward = 50 $*$ 10$**$8 \tcc{example 50 BTC}
+halving\_period = 210\_000 \tcc{example blocks}
+\tcc{Set the starting block height and the total number of remaining blocks}
+block\_height $=$ 0\;
+remaining\_blocks = halving\_period\;
+percent\_hash\_rate $=$ 0\;
+all\_nodes\_IHR = 100000 \tcc{example total IHR of all nodes}
+\While{true}{
+\tcc{Calculate the total number of remaining coins and remaining hashes}
+remaining\_coins = initial\_reward $*$ remaining\_blocks\;
+remaining\_hashes = remaining\_blocks $*$ 1.26 $*$ 10$**$8\;
+percent\_hash\_rate = get\_node\_IHR()/all\_nodes\_IHR\;
+\tcc{Calculate the reward per block and the reward per hash}
+reward\_per\_block = remaining\_coins / remaining\_blocks\;
+\If{fork\_slash}{
+reward\_per\_hash = (remaining\_coins / remaining\_hashes) $*$ (percent\_hash\_rate)\;
+}
+\Else{remaining\_coins = remaining\_coins + (remaining\_coins / remaining\_hashes) $*$ (percent\_hash\_rate)}
+\tcc{Check if it's time to halve the rewards}
+\If {remaining\_blocks $\leq$ 0}{
+\textbf{break}\;}
+\tcc{Halve the remaining blocks and update the block height}
+remaining\_blocks \tcc{= 2}
+block\_height += halving\_period\;
+}
 \end{algorithm}
 
 \begin{algorithm}[h]
@@ -524,7 +611,7 @@ pair\_info[`inv\_pct\_mov'] = -pair\_info[`pct\_mov']
 }
 bdr\_pct\_mov = 0\;
 \For{\textbf{each} pair\_info \textbf{in} token\_price\_dict.values()}{
-bdr\_pct\_mov = bdr\_pct\_mov + (pair\_info[`inv\_pct\_mov'] * pair\_info[`weight'])\;
+bdr\_pct\_mov = bdr\_pct\_mov + (pair\_info[`inv\_pct\_mov'] $*$ pair\_info[`weight'])\;
 }
 bdr = 1 + (bdr\_pct\_mov / 100)\;
 \textbf{return} bdr\;
@@ -553,7 +640,7 @@ codeend $\gets$ \text{position where the opcode ends}\;
 codepart $\gets$ scriptCode[:codeend]\;
 percentage\_movement $\gets$ get\_percentage\_movement(initial\_exchangerate, current\_exchangerate)\;
 \If {percentage\_movement $>$ 0}{
-gains $\gets$ (percentage\_movement* (tax\_percent*10$^{-2}$)* utxo\_amount) /(percentage\_movement + 1)\;
+gains $\gets$ (percentage\_movement $*$ (tax\_percent $*$ 10$^{-2}$) $*$ utxo\_amount) /(percentage\_movement + 1)\;
 spendable\_amount $\gets$ utxo\_amount - gains -tds\;
 }
 \Else{
@@ -572,17 +659,6 @@ hash $\gets$ sha256(updated\_script+new\_script)\;
 }
 \end{algorithm}
 
-\begin{algorithm}[h]
-\scriptsize
-\DontPrintSemicolon
-\caption{Staking Script}
-\end{algorithm}
-
-\begin{algorithm}[h]
-\scriptsize
-\DontPrintSemicolon
-\caption{Transfer and renting fees}
-\end{algorithm}
 
 \end{document}
 
