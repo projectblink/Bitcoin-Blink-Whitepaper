@@ -482,6 +482,42 @@ block\_height += halving\_period\;
 \begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
+\caption{Transfer Fee}
+transfer\_fee = 0.0005 \tcc{Transfer fee should be \textbf{in range} 0.0005 \textbf{to} 0.00005}
+
+\Func{check\_range(transaction\_fee)}{
+	\If{(transaction\_fee $>$ 0.0005)}{
+               \textbf{return}  0.0005\;}
+      \If{(transaction\_fee $<$ 0.00005)}{
+               \textbf{return} 0.00005\;}
+}
+
+\tcc{called \textbf{for} every nth \textbf{block} , where n \textbf{is} the ring size}
+\Func{transaction\_fee()}{
+
+     \tcc{Find total volume of all blocks of all tokens with their exchange rate}
+       ring\_volume1 = get\_volume\_of\_tokens(\textbf{block} $\rightarrow$ previous)\;
+       ring\_volume2 = get\_volume\_of\_tokens(\textbf{block} $\rightarrow$  previous $\rightarrow$ previous)\;
+
+       \If{standard\_deviation(ring\_volume1, ring\_volume2) $\geq$ 0.75}{
+          \If{ring\_volume1 $>$ ring\_volume2}{
+		transfer\_fee += 0.000005\;
+            transfer\_fee = check\_range(transaction\_fee)\;
+}
+          \If{ring\_volume1 $<$  ring\_volume2}{
+		transfer\_fee -= 0.000005\;	
+            transfer\_fee = check\_range(transaction\_fee)\;
+}
+}
+       \Else{continue}
+}
+
+\end{algorithm}
+
+
+\begin{algorithm}[h]
+\scriptsize
+\DontPrintSemicolon
 \SetKwInput{KwSigIn}{signal input} % set the Signal Input
 \SetKwInput{KwSigOut}{signal output} % set the Signal Input
 \tcc{Public signals}
