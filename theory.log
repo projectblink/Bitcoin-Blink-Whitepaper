@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  3 MAR 2023 00:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.18)  3 MAR 2023 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -497,7 +497,7 @@ Package rerunfilecheck Info: File `theory.out' has not changed.
 Here is how much of TeX's memory you used:
  11452 strings out of 480129
  185213 string characters out of 5893409
- 479235 words of memory out of 5000000
+ 480274 words of memory out of 5000000
  29222 multiletter control sequences out of 15000+600000
  478233 words of font info for 63 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
@@ -513,7 +513,7 @@ lic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
 10.pfb>
-Output written on theory.pdf (7 pages, 437476 bytes).
+Output written on theory.pdf (7 pages, 437937 bytes).
 PDF statistics:
  184 PDF objects out of 1000 (max. 8388607)
  146 compressed objects within 2 object streams
