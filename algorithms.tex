@@ -8,9 +8,9 @@
 \usepackage[boxruled,noend]{algorithm2e}
 \usepackage{algorithmicx} %algorithm
 \usepackage{algpseudocode}
+\usepackage{cuted}
 \usepackage{hyperref}
 %declarations
-
 \algnewcommand{\algorithmicand}{\textbf{ and }}
 \algnewcommand{\algorithmicor}{\textbf{ or }}
 \algnewcommand{\OR}{\algorithmicor}
@@ -22,9 +22,8 @@
 \usepackage{hyperref}
 \SetAlCapNameFnt{\scriptsize}
 \SetAlCapFnt{\scriptsize}
-\renewcommand{\abstractname}{\vspace{-\baselineskip}}
+\renewcommand{\abstractname}{\scriptsize Disclaimer \vspace{-1mm}} 
 \setlength{\belowcaptionskip}{-10pt}
-
 %Algorithm2e Declarations
 \SetKwProg{Func}{function}{:}{{end}}
 \SetKwInput{In}{in}
@@ -36,18 +35,24 @@
 \SetKwInput{KwOutput}{Output} % set the Output
 \SetKwInput{KwPre}{pre} % Set the Pre
 \SetKwInput{KwPost}{post} % set the Post
-
 \definecolor{pagecolor}{rgb}{1,0.98,0.9}
-\title{\vspace{-10mm} \footnotesize \textbf{REFERENCE ALGORITHMS} \vspace{-14mm}}
+\title{\vspace{-10mm} \small \textbf{REFERENCE ALGORITHMS} \vspace{-14mm}}
 \date{\scriptsize \today \hspace{0.5mm} (v0.1) \vspace{-4mm}}
-
 \algnewcommand\Signal{\textbf{signal}}
 \begin{document}
 \maketitle
 \scriptsize
+\begin{strip}
+\centering
+\begin{minipage}{.48\textwidth}
+\vspace{-8mm}
+\centering
 \begin{abstract}
-\noindent \textbf{Disclaimer :} The below psedocodes provide basic instructions for the implementation of bitcoin blink protocols. It is constantly reviewed and updated by core-programmers and co-authors. Revisit for new versions.
+These pseudocodes provide basic instructions for the implementation of bitcoin blink protocols. It is periodically reviewed and updated by core programmers and co-authors. Revisit for newer versions.
 \end{abstract}
+\end{minipage}
+\vspace{-2mm}
+\end{strip}
 \begin{algorithm}[h]
 \scriptsize
 \DontPrintSemicolon
@@ -199,7 +204,7 @@ response = decrypt\_response\_with\_ephemeral\_key(response, path, eph\_key)\;
 \textbf{return} response\;
 }
 \vspace{2mm}
-\tcc{Notes : The onion peeling algorithm is used to protect the privacy of the mint route, by encrypting the mint information multiple times, with each layer containing information for the next hop. As the payment packet is passed from hop to hop, each node removes a layer of encryption to reveal the next hop in the route.
+\tcc{Notes: The onion peeling algorithm is used to protect the privacy of the mint route, by encrypting the mint information multiple times, with each layer containing information for the next hop. As the payment packet is passed from hop to hop, each node removes a layer of encryption to reveal the next hop in the route.
 \begin{itemize}
 \item mint\_hash is the unique identifier for the minted transaction
 \vspace{-0.2cm}
@@ -223,14 +228,19 @@ proof\_utxo = get\_bandwidth\_proof\_utxo(\textbf{block})\;
 proof\_data = get\_proof\_data(proof\_utxo)\;
 node\_weight = calculate\_weight(proof\_data, bandwidth)\;
 fork\_proof = get\_fork\_proof(\textbf{block})\;
+\tcc{Add the node weight to the temporary storage for the current node}
+node\_weights[block.node\_id] = node\_weight\;
 \If{fork\_proof \textbf{is not} None}{
 prover\_node = fork\_proof.prover\_node\;
 forker\_node = fork\_proof.forker\_node\;
 node\_weights[prover\_node] += 0.01 $*$ block\_size\_limit\;
 node\_weights[forker\_node] -= 0.01 $*$ block\_size\_limit\;
 }
-\tcc{Add the node weight to the temporary storage for the current node}
-node\_weights[\textbf{block}.node\_id] = node\_weight\;
+\Else{node\_weights[block.node\_id] -= 0.01 $*$ block\_size\_limit}
+\tcc{Block added successfully}
+\If{block}{
+Node\_weights[producer\_node] += 0.01 $*$ block\_size\_limit
+}
 \textbf{continue}\;
 }
 \end{algorithm}
@@ -292,9 +302,13 @@ set\_weights = sorted(nodes, key=lambda node: \texttt{node}[``\texttt{weight}"],
 set\_weights = [n \textbf{for} n \textbf{in} set\_weights \textbf{if} n not \textbf{in} prev\_ring\_validators]\;
 prev\_ring\_validator\_weights = [n.weight \textbf{for} n \textbf{in} prev\_ring\_validators \textbf{if} n.weight $\geq$ 0]\;
 mean\_weight = mean(prev\_ring\_validator\_weights)\;
+maxima\_rent\_rates = 1.1*maxima(prev\_ring\_validator\_rent\_rates)\;
 tail\_join = mean\_weight\;
 k = calculate\_MD160hash(\textbf{new}\_\texttt{block})\;
-set\_weights = [n \textbf{for} n \textbf{in} set\_weights \textbf{if} n.bandwidth $>$ tail\_join]\;
+
+\While{len(set\_weights) $<$ 2}{
+set\_weights = [n \textbf{for} n \textbf{in} set\_weights \textbf{if} n.bandwidth $>$ tail\_join \AND n.rent\_rate $<$ maxima\_rent\_rate]\;
+}
 \tcc{Current hex should be lesser than k}
 Valid\_keys = [ ]\;
 \For{i in range(len(set\_weights))}{
@@ -305,7 +319,7 @@ valid\_keys.append(set\_weights[i].pubkey)\;
 Rand1, rand2 = get2\_random\_numbers\_in\_range(0, len(valid\_keys)-1)\;
 pubkeys.append(valid\_keys[rand1])\;
 pubkeys.append(valid\_keys[rand1])\;
-\tcc{If none , take immediate greater 2 values}
+\tcc{If none, take immediate greater 2 values}
 \If{pubkeys is None}{
 Valid\_keys = sorted(nodes, key=lambda node: \texttt{set\_weights}, reverse=false)\;
 pubkeys.append(valid\_keys[0]) \;
@@ -348,14 +362,18 @@ class MerkleChain\;
   \uIf{head = null}{
     head,tail $\gets$ add\_data(d)\;}
     \Else {tail $\gets$ add\_data(d)\;}
+    
 \hrulefill
+
 class add\_data(d)\;
 \KwPre{the value is added to the vector}
-\KwPost{the vector is generated to a merkle tree and added to the chain}
+\KwPost{the vector is generated to a Merkle tree and added to the chain}
 New Vector data\;
 data $\gets$ d\;
 \If{size(data) == max\_block\_size}{generate\_root(data)}
+
 \hrulefill
+
 generate\_root()\;
 \KwPre{the vector data is added as the leaves}
 \KwPost{merkel tree and its root is generated }
@@ -371,7 +389,9 @@ new\_temp\_data $\gets$ hash(combined)\;
 temp\_data $\gets$ new\_temp\_data\;
 }
 node\_root $\gets$ temp\_data[0]\;
+
 \hrulefill
+
 main()\;
 \SetKwInput{KwInitialized}{initialized} % set the Initialized
 \KwInitialized{chain is an object of class MerkleChain and  string data}
@@ -495,7 +515,7 @@ transfer\_fee = 0.0005 \tcc{Transfer fee should be \textbf{in range} 0.0005 \tex
 \tcc{called \textbf{for} every nth \textbf{block} , where n \textbf{is} the ring size}
 \Func{transaction\_fee()}{
 
-     \tcc{Find total volume of all blocks of all tokens with their exchange rate}
+     \tcc{Find the total volume of all blocks of all tokens with their exchange rate}
        ring\_volume1 = get\_volume\_of\_tokens(\textbf{block} $\rightarrow$ previous)\;
        ring\_volume2 = get\_volume\_of\_tokens(\textbf{block} $\rightarrow$  previous $\rightarrow$ previous)\;
 
@@ -693,7 +713,4 @@ hash $\gets$ sha256(updated\_script+new\_script)\;
 }
 }
 \end{algorithm}
-
-
 \end{document}
-
